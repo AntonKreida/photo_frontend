@@ -15,7 +15,11 @@ export default function RootLayout ({ children }: IRootLayoutProps) {
       lang="en"
     >
       <body>
-        { children }
+        <div className="w-full min-h-screen flex items-center">
+          <main className="flex min-h-screen w-screen">
+            { children }
+          </main>
+        </div>
       </body>
     </html>
   );
