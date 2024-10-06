@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 
-import "./globals.css";
+import { gabriela, localFontFuturaPT } from "@app/styles/fonts/_fonts";
+import "@app/styles/index.css";
 
 
 interface IRootLayoutProps {
@@ -9,7 +10,10 @@ interface IRootLayoutProps {
 
 export default function RootLayout ({ children }: IRootLayoutProps) {
   return (
-    <html lang="en">
+    <html
+      className={ `${gabriela.variable} ${localFontFuturaPT.variable}` }
+      lang="en"
+    >
       <body>
         { children }
       </body>

@@ -1,3 +1,3 @@
 export default function Home() {
-  return <div>Все работает!</div>;
+  return <div className="font-futura-pt font-light">Все работает!</div>;
 }
