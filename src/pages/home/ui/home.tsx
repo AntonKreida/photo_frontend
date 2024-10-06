@@ -1,4 +1,4 @@
-import { Button, Input } from "@shared/index";
+import { Button, Input, TextArea } from "@shared/index";
 
 
 const HomePage = () => (
@@ -7,6 +7,7 @@ const HomePage = () => (
       Привет мир!
     </Button>
     <Input isError name="name" placeholder="Имя" />
+    <TextArea />
   </div>
 );
 

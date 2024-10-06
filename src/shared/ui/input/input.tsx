@@ -18,7 +18,7 @@ export const Input: FC<IInputProps> = ({
 }) => (
   <div className="w-full h-fit bg-white-smoke relative">
     <input
-      className={ twClassNames("w-full py-3 px-5 bg-none font-futura-pt font-medium placeholder:text-carbon text-carbon", className) }
+      className={ twClassNames("w-full py-3 outline-none px-5 bg-transparent font-futura-pt font-medium placeholder:text-carbon text-carbon", className) }
       { ...props }
     />
     { !!isError && (
