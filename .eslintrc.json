@@ -1,6 +1,6 @@
 {
   "extends": [
-    "next/core-web-vitals", 
+    "next/core-web-vitals",
     "next/typescript",
     "eslint:recommended",
     "plugin:react/recommended",
@@ -51,7 +51,7 @@
     }
 },
 "rules": {
-    "@typescript-eslint/no-explicit-any": "off",
+    "@typescript-eslint/no-explicit-any": "error",
     "import/no-unresolved": [
         "error"
     ],
