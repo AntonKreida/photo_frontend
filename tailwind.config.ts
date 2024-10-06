@@ -11,6 +11,9 @@ const config: Config = {
       fontFamily: {
         "gabriela": ["var(--font-gabriela)"],
         "futura-pt": ["var(--font-futura-pt)"],
+      },
+      colors: {
+        "carbon": "#333333",
       }
     }
   },

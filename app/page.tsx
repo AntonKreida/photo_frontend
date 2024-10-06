@@ -1,3 +1,1 @@
-export default function Home() {
-  return <div className="font-futura-pt font-light">Все работает!</div>;
-}
+export { HomePage as default } from "@pages/home";

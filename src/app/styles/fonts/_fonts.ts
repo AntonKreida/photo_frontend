@@ -12,37 +12,37 @@ export const gabriela = Gabriela({
 export const localFontFuturaPT = localFont({
   src: [
     {
-      path: "../../../shared/lib/fonts/futura-pt/futura-normal.woff2",
+      path: "../../../shared/lib/assets/fonts/futura-pt/futura-normal.woff2",
       weight: "400",
       style: "normal",
     },
     {
-      path: "../../../shared/lib/fonts/futura-pt/FuturaPT-Medium.woff2",
+      path: "../../../shared/lib/assets/fonts/futura-pt/FuturaPT-Medium.woff2",
       weight: "500",
       style: "normal",
     },
     {
-      path: "../../../shared/lib/fonts/futura-pt/FuturaPT-Bold.woff2",
+      path: "../../../shared/lib/assets/fonts/futura-pt/FuturaPT-Bold.woff2",
       weight: "700",
       style: "normal",
     },
     {
-      path: "../../../shared/lib/fonts/futura-pt/FuturaPT-Heavy.woff2",
+      path: "../../../shared/lib/assets/fonts/futura-pt/FuturaPT-Heavy.woff2",
       weight: "900",
       style: "normal",
     },
     {
-      path: "../../../shared/lib/fonts/futura-pt/FuturaPT-Book.woff2",
+      path: "../../../shared/lib/assets/fonts/futura-pt/FuturaPT-Book.woff2",
       weight: "400",
       style: "italic",
     },
     {
-      path: "../../../shared/lib/fonts/futura-pt/FuturaPT-Demi.woff2",
+      path: "../../../shared/lib/assets/fonts/futura-pt/FuturaPT-Demi.woff2",
       weight: "600",
       style: "normal",
     },
     {
-      path: "../../../shared/lib/fonts/futura-pt/FuturaPT-Light.woff2",
+      path: "../../../shared/lib/assets/fonts/futura-pt/FuturaPT-Light.woff2",
       weight: "300",
       style: "normal",
     }
