@@ -12,7 +12,7 @@ export default function RootLayout ({ children }: IRootLayoutProps) {
   return (
     <html
       className={ `${gabriela.variable} ${localFontFuturaPT.variable}` }
-      lang="en"
+      lang="ru"
     >
       <body>
         <div className="w-full min-h-screen flex items-center">
