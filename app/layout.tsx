@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 
 import { gabriela, localFontFuturaPT } from "@app/styles/fonts/_fonts";
 import "@app/styles/index.css";
+import { Sidebar } from "@widgets/index";
 
 
 interface IRootLayoutProps {
@@ -17,6 +18,7 @@ export default function RootLayout ({ children }: IRootLayoutProps) {
       <body>
         <div className="w-full min-h-screen flex items-center">
           <main className="flex min-h-screen w-screen">
+            <Sidebar />
             { children }
           </main>
         </div>
