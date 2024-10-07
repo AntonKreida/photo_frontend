@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { ROUTES_PAGES } from "/src/shared";
+import { ROUTES_PAGES } from "@shared/index";
 
 
 export const Sidebar = () => (
