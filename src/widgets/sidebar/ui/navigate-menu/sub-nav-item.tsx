@@ -1,7 +1,6 @@
 import { FC, memo } from "react";
 
-import { twClassNames } from "@shared/";
-import ChevronIcon from "@shared/lib/assets/icons/chevron-icon.svg";
+import { twClassNames, ChevronIcon } from "@shared/";
 
 import { listNav } from "../../lib";
 
