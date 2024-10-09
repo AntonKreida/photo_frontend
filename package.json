@@ -41,6 +41,9 @@
     "not op_mini all"
   ],
   "aliases": [
-    "shared"
+    "shared",
+    "widgets",
+    "pages",
+    "app"
   ]
 }

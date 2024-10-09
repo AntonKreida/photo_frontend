@@ -1,9 +1,13 @@
 import Link from "next/link";
 
-import { Button, ROUTES_PAGES } from "@shared/index";
-import InstagramIcon from "@shared/lib/assets/icons/instagram.svg";
-import TelegramIcon from "@shared/lib/assets/icons/telegram-icon.svg";
-import VkIcon from "@shared/lib/assets/icons/vk-icon.svg";
+import {
+  Button,
+  ROUTES_PAGES,
+  InstagramIcon,
+  TelegramIcon,
+  VkIcon
+} from "@shared/";
+
 
 import { NavigateMenu } from "../navigate-menu";
 

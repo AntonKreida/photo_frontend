@@ -11,8 +11,14 @@
             "@app/*": [
                 "./src/app/*"
             ],
+            "@app/": [
+                "./src/app/"
+            ],
             "@pages/*": [
                 "./src/pages/*"
+            ],
+            "@pages/": [
+                "./src/pages/"
             ],
             "@shared/*": [
                 "./src/shared/*"
@@ -22,6 +28,9 @@
             ],
             "@widgets/*": [
                 "./src/widgets/*"
+            ],
+            "@widgets/": [
+                "./src/widgets/"
             ]
         }
     }

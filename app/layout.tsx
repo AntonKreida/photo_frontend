@@ -1,8 +1,8 @@
 import { ReactNode } from "react";
 
-import { gabriela, localFontFuturaPT } from "@app/styles/fonts/_fonts";
+import { gabriela, localFontFuturaPT } from "@app/";
 import "@app/styles/index.css";
-import { Sidebar } from "@widgets/index";
+import { Sidebar } from "@widgets/";
 
 
 interface IRootLayoutProps {
