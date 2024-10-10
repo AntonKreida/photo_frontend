@@ -20,7 +20,7 @@ export default function RootLayout ({ children }: IRootLayoutProps) {
           <main className="flex min-h-screen w-full">
             <Sidebar />
             <div className="flex-grow flex max-w-full">
-              <div className="px-[47px] w-full py-[120px]">
+              <div className="px-[47px] w-full pb-[120px] pt-[152px]">
                 { children }
               </div>
             </div>
