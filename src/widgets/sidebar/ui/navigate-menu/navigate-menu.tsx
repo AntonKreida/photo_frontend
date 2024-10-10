@@ -11,16 +11,15 @@ import { listNav } from "../../lib";
 
 export const NavigateMenu = () => {
   const pathname = usePathname();
-  const [currentActiveIdSubNav, setCurrentActiveIdSubNav] = useState<number | null>(null);
+  const [currentSubNav, setCurrentSubNav] = useState<number | null>(null);
 
   const handleClickSubNav = useCallback((idSubMenu: number) => {
-    if(currentActiveIdSubNav === idSubMenu) {
-      setCurrentActiveIdSubNav(null);
+    if(currentSubNav === idSubMenu) {
+      setCurrentSubNav(null);
       return;
     }
-
-    setCurrentActiveIdSubNav(idSubMenu);
-  }, [currentActiveIdSubNav]);
+    setCurrentSubNav(idSubMenu);
+  }, [currentSubNav]);
 
 
   return (
@@ -31,16 +30,17 @@ export const NavigateMenu = () => {
             return (
               <MemoSubNavItem
                 handleClickSubNav={ handleClickSubNav }
-                isActiveSubNav={ currentActiveIdSubNav === navItem.id }
+                isActiveSubNav={ currentSubNav === navItem.id }
                 key={ navItem.id }
                 navItem={ navItem }
+                pathname={ pathname }
               />
             );
           }
 
           return (
             <MemoNavItem
-              isActive={ pathname === navItem.path }
+              isActiveLink={ pathname === navItem.path }
               key={ navItem.id }
               navItem={ navItem }
             />

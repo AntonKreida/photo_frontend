@@ -2,17 +2,24 @@ import { FC, memo } from "react";
 
 import { twClassNames, ChevronIcon } from "@shared/";
 
-import { listNav } from "../../lib";
+import { MemoNavItem } from "./nav-item";
+import { ISubNavItem } from "../../types";
 
 
 interface ISubNavItemProps {
-    navItem: typeof listNav[number];
+    navItem: ISubNavItem;
     isActiveSubNav: boolean;
+    pathname: string | null;
     handleClickSubNav: (_idSubMenu: number) => void;
 }
 
 
-const SubNavItem: FC<ISubNavItemProps> = ({ navItem, isActiveSubNav, handleClickSubNav }) => (
+const SubNavItem: FC<ISubNavItemProps> = ({
+  navItem,
+  isActiveSubNav,
+  handleClickSubNav,
+  pathname,
+}) => (
   <li
     className={ twClassNames(`relative text-carbon text-sm font-futura-pt
         font-medium uppercase hover:text-orochimaru max-h-screen group
@@ -36,11 +43,20 @@ const SubNavItem: FC<ISubNavItemProps> = ({ navItem, isActiveSubNav, handleClick
 
     <div
       className={ twClassNames("gap-4 grid grid-rows-[0fr] pl-6 transition-[grid-template-rows]", {
-        "grid-rows-[1fr]": isActiveSubNav
+        "grid-rows-[1fr] ": isActiveSubNav
       }) }
     >
-      <ul className="overflow-hidden">
-        <li>Тут типо контент</li>
+      <ul className={ twClassNames("overflow-hidden flex-col justify-start gap-8 hidden pt-[30px]", {
+        "flex": isActiveSubNav
+      }) }
+      >
+        { navItem.subNav?.map((subNavItem) => (
+          <MemoNavItem
+            isActiveLink={ pathname === subNavItem.path }
+            key={ subNavItem.id }
+            navItem={ subNavItem }
+          />
+        )) }
       </ul>
     </div>
   </li>
