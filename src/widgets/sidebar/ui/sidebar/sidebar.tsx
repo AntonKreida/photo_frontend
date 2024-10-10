@@ -13,7 +13,7 @@ import { NavigateMenu } from "../navigate-menu";
 
 
 export const Sidebar = () => (
-  <aside className="max-w-[360px] w-full py-[120px] px-[65px] overflow-y-auto h-screen sticky top-0 shadow">
+  <aside className="max-w-[360px] w-full py-[120px] px-[65px] overflow-y-auto scrollbar-none h-screen sticky top-0 shadow">
     <div className="flex flex-col justify-between h-full">
 
       <div className="flex flex-col gap-4">
@@ -23,21 +23,23 @@ export const Sidebar = () => (
         <h2 className="text-xs text-carbon/50 font-normal font-gabriela uppercase tracking-[7px]">Photographer</h2>
       </div>
       <NavigateMenu />
-      <div className="mt-auto flex flex-col justify-start gap-6">
+      <div className="mt-auto flex flex-col justify-start py-4">
         <a
-          className="text-carbon text-sm font-futura-pt font-medium uppercase"
+          className="text-carbon text-sm font-futura-pt font-medium uppercase py-4"
           href="tel:+79923127209"
         >
           +7 (922) 007-00-35
         </a>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 py-4">
           <a><TelegramIcon className="w-5 h-5" /></a>
           <a><VkIcon className="w-5 h-5" /></a>
           <a><InstagramIcon className="w-5 h-5" /></a>
         </div>
-        <Button>
-          Связаться со мной
-        </Button>
+        <div className="py-4">
+          <Button>
+            Связаться со мной
+          </Button>
+        </div>
       </div>
     </div>
   </aside>

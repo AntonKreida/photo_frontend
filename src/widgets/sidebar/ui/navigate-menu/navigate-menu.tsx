@@ -24,7 +24,7 @@ export const NavigateMenu = () => {
 
   return (
     <nav className="mt-[60px]">
-      <ul className="flex flex-col gap-8 justify-start flex-[1_0_auto]">
+      <ul className="flex flex-col justify-start flex-[1_0_auto]">
         { listNav.map((navItem) => {
           if (navItem.subNav) {
             return (

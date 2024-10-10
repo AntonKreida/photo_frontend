@@ -21,14 +21,14 @@ const SubNavItem: FC<ISubNavItemProps> = ({
   pathname,
 }) => (
   <li
-    className={ twClassNames(`relative text-carbon text-sm font-futura-pt
+    className={ twClassNames(`relative text-carbon py-4 text-sm font-futura-pt
         font-medium uppercase hover:text-orochimaru max-h-screen group
         transition-[grid-template-rows]`) }
     key={ navItem.id }
     onClick={ () => handleClickSubNav(navItem.id) }
   >
 
-    <i className={ twClassNames("flex items-center gap-1 cursor-pointer", {
+    <div className={ twClassNames("flex items-center gap-1 cursor-pointer", {
       "text-orochimaru": isActiveSubNav
     }) }
     >
@@ -39,14 +39,14 @@ const SubNavItem: FC<ISubNavItemProps> = ({
           "rotate-90 stroke-orochimaru": isActiveSubNav
         }) }
       />
-    </i>
+    </div>
 
     <div
       className={ twClassNames("gap-4 grid grid-rows-[0fr] pl-6 transition-[grid-template-rows]", {
         "grid-rows-[1fr] ": isActiveSubNav
       }) }
     >
-      <ul className={ twClassNames("overflow-hidden flex-col justify-start gap-8 hidden pt-[30px]", {
+      <ul className={ twClassNames("overflow-hidden flex-col justify-start hidden pt-[30px]", {
         "flex": isActiveSubNav
       }) }
       >
