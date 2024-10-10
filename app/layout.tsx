@@ -15,11 +15,11 @@ export default function RootLayout ({ children }: IRootLayoutProps) {
       className={ `${gabriela.variable} ${localFontFuturaPT.variable}` }
       lang="ru"
     >
-      <body>
+      <body className="min-h-screen">
         <div className="w-full min-h-screen flex items-center">
           <main className="flex min-h-screen w-full">
             <Sidebar />
-            <div className="flex-grow flex max-w-full">
+            <div className="flex max-w-full flex-grow overflow-x-hidden">
               <div className="px-[47px] w-full pb-[120px] pt-[152px]">
                 { children }
               </div>
