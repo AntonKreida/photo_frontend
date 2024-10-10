@@ -25,7 +25,6 @@ export const Slider = () => {
 
   useEffect(() => {
     if (!carouselRef.current) return;
-
     setWidth(carouselRef.current.scrollWidth - carouselRef.current.offsetWidth);
   }, []);
 
@@ -34,6 +33,7 @@ export const Slider = () => {
       <motion.div
         className="cursor-grab"
         ref={ carouselRef }
+        whileTap={{ cursor: "grabbing" }}
       >
         <motion.div
           className="flex"
