@@ -12,7 +12,7 @@ interface IRootLayoutProps {
 export default function RootLayout ({ children }: IRootLayoutProps) {
   return (
     <html
-      className={ `${gabriela.variable} ${localFontFuturaPT.variable}` }
+      className={ `${gabriela.variable} ${localFontFuturaPT.variable} scrollbar-thin scrollbar-thumb-carbon/70 scrollbar-track-white-smoke` }
       lang="ru"
     >
       <body className="min-h-screen">
