@@ -10,7 +10,7 @@ interface IButtonProps extends HTMLProps<HTMLButtonElement> {
 
 export const Button: FC<IButtonProps> = ({ type = "button", children, ...props }) => (
   <button
-    className={ twClassNames(`py-4 px-6 flex items-center gap-2 justify-center
+    className={ twClassNames(`py-[15px] px-[25px] w-fit h-fit flex text-sm items-center gap-2 justify-center
         border-2 border-black rounded-full font-futura-pt font-medium outline-1
         uppercase text-carbon/80 hover:bg-gray-100 transition active:scale-[0.8]
         outline-none`, {

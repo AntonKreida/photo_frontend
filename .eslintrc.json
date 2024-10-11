@@ -13,7 +13,7 @@
     "unused-imports",
     "eslint-plugin-import",
     "import",
-     "react-refresh"
+    "react-refresh"
   ],
   "settings": {
     "import/extensions": [
