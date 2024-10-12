@@ -4,10 +4,10 @@ import { FC, ReactNode } from "react";
 interface IHeaderPageProps {
     title: string;
     subTitle?: string;
-    actionComponent?: () => ReactNode;
+    renderComponent?: () => ReactNode;
 }
 
-export const HeaderPage: FC<IHeaderPageProps> = ({ title, subTitle, actionComponent }) => (
+export const HeaderPage: FC<IHeaderPageProps> = ({ title, subTitle, renderComponent }) => (
   <div className="w-full">
     <div className="w-full flex justify-between">
       <div>
@@ -16,7 +16,7 @@ export const HeaderPage: FC<IHeaderPageProps> = ({ title, subTitle, actionCompon
           <h2 className="text-carbon/70 text-2xl font-light font-futura-pt">{ subTitle }</h2>
         ) }
       </div>
-      { !!actionComponent && actionComponent() }
+      { !!renderComponent && renderComponent() }
     </div>
   </div>
 );

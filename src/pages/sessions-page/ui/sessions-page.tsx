@@ -6,7 +6,7 @@ import { Button, HeaderPage } from "@shared/";
 export const SessionsPage = () => (
   <div className="w-full">
     <HeaderPage
-      actionComponent={ () => (
+      renderComponent={ () => (
         <Button>
           <span>Заказать съемку</span>
           <ArrowRightIcon className="w-5 h-5" />
