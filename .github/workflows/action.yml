@@ -12,6 +12,8 @@ jobs:
                 cache: 'yarn'
             - name: Install dependencies
               run: yarn install --frozen-lockfile
+            - name: Install shap
+              run: yarn add sharp
             - name: lint test
               run: yarn lint
             - name: build test app
