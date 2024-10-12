@@ -46,6 +46,7 @@
     "shared",
     "widgets",
     "pages",
-    "app"
+    "app",
+    "features"
   ]
 }

@@ -10,19 +10,19 @@ interface IBackdropProps {
   children?: ReactNode;
   zIndexString?: "z-10" | "z-50";
   onClick?: () => void;
-  classesForBackdrop?: string;
+  className?: string;
 }
 
-const backdropVariants: Variants = {
-  hidden: { opacity: 0 },
+const variantsBackdrop: Variants = {
   visible: { opacity: 1 },
+  hidden: { opacity: 0 },
 };
 
 export const Backdrop = ({
   children,
   zIndexString = "z-50",
   onClick,
-  classesForBackdrop = "items-center",
+  className = "items-center",
 }: IBackdropProps) => {
   useEffect(() => {
     document.body.style.overflow = "hidden";
@@ -35,11 +35,11 @@ export const Backdrop = ({
     <motion.div
       animate="visible"
       className={ twClassNames("bg-black/50 fixed inset-0 flex justify-center",
-        [zIndexString, classesForBackdrop]) }
+        [zIndexString, className]) }
       exit="hidden"
       initial="hidden"
       onClick={ onClick }
-      variants={ backdropVariants }
+      variants={ variantsBackdrop }
     >
       { children }
     </motion.div>

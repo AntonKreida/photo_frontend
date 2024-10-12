@@ -1,7 +1,7 @@
 import Link from "next/link";
 
+import { FormFeedback } from "@features/";
 import {
-  Button,
   ROUTES_PAGES,
   InstagramIcon,
   TelegramIcon,
@@ -36,9 +36,7 @@ export const Sidebar = () => (
           <a><InstagramIcon className="w-5 h-5" /></a>
         </div>
         <div className="py-4">
-          <Button>
-            Связаться со мной
-          </Button>
+          <FormFeedback />
         </div>
       </div>
     </div>
