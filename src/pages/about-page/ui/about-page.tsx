@@ -49,9 +49,9 @@ const AboutPage = () => (
                   className="text-carbon pl-6 text-xl font-light font-futura-pt relative"
                   key={ index }
                 >
-                  { index === array.length - 1
-                    ? `${text}.`
-                    : `${text},` }
+                  { index !== array.length - 1
+                    ? `${text},`
+                    : `${text}.` }
 
                   <LikeIcon className="absolute top-0 left-0 w-5 h-5 translate-y-[35%]" />
                 </li>
