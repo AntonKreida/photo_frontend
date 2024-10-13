@@ -17,7 +17,7 @@ export const Sidebar = () => (
     <div className="flex flex-col justify-between h-full">
 
       <div className="flex flex-col gap-4">
-        <Link href={ ROUTES_PAGES.HOME }>
+        <Link className="cursor-pointer" href={ ROUTES_PAGES.HOME } passHref>
           <h1 className="text-3xl font-normal font-gabriela uppercase">Александра Марамчина</h1>
         </Link>
         <h2 className="text-xs text-carbon/50 font-normal font-gabriela uppercase tracking-[7px]">Photographer</h2>

@@ -6,3 +6,4 @@ export * from "./layout-content";
 export * from "./backdrop";
 export * from "./portal";
 export * from "./sidebar-right";
+export * from "./input-phone";
