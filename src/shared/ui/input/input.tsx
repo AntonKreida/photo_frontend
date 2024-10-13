@@ -17,7 +17,7 @@ export const Input: FC<IInputProps> = ({
   name,
   ...props
 }) => (
-  <label className="w-full h-fit relative flex flex-col gap-1 cursor-pointer" htmlFor={ name }>
+  <label className="w-full h-fit flex flex-col gap-1 cursor-pointer" htmlFor={ name }>
     <span className={ twClassNames("text-carbon text-base font-futura-pt font-normal", { "text-red-400": !!errorMessage }) }>
       { !errorMessage
         ?  label
