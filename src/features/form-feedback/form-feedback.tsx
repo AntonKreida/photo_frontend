@@ -6,6 +6,7 @@ import { useState } from "react";
 import {
   Backdrop,
   Button,
+  Input,
   Portal,
   SidebarRight,
 } from "@shared/";
@@ -31,7 +32,9 @@ export const FormFeedback = () => {
         { !!isOpen && (
           <Portal selector="#modal">
             <Backdrop className="justify-end">
-              <SidebarRight onClickClose={ handleOnClickCloseForm } />
+              <SidebarRight onClickClose={ handleOnClickCloseForm }>
+                <Input label="Ваше имя" name="name" />
+              </SidebarRight>
             </Backdrop>
           </Portal>
         ) }
