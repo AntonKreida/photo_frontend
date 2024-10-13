@@ -13,7 +13,7 @@ import {
 } from "@shared/";
 
 
-export const FormFeedback = () => {
+export const FormContact = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
   const handleOnClickOpenForm = () => {

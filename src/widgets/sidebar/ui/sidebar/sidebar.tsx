@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-import { FormFeedback } from "@features/";
+import { FormContact } from "@features/";
 import {
   ROUTES_PAGES,
   InstagramIcon,
@@ -36,7 +36,7 @@ export const Sidebar = () => (
           <a><InstagramIcon className="w-5 h-5" /></a>
         </div>
         <div className="py-4">
-          <FormFeedback />
+          <FormContact />
         </div>
       </div>
     </div>
