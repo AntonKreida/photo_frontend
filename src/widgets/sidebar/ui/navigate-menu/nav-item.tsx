@@ -25,6 +25,7 @@ const NavItem: FC<INavItemProps> = ({ navItem, isActiveLink }) => (
         "text-orochimaru": isActiveLink
       }) }
       href={ navItem.path }
+      passHref
     >
       { navItem.title }
     </Link>

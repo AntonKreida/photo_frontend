@@ -26,6 +26,7 @@ export default function RootLayout ({ children }: IRootLayoutProps) {
             </div>
           </main>
         </div>
+        <div id="modal" />
       </body>
     </html>
   );
