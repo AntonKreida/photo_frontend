@@ -27,7 +27,7 @@ interface IFormContactProps {
 export const FormContact: FC<IFormContactProps> = ({ textButtonOpen = "Связаться со мной", iconButtonOpen }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const { control, handleSubmit } = useForm<TContactSchemaDto>({
+  const { control, handleSubmit, reset } = useForm<TContactSchemaDto>({
     defaultValues: {
       name: "",
       phone: "",
@@ -43,6 +43,7 @@ export const FormContact: FC<IFormContactProps> = ({ textButtonOpen = "Связ�
 
   const handleOnClickCloseForm = () => {
     setIsOpen(false);
+    reset();
   };
 
   const handleOnSubmitForm: SubmitHandler<TContactSchemaDto> = (data) => {
