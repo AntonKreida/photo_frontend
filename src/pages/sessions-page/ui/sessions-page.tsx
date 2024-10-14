@@ -1,16 +1,12 @@
-import { ArrowRightIcon } from "@heroicons/react/24/solid";
-
-import { Button, HeaderPage } from "@shared/";
+import { FormContact } from "@features/";
+import { HeaderPage } from "@shared/";
 
 
 export const SessionsPage = () => (
   <div className="w-full">
     <HeaderPage
       renderComponent={ () => (
-        <Button>
-          <span>Заказать съемку</span>
-          <ArrowRightIcon className="w-5 h-5" />
-        </Button>
+        <FormContact textButton="Заказать съемку" />
       ) }
       subTitle="портретная съемка как зеркало души"
       title="Личные фотосессии"
