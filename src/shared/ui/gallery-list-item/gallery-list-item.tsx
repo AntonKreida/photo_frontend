@@ -11,7 +11,7 @@ interface IGalleryListItemProps {
 
 export const GalleryListItem: FC<IGalleryListItemProps> = ({ card }) => (
   <Link
-    className="flex flex-col gap-8 items-center col-span-4 group"
+    className="flex flex-col gap-4 items-center col-span-4 group overflow-hidden"
     href={ `${ROUTES_PAGES.PHOTO_SESSIONS}/${card.id}` }
   >
     <AdapterImage
