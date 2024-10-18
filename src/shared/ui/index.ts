@@ -9,3 +9,4 @@ export * from "./sidebar-right";
 export * from "./input-phone";
 export * from "./gallery-card";
 export * from "./gallery-wrapper";
+export * from "./adapter-image";

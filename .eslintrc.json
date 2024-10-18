@@ -61,12 +61,6 @@
             "allowConstantExport": true
         }
     ],
-    "no-unused-vars": [
-        "error",
-        {
-            "argsIgnorePattern": "^_"
-        }
-    ],
     "arrow-body-style": [
         "error",
         "as-needed"
