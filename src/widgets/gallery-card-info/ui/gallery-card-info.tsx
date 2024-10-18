@@ -1,1 +1,1 @@
-export const GalleryCardInfo = () => <div/>
+export const GalleryCardInfo = () => <div />;
