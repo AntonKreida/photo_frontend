@@ -11,3 +11,5 @@ export * from "./gallery-card";
 export * from "./gallery-wrapper";
 export * from "./adapter-image";
 export * from "./scroll-link";
+export * from "./footer-page";
+export * from "./link-button";
