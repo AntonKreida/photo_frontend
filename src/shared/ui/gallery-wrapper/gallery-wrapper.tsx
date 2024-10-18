@@ -10,7 +10,7 @@ interface IGalleryWrapperProps {
 
 
 export const GalleryWrapper: FC<IGalleryWrapperProps> = ({ galleryList }) => (
-  <div className={ `grid h-fit grid-cols-12 gap-5 mt-14
+  <div className={ `grid h-fit grid-cols-12 gap-10 mt-14
         [&>*:nth-child(12n-2)]:col-span-8 [&>*:nth-child(12n-2)]:row-span-2
         [&>*:nth-child(12n-7)]:col-span-8 [&>*:nth-child(12n-7)]:row-span-2
         [&>*:nth-last-child(1):nth-child(12n-10)]:col-span-8

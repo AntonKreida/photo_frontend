@@ -12,7 +12,7 @@ interface IGalleryCardProps {
 export const GalleryCard: FC<IGalleryCardProps> = ({ card }) => (
   <Link
     className="flex flex-col gap-8 items-center col-span-4 group"
-    href={ `${ROUTES_PAGES.PHOTO_SESSIONS}/${card.title}` }
+    href={ `${ROUTES_PAGES.PHOTO_SESSIONS}/${card.id}` }
   >
     <AdapterImage
       alt={ card.title }

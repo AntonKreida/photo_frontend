@@ -24,7 +24,7 @@ const SessionsPage = () => (
       title="Личные фотосессии"
     />
 
-    <GalleryWrapper galleryList={ Array.from({ length: 8 }).map((_, index) => ({ id: index, href: mockImage, title: "Алена" })) } />
+    <GalleryWrapper galleryList={ Array.from({ length: 12 }).map((_, index) => ({ id: index, href: mockImage, title: "Алена" })) } />
 
     <ScrollLink className="fixed bottom-10 right-5" heightVisible={ 100 } href="#root">
       <Button className="rounded-full p-0 bg-white hover:bg-white">
