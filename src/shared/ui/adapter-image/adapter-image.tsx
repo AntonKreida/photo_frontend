@@ -24,7 +24,7 @@ export const AdapterImage: FC<ImageProps> = ({ alt, src, ...props }) => {
     <div className="w-full h-full relative">
       <Image
         alt={ alt }
-        className={ twClassNames("w-full h-full object-cover", {
+        className={ twClassNames("w-full h-full object-cover pointer-events-none", {
           "opacity-0": currentStatus === STATUS_LOADED_IMAGE.LOADING,
         }) }
         onError={ handleOnErrorImage }
