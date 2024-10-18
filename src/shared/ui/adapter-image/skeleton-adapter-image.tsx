@@ -1,8 +1,7 @@
 import { CameraIcon } from "@heroicons/react/24/solid";
 import { FC } from "react";
 
-import { twClassNames } from "@shared/lib";
-import { STATUS_LOADED_IMAGE } from "@shared/lib/enums";
+import { twClassNames, STATUS_LOADED_IMAGE } from "@shared/lib";
 
 
 interface ISkeletonAdapterImageProps {

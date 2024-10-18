@@ -3,8 +3,7 @@
 import Image, { ImageProps } from "next/image";
 import { FC, useState } from "react";
 
-import { twClassNames } from "@shared/lib";
-import { STATUS_LOADED_IMAGE } from "@shared/lib/enums";
+import { twClassNames, STATUS_LOADED_IMAGE } from "@shared/lib";
 
 import { SkeletonAdapterImage } from "./skeleton-adapter-image";
 
