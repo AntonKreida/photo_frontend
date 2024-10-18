@@ -10,17 +10,17 @@ interface IGalleryCardProps {
 }
 
 export const GalleryCard: FC<IGalleryCardProps> = ({ card }) => (
-  <div className="flex flex-col gap-8 items-center col-span-4">
+  <Link
+    className="flex flex-col gap-8 items-center col-span-4 group"
+    href={ `${ROUTES_PAGES.PHOTO_SESSIONS}/${card.title}` }
+  >
     <AdapterImage
       alt={ card.title }
       src={ card.href }
     />
 
-    <Link
-      className="text-carbon text-2xl font-normal font-gabriela"
-      href={ `${ROUTES_PAGES.PHOTO_SESSIONS}/${card.title}` }
-    >
+    <span className="text-carbon text-2xl font-normal font-gabriela group-hover:text-gray-300 transition-[color]">
       { card.title }
-    </Link>
-  </div>
+    </span>
+  </Link>
 );
