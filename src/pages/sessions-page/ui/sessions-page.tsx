@@ -1,7 +1,12 @@
-import { ArrowRightIcon } from "@heroicons/react/24/solid";
+import { ArrowRightIcon, ArrowUpCircleIcon } from "@heroicons/react/24/solid";
 
 import { FormContact } from "@features/";
-import { GalleryWrapper, HeaderPage } from "@shared/";
+import {
+  Button,
+  GalleryWrapper,
+  HeaderPage,
+  ScrollLink,
+} from "@shared/";
 
 import mockImage from "../mock/mock.jpg";
 
@@ -19,7 +24,13 @@ export const SessionsPage = () => (
       title="Личные фотосессии"
     />
 
-    <GalleryWrapper galleryList={ Array.from({ length: 12 }).map((_, index) => ({ id: index, href: mockImage, title: "Алена" })) } />
+    <GalleryWrapper galleryList={ Array.from({ length: 8 }).map((_, index) => ({ id: index, href: mockImage, title: "Алена" })) } />
+
+    <ScrollLink className="fixed bottom-10 right-5" heightVisible={ 100 } href="#root">
+      <Button className="rounded-full p-0 bg-white hover:bg-white">
+        <ArrowUpCircleIcon className="w-10 h-10" />
+      </Button>
+    </ScrollLink>
   </div>
 );
 
