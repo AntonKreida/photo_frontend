@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 import { IGalleryCard } from "@shared/lib/interface";
-import { GalleryCard } from "@shared/ui/gallery-card/";
+import { GalleryListItem } from "@shared/ui/gallery-list-item";
 
 
 interface IGalleryWrapperProps {
@@ -9,7 +9,7 @@ interface IGalleryWrapperProps {
 }
 
 
-export const GalleryWrapper: FC<IGalleryWrapperProps> = ({ galleryList }) => (
+export const GalleryListWrapper: FC<IGalleryWrapperProps> = ({ galleryList }) => (
   <div className={ `grid h-fit grid-cols-12 gap-10 mt-14
         [&>*:nth-child(12n-2)]:col-span-8 [&>*:nth-child(12n-2)]:row-span-2
         [&>*:nth-child(12n-7)]:col-span-8 [&>*:nth-child(12n-7)]:row-span-2
@@ -29,7 +29,7 @@ export const GalleryWrapper: FC<IGalleryWrapperProps> = ({ galleryList }) => (
         [&>*:nth-last-child(7):nth-child(12n-11)]:row-span-2` }
   >
     { galleryList.map((card) => (
-      <GalleryCard card={ card } key={ card.id } />
+      <GalleryListItem card={ card } key={ card.id } />
     )) }
   </div>
 );

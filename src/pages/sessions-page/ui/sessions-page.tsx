@@ -4,7 +4,7 @@ import { FormContact } from "@features/";
 import {
   Button,
   FooterPage,
-  GalleryWrapper,
+  GalleryListWrapper,
   HeaderPage,
   LinkButton,
   ROUTES_PAGES,
@@ -27,7 +27,7 @@ const SessionsPage = () => (
       title="Личные фотосессии"
     />
 
-    <GalleryWrapper galleryList={ Array.from({ length: 12 }).map((_, index) => ({ id: index, href: mockImage, title: "Алена" })) } />
+    <GalleryListWrapper galleryList={ Array.from({ length: 12 }).map((_, index) => ({ id: index, href: mockImage, title: "Алена" })) } />
 
     <FooterPage classNameInner="justify-center">
       <LinkButton href={ ROUTES_PAGES.PRICE }>

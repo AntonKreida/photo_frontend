@@ -50,6 +50,7 @@
     "widgets",
     "pages",
     "app",
-    "features"
+    "features",
+    "entities"
   ]
 }

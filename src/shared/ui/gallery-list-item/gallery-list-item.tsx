@@ -5,11 +5,11 @@ import { ROUTES_PAGES , IGalleryCard } from "@shared/lib";
 import { AdapterImage } from "@shared/ui/adapter-image";
 
 
-interface IGalleryCardProps {
+interface IGalleryListItemProps {
     card: IGalleryCard;
 }
 
-export const GalleryCard: FC<IGalleryCardProps> = ({ card }) => (
+export const GalleryListItem: FC<IGalleryListItemProps> = ({ card }) => (
   <Link
     className="flex flex-col gap-8 items-center col-span-4 group"
     href={ `${ROUTES_PAGES.PHOTO_SESSIONS}/${card.id}` }
