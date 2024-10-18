@@ -9,7 +9,7 @@ import {
 } from "@shared/";
 
 
-import { NavigateMenu } from "../navigate-menu";
+import { NavigateMenu } from "./navigate-menu";
 
 
 export const Sidebar = () => (
