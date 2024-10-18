@@ -7,3 +7,5 @@ export * from "./backdrop";
 export * from "./portal";
 export * from "./sidebar-right";
 export * from "./input-phone";
+export * from "./gallery-card";
+export * from "./gallery-wrapper";
