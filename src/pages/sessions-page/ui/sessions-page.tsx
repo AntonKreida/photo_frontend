@@ -11,7 +11,7 @@ import {
 import mockImage from "../mock/mock.jpg";
 
 
-export const SessionsPage = () => (
+const SessionsPage = () => (
   <div className="w-full">
     <HeaderPage
       renderComponent={ () => (
