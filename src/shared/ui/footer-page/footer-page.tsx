@@ -1,6 +1,6 @@
 import { FC, ReactNode } from "react";
 
-import { twClassNames } from "../../lib";
+import { twClassNames } from "@shared/lib";
 
 
 interface IFooterPageProps {
