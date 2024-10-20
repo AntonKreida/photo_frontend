@@ -3,7 +3,7 @@ import { FC, memo } from "react";
 
 import { twClassNames } from "@shared/";
 
-import { INavItem } from "../../types";
+import { INavItem } from "../../lib";
 
 
 interface INavItemProps {

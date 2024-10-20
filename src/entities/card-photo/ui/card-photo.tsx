@@ -4,7 +4,7 @@ import { FC } from "react";
 
 import { AdapterImage, twClassNames } from "@shared/";
 
-import { ICardPhoto } from "../lib";
+import { ICardPhoto } from "../model";
 
 
 interface ICardPhotoProps {

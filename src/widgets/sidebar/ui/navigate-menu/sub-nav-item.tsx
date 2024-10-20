@@ -3,7 +3,7 @@ import { FC, memo } from "react";
 import { twClassNames, ChevronIcon } from "@shared/";
 
 import { MemoNavItem } from "./nav-item";
-import { ISubNavItem } from "../../types";
+import { ISubNavItem } from "../../lib";
 
 
 interface ISubNavItemProps {

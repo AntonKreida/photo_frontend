@@ -3,7 +3,6 @@ import {
   ArrowUturnLeftIcon
 } from "@heroicons/react/24/solid";
 
-import { CardPhoto } from "@entities/";
 import {
   ButtonBack,
   FooterPage,
@@ -11,9 +10,6 @@ import {
   LinkButton,
   ROUTES_PAGES
 } from "@shared/";
-
-import { GalleryWrapper } from "./gallery-wrapper";
-import mockImage from "../mock/mock.jpg";
 
 
 const SessionPage = () => (
@@ -29,13 +25,6 @@ const SessionPage = () => (
       title="Фотосессия Алены"
     />
 
-    <GalleryWrapper>
-      { Array.from({ length: 12 }).map((_, index) => ({
-        id: index,
-        href: mockImage,
-        title: "Алена"
-      })).map((card) => <CardPhoto cardPhoto={ card } key={ card.id } />) }
-    </GalleryWrapper>
 
     <FooterPage classNameInner="justify-center">
       <LinkButton href={ ROUTES_PAGES.PRICE }>
