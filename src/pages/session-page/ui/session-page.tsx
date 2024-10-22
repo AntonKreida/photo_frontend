@@ -1,14 +1,17 @@
 import {
   ArrowRightIcon,
+  ArrowUpCircleIcon,
   ArrowUturnLeftIcon
 } from "@heroicons/react/24/solid";
 
 import {
+  Button,
   ButtonBack,
   FooterPage,
   HeaderPage,
   LinkButton,
-  ROUTES_PAGES
+  ROUTES_PAGES,
+  ScrollLink
 } from "@shared/";
 import { Gallery } from "@widgets/";
 
@@ -28,7 +31,14 @@ const SessionPage = () => (
       title="Фотосессия Алены"
     />
 
-    <Gallery cardsPhoto={ Array.from({ length: 9 }).map((_, index) => ({ id: index, href: mockImage, title: "Алена" })) } />
+    <Gallery cardsPhoto={ Array.from({ length: 9 }).map((_, index) => ({ id: index, href: mockImage.src, title: "Алена" })) } />
+
+
+    <ScrollLink className="fixed bottom-10 right-5 z-20" heightVisible={ 100 } href="#root">
+      <Button className="rounded-full p-0 bg-white hover:bg-white">
+        <ArrowUpCircleIcon className="w-10 h-10" />
+      </Button>
+    </ScrollLink>
 
     <FooterPage classNameInner="justify-center">
       <LinkButton href={ ROUTES_PAGES.PRICE }>
