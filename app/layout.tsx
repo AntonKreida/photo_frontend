@@ -15,7 +15,7 @@ export default function RootLayout ({ children }: IRootLayoutProps) {
       className={ `${gabriela.variable} ${localFontFuturaPT.variable} scrollbar-thin scrollbar-thumb-carbon/70 scrollbar-track-white-smoke` }
       lang="ru"
     >
-      <body className="min-h-screen">
+      <body className="min-h-screen" id="root">
         <div className="w-full min-h-screen flex items-center">
           <main className="flex min-h-screen w-full">
             <Sidebar />

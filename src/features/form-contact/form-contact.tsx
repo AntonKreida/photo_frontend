@@ -2,7 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { FC, ReactNode, useState } from "react";
 import { useForm, Controller, SubmitHandler } from "react-hook-form";
 
 import {
@@ -18,10 +18,16 @@ import {
 import { ContactSchema, TContactSchemaDto } from "./model";
 
 
-export const FormContact = () => {
+interface IFormContactProps {
+    textButtonOpen?: string;
+    iconButtonOpen?: ReactNode;
+}
+
+
+export const FormContact: FC<IFormContactProps> = ({ textButtonOpen = "Связаться со мной", iconButtonOpen }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
 
-  const { control, handleSubmit } = useForm<TContactSchemaDto>({
+  const { control, handleSubmit, reset } = useForm<TContactSchemaDto>({
     defaultValues: {
       name: "",
       phone: "",
@@ -37,6 +43,7 @@ export const FormContact = () => {
 
   const handleOnClickCloseForm = () => {
     setIsOpen(false);
+    reset();
   };
 
   const handleOnSubmitForm: SubmitHandler<TContactSchemaDto> = (data) => {
@@ -46,7 +53,8 @@ export const FormContact = () => {
   return (
     <>
       <Button onClick={ handleOnClickOpenForm }>
-        Связаться со мной
+        { textButtonOpen }
+        { !!iconButtonOpen && iconButtonOpen }
       </Button>
       <AnimatePresence mode="wait">
         { !!isOpen && (

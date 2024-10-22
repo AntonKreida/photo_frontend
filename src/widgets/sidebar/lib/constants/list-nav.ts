@@ -40,7 +40,7 @@ export const listNav = [
   },
   {
     id: 4,
-    title: "Личные ф отосессии",
+    title: "Личные фотосессии",
     path: ROUTES_PAGES.PHOTO_SESSIONS,
   },
   {

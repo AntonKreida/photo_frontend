@@ -20,6 +20,7 @@
     "react": "^18",
     "react-dom": "^18",
     "react-hook-form": "^7.53.0",
+    "react-image-gallery": "^1.3.0",
     "react-number-format": "^5.4.2",
     "tailwind-merge": "^2.5.3",
     "validator": "^13.12.0",
@@ -30,6 +31,7 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/react-image-gallery": "^1.2.4",
     "@typescript-eslint/parser": "^8.8.0",
     "eslint": "^8",
     "eslint-config-next": "14.2.14",
@@ -50,6 +52,7 @@
     "widgets",
     "pages",
     "app",
-    "features"
+    "features",
+    "entities"
   ]
 }

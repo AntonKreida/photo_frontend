@@ -40,7 +40,7 @@ export const NavigateMenu = () => {
 
           return (
             <MemoNavItem
-              isActiveLink={ pathname === navItem.path }
+              isActiveLink={ pathname === navItem.path || !!pathname?.includes(navItem.path) }
               key={ navItem.id }
               navItem={ navItem }
             />
