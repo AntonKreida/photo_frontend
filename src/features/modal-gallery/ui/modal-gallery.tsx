@@ -1,48 +1,42 @@
 "use client";
 
 import {
-  FC, ReactNode, useMemo, useState
+  FC,
+  ReactNode,
+  useMemo,
+  useState,
 } from "react";
 import ImageGallery, { ReactImageGalleryItem } from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 
+import { ICardPhoto } from "@entities/";
 import { AdapterImage, ModalWrapper, twClassNames } from "@shared/";
 
 
-const imagesMock: ReactImageGalleryItem[] = [
-  {
-    original: "https://picsum.photos/id/1018/1000/600/",
-    thumbnail: "https://picsum.photos/id/1018/250/150/",
-  },
-  {
-    original: "https://picsum.photos/id/1015/1000/600/",
-    thumbnail: "https://picsum.photos/id/1015/250/150/",
-  },
-  {
-    original: "https://picsum.photos/id/1019/1000/600/",
-    thumbnail: "https://picsum.photos/id/1019/250/150/",
-  },
-];
-
 interface IModalShowGalleryProps {
     children: ({ onShowModal, onHideModal, modalActive }: {
-        onShowModal: () => void;
+        onShowModal: (index?: number) => void;
         onHideModal: () => void;
         modalActive: boolean;
     }) => ReactNode;
+    cardsPhoto: ICardPhoto[];
 }
 
-export const ModalGallery: FC<IModalShowGalleryProps> = ({ children }) => {
+export const ModalGallery: FC<IModalShowGalleryProps> = ({ children, cardsPhoto }) => {
+  const [startIndex, setStartIndex] = useState(0);
   const [modalActive, setModalActive] = useState(false);
   const [isFullScreen, setIsFullScreen] = useState(false);
 
-  const onShowModal = () => setModalActive(true);
+  const onShowModal = (index?: number) => {
+    setModalActive(true);
+    setStartIndex(index || 0);
+  };
   const onHideModal = () => setModalActive(false);
 
   const images = useMemo<ReactImageGalleryItem[]>(() => (
-    imagesMock.map((image) => ({
-      original: image.original,
-      thumbnail: image.thumbnail,
+    cardsPhoto.map((card) => ({
+      original: card.href,
+      thumbnail: card.href,
       renderItem: ({ original }) => (
         <div className={ twClassNames("relative max-h-[calc(100vh-80px)]", {
           "h-[500px]": !isFullScreen
@@ -68,12 +62,11 @@ export const ModalGallery: FC<IModalShowGalleryProps> = ({ children }) => {
         </div>
       )
     }))
-  ), [isFullScreen]);
+  ), [cardsPhoto, isFullScreen]);
 
 
   return (
     <>
-      { children({ onShowModal, onHideModal, modalActive }) }
       <ModalWrapper
         handleOnCloseModal={ onHideModal }
         isOpen={ modalActive }
@@ -82,8 +75,10 @@ export const ModalGallery: FC<IModalShowGalleryProps> = ({ children }) => {
           items={ images }
           onScreenChange={ (fillScreen) => setIsFullScreen(fillScreen) }
           showPlayButton={ false }
+          startIndex={ startIndex }
         />
       </ModalWrapper>
+      { children({ onShowModal, onHideModal, modalActive }) }
     </>
   );
 };

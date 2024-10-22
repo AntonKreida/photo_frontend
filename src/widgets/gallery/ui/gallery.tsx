@@ -30,11 +30,11 @@ export const Gallery: FC<IGalleryWrapperProps> = ({ cardsPhoto }) => (
           [&>*:nth-last-child(2):nth-child(9n+1)]:col-span-6
           [&>*:nth-last-child(1):nth-child(9n+1)]:col-span-6` }
   >
-    <ModalGallery>
+    <ModalGallery cardsPhoto={ cardsPhoto }>
       { ({ onShowModal }) =>
         cardsPhoto.map((card) => (
           <CardPhoto
-            actionCard={ onShowModal }
+            actionCard={ (card) => onShowModal(Number(card.id)) }
             cardPhoto={ card }
             key={ card.id }
           />

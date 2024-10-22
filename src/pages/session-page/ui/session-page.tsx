@@ -31,7 +31,7 @@ const SessionPage = () => (
       title="Фотосессия Алены"
     />
 
-    <Gallery cardsPhoto={ Array.from({ length: 9 }).map((_, index) => ({ id: index, href: mockImage, title: "Алена" })) } />
+    <Gallery cardsPhoto={ Array.from({ length: 9 }).map((_, index) => ({ id: index, href: mockImage.src, title: "Алена" })) } />
 
 
     <ScrollLink className="fixed bottom-10 right-5 z-20" heightVisible={ 100 } href="#root">

@@ -22,7 +22,10 @@ export const CardPhoto: FC<ICardPhotoProps> = ({ className, cardPhoto, actionCar
   >
     <AdapterImage
       alt={ cardPhoto.title }
+      height={ 100 }
       src={ cardPhoto.href }
+      unoptimized
+      width={ 100 }
     />
   </div>
 );
