@@ -3,8 +3,7 @@
 import { FC } from "react";
 
 import { CardPhoto, ICardPhoto } from "@entities/";
-
-import { ModalShowGallery } from "/src/features";
+import { ModalGallery } from "@features/";
 
 
 interface IGalleryWrapperProps {
@@ -31,14 +30,15 @@ export const Gallery: FC<IGalleryWrapperProps> = ({ cardsPhoto }) => (
           [&>*:nth-last-child(2):nth-child(9n+1)]:col-span-6
           [&>*:nth-last-child(1):nth-child(9n+1)]:col-span-6` }
   >
-    <ModalShowGallery>
-      { () =>
+    <ModalGallery>
+      { ({ onShowModal }) =>
         cardsPhoto.map((card) => (
           <CardPhoto
+            actionCard={ onShowModal }
             cardPhoto={ card }
             key={ card.id }
           />
         )) }
-    </ModalShowGallery>
+    </ModalGallery>
   </div>
 );

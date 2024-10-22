@@ -13,3 +13,4 @@ export * from "./scroll-link";
 export * from "./footer-page";
 export * from "./link-button";
 export * from "./button-back";
+export * from "./modal-wrapper";
