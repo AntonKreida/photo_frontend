@@ -1,6 +1,7 @@
 "use client";
 
 import { FC, ReactNode, useState } from "react";
+import "react-image-gallery/styles/css/image-gallery.css";
 
 import { ModalWrapper } from "@shared/";
 
@@ -23,7 +24,10 @@ export const ModalGallery: FC<IModalShowGalleryProps> = ({ children }) => {
   return (
     <>
       { children({ onShowModal, onHideModal, modalActive }) }
-      <ModalWrapper isOpen={ modalActive }>
+      <ModalWrapper
+        handleOnCloseModal={ onHideModal }
+        isOpen={ modalActive }
+      >
         Я открылся
       </ModalWrapper>
     </>
