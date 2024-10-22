@@ -15,7 +15,9 @@ interface ICardPhotoProps {
 
 export const CardPhoto: FC<ICardPhotoProps> = ({ className, cardPhoto, actionCard }) => (
   <div
-    className={ twClassNames("col-span-4 cursor-pointer hover:scale-110 transition-[transform] rounded overflow-hidden hover:z-10", [className]) }
+    className={ twClassNames("col-span-4 rounded overflow-hidden", {
+      "cursor-pointer hover:scale-110 transition-[transform] hover:z-10": !!actionCard
+    }, [className]) }
     onClick={ () => actionCard?.(cardPhoto) }
   >
     <AdapterImage

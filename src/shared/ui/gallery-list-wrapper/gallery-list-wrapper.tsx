@@ -1,7 +1,8 @@
 import { FC } from "react";
 
 import { IGalleryCard } from "@shared/lib/interface";
-import { GalleryListItem } from "@shared/ui/gallery-list-item";
+
+import { GalleryListItem } from "./gallery-list-item";
 
 
 interface IGalleryWrapperProps {

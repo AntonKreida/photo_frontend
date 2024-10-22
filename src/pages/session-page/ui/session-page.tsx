@@ -10,6 +10,9 @@ import {
   LinkButton,
   ROUTES_PAGES
 } from "@shared/";
+import { Gallery } from "@widgets/";
+
+import mockImage from "../mock/mock.jpg";
 
 
 const SessionPage = () => (
@@ -25,6 +28,7 @@ const SessionPage = () => (
       title="Фотосессия Алены"
     />
 
+    <Gallery cardsPhoto={ Array.from({ length: 9 }).map((_, index) => ({ id: index, href: mockImage, title: "Алена" })) } />
 
     <FooterPage classNameInner="justify-center">
       <LinkButton href={ ROUTES_PAGES.PRICE }>

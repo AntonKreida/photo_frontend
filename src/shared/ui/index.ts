@@ -7,7 +7,6 @@ export * from "./backdrop";
 export * from "./portal";
 export * from "./sidebar-right";
 export * from "./input-phone";
-export * from "./gallery-list-item";
 export * from "./gallery-list-wrapper";
 export * from "./adapter-image";
 export * from "./scroll-link";
