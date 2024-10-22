@@ -8,7 +8,15 @@ import { twClassNames, STATUS_LOADED_IMAGE } from "@shared/lib";
 import { SkeletonAdapterImage } from "./skeleton-adapter-image";
 
 
-export const AdapterImage: FC<ImageProps> = ({ alt, src, ...props }) => {
+interface IAdapterImageProps extends ImageProps {
+    className?: string;
+
+}
+
+
+export const AdapterImage: FC<IAdapterImageProps> = ({
+  alt, src, className, ...props
+}) => {
   const [currentStatus, setCurrentStatus] = useState<STATUS_LOADED_IMAGE>(STATUS_LOADED_IMAGE.LOADING);
 
   const handleOnErrorImage = () => {
@@ -23,9 +31,9 @@ export const AdapterImage: FC<ImageProps> = ({ alt, src, ...props }) => {
     <div className="w-full h-full relative">
       <Image
         alt={ alt }
-        className={ twClassNames("w-full h-full object-cover pointer-events-none", {
+        className={ twClassNames("w-full h-full pointer-events-none", {
           "opacity-0": currentStatus === STATUS_LOADED_IMAGE.LOADING,
-        }) }
+        }, [className]) }
         onError={ handleOnErrorImage }
         onLoad={ handleOnLoadImage }
         src={ src }
