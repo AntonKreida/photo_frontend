@@ -35,7 +35,7 @@ export const ModalWrapper: FC<IModalWrapperProps> = ({
                   onClick={ handleOnCloseModal }
                 />
               ) }
-            <div className="w-full h-full px-10 pt-8 pb-2">
+            <div className="w-full h-full px-10 py-8">
               { children }
             </div>
           </div>

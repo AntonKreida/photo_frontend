@@ -38,12 +38,13 @@ export const ModalGallery: FC<IModalShowGalleryProps> = ({ children, cardsPhoto 
       original: card.href,
       thumbnail: card.href,
       renderItem: ({ original }) => (
-        <div className={ twClassNames("relative max-h-[calc(100vh-80px)]", {
+        <div className={ twClassNames("relative h-full p-2", {
           "h-[500px]": !isFullScreen
         }) }
         >
           <AdapterImage
             alt="image"
+            className="object-contain max-h-[calc(100vh-20px)] h-full"
             height={ 100 }
             src={ original }
             unoptimized
@@ -51,16 +52,6 @@ export const ModalGallery: FC<IModalShowGalleryProps> = ({ children, cardsPhoto 
           />
         </div>
       ),
-      renderThumbInner: ({ thumbnail }) => (
-        <div className="h-[50px] relative">
-          <AdapterImage
-            alt="image"
-            fill
-            src={ thumbnail as string }
-            unoptimized
-          />
-        </div>
-      )
     }))
   ), [cardsPhoto, isFullScreen]);
 
@@ -74,7 +65,10 @@ export const ModalGallery: FC<IModalShowGalleryProps> = ({ children, cardsPhoto 
         <ImageGallery
           items={ images }
           onScreenChange={ (fillScreen) => setIsFullScreen(fillScreen) }
+          showBullets
+          showIndex={ true }
           showPlayButton={ false }
+          showThumbnails={ false }
           startIndex={ startIndex }
         />
       </ModalWrapper>
