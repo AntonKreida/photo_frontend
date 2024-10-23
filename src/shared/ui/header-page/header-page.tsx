@@ -11,7 +11,7 @@ interface IHeaderPageProps {
 }
 
 export const HeaderPage: FC<IHeaderPageProps> = ({
-  title, subTitle, renderComponent, classNameTitle 
+  title, subTitle, renderComponent, classNameTitle
 }) => (
   <div className="w-full">
     <div className="w-full flex justify-between">
