@@ -1,4 +1,5 @@
 "use client";
+
 import { usePrices } from "@entities/";
 import { FiltersPrice } from "@features/";
 import { HeaderPage } from "@shared/";
