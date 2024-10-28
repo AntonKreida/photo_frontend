@@ -12,11 +12,11 @@ export const FiltersPrice = () => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const router = useRouter();
-  const [activeFilter, setActiveFilter] = useState<string | null>(searchParams?.get("type") || null);
+  const [activeFilter, setActiveFilter] = useState<string | null>(null);
 
   const handleOnClickFilter = useCallback((value: typeof filtersPrice[number]["value"]) => {
     const params = new URLSearchParams(searchParams ?? "");
-    
+
     if (value) {
       params.set("type", value);
       setActiveFilter(value);
@@ -29,7 +29,6 @@ export const FiltersPrice = () => {
       scroll: false
     });
 
-
   }, [pathname, router, searchParams]);
 
   return (
@@ -38,7 +37,7 @@ export const FiltersPrice = () => {
         <MemoizeFilterItem
           filter={ filter }
           handleOnClickFilter={ handleOnClickFilter }
-          isActiveFilter={ activeFilter === filter.value }
+          isActiveFilter={ searchParams?.get("type") === filter.value || activeFilter === filter.value }
           key={ filter.id }
         />
       )) }

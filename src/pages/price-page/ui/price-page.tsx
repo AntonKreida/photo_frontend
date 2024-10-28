@@ -1,11 +1,12 @@
 import { ENUM_PRICE_TYPE } from "@entities/";
 import { FiltersPrice } from "@features/";
 import { HeaderPage } from "@shared/";
+import { Prices } from "@widgets/";
 
 import { HydratedPrices } from "./hydrate-prices";
 
 
-const PricePage = async ({
+const PricePage = ({
   searchParams,
 } : {
   searchParams?: { [key: string]: ENUM_PRICE_TYPE[keyof ENUM_PRICE_TYPE] | undefined };
@@ -19,7 +20,7 @@ const PricePage = async ({
     />
 
     <HydratedPrices searchParams={ searchParams ?? {} }>
-      <div></div>
+      <Prices />
     </HydratedPrices>
   </div>
 );
