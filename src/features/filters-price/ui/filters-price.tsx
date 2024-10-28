@@ -1,7 +1,7 @@
 "use client";
 
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 
 
 import { filtersPrice } from "../lib";
@@ -12,19 +12,24 @@ export const FiltersPrice = () => {
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const router = useRouter();
-
+  const [activeFilter, setActiveFilter] = useState<string | null>(searchParams?.get("type") || null);
 
   const handleOnClickFilter = useCallback((value: typeof filtersPrice[number]["value"]) => {
     const params = new URLSearchParams(searchParams ?? "");
+    
     if (value) {
       params.set("type", value);
+      setActiveFilter(value);
     } else {
       params.delete("type");
+      setActiveFilter(null);
     }
 
     router.push(`${pathname}?${params.toString()}`, {
       scroll: false
     });
+
+
   }, [pathname, router, searchParams]);
 
   return (
@@ -33,7 +38,7 @@ export const FiltersPrice = () => {
         <MemoizeFilterItem
           filter={ filter }
           handleOnClickFilter={ handleOnClickFilter }
-          isActiveFilter={ searchParams?.get("type") === filter.value }
+          isActiveFilter={ activeFilter === filter.value }
           key={ filter.id }
         />
       )) }
