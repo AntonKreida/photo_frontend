@@ -1,17 +1,23 @@
+"use client";
+import { usePrices } from "@entities/";
+import { FiltersPrice } from "@features/";
 import { HeaderPage } from "@shared/";
 
-import { FiltersPrice } from "/src/features/filters-price/ui";
 
+const PricePage = () => {
 
-const PricePage = () => (
-  <div className="w-full">
-    <HeaderPage
-      renderComponent={ () => (
-        <FiltersPrice />
-      ) }
-      title="Прайс"
-    />
-  </div>
-);
+  usePrices();
+
+  return (
+    <div className="w-full">
+      <HeaderPage
+        renderComponent={ () => (
+          <FiltersPrice />
+        ) }
+        title="Прайс"
+      />
+    </div>
+  );
+};
 
 export default PricePage;

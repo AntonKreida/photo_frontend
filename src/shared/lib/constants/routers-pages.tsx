@@ -4,7 +4,7 @@ export const ROUTES_PAGES = {
   BLOCKS: "/blocks",
   PHOTO_SESSIONS: "/sessions",
   MAGAZINE: "/magazine",
-  PRICE: "/price",
+  PRICE: "/price?type=personal",
   REVIEWS: "/reviews",
   LOOKBOOK: "/lookbook",
   CAMPAIGN: "/campaign",

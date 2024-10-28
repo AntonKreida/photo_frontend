@@ -1,8 +1,8 @@
 import { FC, memo } from "react";
 
-import { filtersPrice } from "../lib";
-
 import { twClassNames } from "@shared/";
+
+import { filtersPrice } from "../lib";
 
 
 interface IFilterItemProps {
