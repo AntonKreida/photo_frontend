@@ -6,4 +6,5 @@ export interface IPrice {
     title: string;
     count: number;
     type: ENUM_PRICE_TYPE;
+    description: string;
 }

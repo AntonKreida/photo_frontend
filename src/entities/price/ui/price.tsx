@@ -23,5 +23,6 @@ export const Price: FC<IPriceProps> = ({
       <span className="text-carbon text-2xl font-normal font-gabriela">{ price.title }</span>
       <span className="text-carbon font-gabriela text-xl font-normal">{ intlNumberFormat.format(price.count) }</span>
     </div>
+    <div dangerouslySetInnerHTML={{ __html: price.description }} />
   </div>
 );
