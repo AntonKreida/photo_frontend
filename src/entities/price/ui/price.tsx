@@ -8,7 +8,7 @@ interface IPriceProps {
 }
 
 const intlNumberFormat = new Intl.NumberFormat("ru-RU", {
-  style: "decimal",
+  style: "currency",
   maximumFractionDigits: 0,
   minimumFractionDigits: 0,
   currency: "RUB",
