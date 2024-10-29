@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+
 import { ENUM_PRICE_TYPE } from "@entities/";
 import { FiltersPrice } from "@features/";
 import { HeaderPage } from "@shared/";
@@ -20,8 +22,11 @@ const PricePage = ({
     />
 
     <HydratedPrices searchParams={ searchParams ?? {} }>
-      <Prices />
+      <Suspense fallback={ null }>
+        <Prices />
+      </Suspense>
     </HydratedPrices>
+
   </div>
 );
 

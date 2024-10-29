@@ -11,12 +11,12 @@ interface IPricesListProps {
 }
 
 
-export const HydratedPrices: FC<IPricesListProps> = ({ searchParams, children }) => {
+export const HydratedPrices: FC<IPricesListProps> = async ({ searchParams, children }) => {
   const queryKeyPage = searchParams?.type || "personal";
 
   const queryClient = new QueryClient();
 
-  queryClient.prefetchQuery({
+  await queryClient.prefetchQuery({
     queryKey: [QUERY_KEYS.PRICES, queryKeyPage],
     queryFn: () => getPrices(queryKeyPage),
   });

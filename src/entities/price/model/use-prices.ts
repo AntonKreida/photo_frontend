@@ -2,7 +2,7 @@
 
 import { useQuery } from "@tanstack/react-query";
 import { useSearchParams, useRouter, usePathname } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 
 
 import { getPrices } from "../api";
@@ -13,34 +13,31 @@ export const usePrices = () => {
   const pathname = usePathname();
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [typePrice, setTypePrice] = useState<ENUM_PRICE_TYPE[keyof ENUM_PRICE_TYPE]>("personal");
 
   useEffect(() => {
     const currentTypePrice = searchParams?.get("type") as ENUM_PRICE_TYPE[keyof ENUM_PRICE_TYPE];
 
-    if (currentTypePrice && (Object.values(ENUM_PRICE_TYPE)).find((value) => value === currentTypePrice)) {
-      setTypePrice(currentTypePrice);
+    if (!(currentTypePrice && (Object.values(ENUM_PRICE_TYPE)).find((value) => value === currentTypePrice))) {
+      const params = new URLSearchParams(searchParams ?? "");
+      params.set("type", "personal");
+      router.push(`${pathname}?${params.toString()}`, {
+        scroll: false
+      });
       return;
     }
-
-    const params = new URLSearchParams(searchParams ?? "");
-    params.set("type", "personal");
-    router.push(`${pathname}?${params.toString()}`, {
-      scroll: false
-    });
 
 
   }, [pathname, router, searchParams]);
 
   const { data, isLoading } = useQuery({
-    queryKey: ["prices", typePrice],
-    queryFn: () => getPrices(typePrice),
+    queryKey: ["prices", searchParams?.get("type") as ENUM_PRICE_TYPE[keyof ENUM_PRICE_TYPE]],
+    queryFn: async () => await getPrices(searchParams?.get("type") as ENUM_PRICE_TYPE[keyof ENUM_PRICE_TYPE]),
     placeholderData: (prev) => prev,
   });
 
 
   return {
-    prices: data,
+    pricesResponseData: data,
     isLoading,
   };
 };

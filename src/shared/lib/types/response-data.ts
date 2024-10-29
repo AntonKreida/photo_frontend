@@ -1,7 +1,5 @@
-interface ICombineResponseData <T extends Record<string, unknown>> {
-    data: {
-        [Property in string]: T
-    }
+type TCombineResponseData <T extends Record<string, unknown>> = {
+    [Property in string]: T
 }
 
-export type TResponseData <T extends Record<string, unknown>> = ICombineResponseData<T>
+export type TResponseData <T extends Record<string, unknown>> = TCombineResponseData<T>
