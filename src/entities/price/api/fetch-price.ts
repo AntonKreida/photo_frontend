@@ -24,8 +24,6 @@ export const getPrices = async (typePrice: ENUM_PRICE_TYPE[keyof ENUM_PRICE_TYPE
     query: allPricesWithVariablesQueryDocument,
   });
 
-  console.log(data);
-
   return data;
 };
 
