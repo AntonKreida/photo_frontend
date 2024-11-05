@@ -6,7 +6,7 @@ import { QUERY_KEYS } from "@shared/";
 
 
 interface IPricesListProps {
-    searchParams: { [key: string]: ENUM_PRICE_TYPE[keyof ENUM_PRICE_TYPE] | undefined };
+    searchParams?: { [key: string]: ENUM_PRICE_TYPE[keyof ENUM_PRICE_TYPE] };
     children: ReactNode;
 }
 

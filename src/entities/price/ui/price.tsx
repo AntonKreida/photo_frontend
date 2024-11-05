@@ -15,14 +15,27 @@ const intlNumberFormat = new Intl.NumberFormat("ru-RU", {
 });
 
 
-export const Price: FC<IPriceProps> = ({
-  price
-}) => (
-  <div className="w-full flex flex-col">
+export const Price: FC<IPriceProps> = ({ price }) => (
+  <div className="w-full flex flex-col justify-between h-full">
     <div className="flex justify-between w-full pb-4 border-b border-beluga">
       <span className="text-carbon text-2xl font-normal font-gabriela">{ price.title }</span>
-      <span className="text-carbon font-gabriela text-xl font-normal">{ intlNumberFormat.format(price.count) }</span>
     </div>
-    <div dangerouslySetInnerHTML={{ __html: price.description }} />
+    <div
+      className="[&>ol]:text-carbon [&>ol]:font-futura-pt [&>ol]:font-normal mt-4 mb-[30px]
+        [&>ol]:text-xl [&>ol]:list-none [&>ol>li]:before:content-['-'] [&>ol>li]:before:mr-2"
+      dangerouslySetInnerHTML={{ __html: price.description }}
+    />
+
+    <div className="flex flex-col gap-4 mt-auto">
+      <div className="text-carbon/50 text-base font-normal font-futura-pt">
+        У меня есть слаженная команда из специалистов стилиста и визажиста, которых я рекомендую
+        и координирую по задачам съемки. Их услуги и аренда студии оплачиваются отдельно.
+      </div>
+
+      <div className="flex gap-2 items-center text-carbon font-gabriela text-lg font-normal">
+        <span>Стоимость:</span>
+        <span>{ intlNumberFormat.format(price.count) }</span>
+      </div>
+    </div>
   </div>
 );

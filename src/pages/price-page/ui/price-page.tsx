@@ -1,4 +1,4 @@
-import { Suspense } from "react";
+import { FC } from "react";
 
 import { ENUM_PRICE_TYPE } from "@entities/";
 import { FiltersPrice } from "@features/";
@@ -8,11 +8,12 @@ import { Prices } from "@widgets/";
 import { HydratedPrices } from "./hydrate-prices";
 
 
-const PricePage = ({
-  searchParams,
-} : {
-  searchParams?: { [key: string]: ENUM_PRICE_TYPE[keyof ENUM_PRICE_TYPE] | undefined };
-}) => (
+interface IPricePageProps {
+    searchParams?: { [key: string]: ENUM_PRICE_TYPE[keyof ENUM_PRICE_TYPE] };
+}
+
+
+const PricePage: FC<IPricePageProps> = ({ searchParams }) => (
   <div className="w-full">
     <HeaderPage
       renderComponent={ () => (
@@ -21,12 +22,9 @@ const PricePage = ({
       title="Прайс"
     />
 
-    <HydratedPrices searchParams={ searchParams ?? {} }>
-      <Suspense fallback={ null }>
-        <Prices />
-      </Suspense>
+    <HydratedPrices searchParams={ searchParams }>
+      <Prices />
     </HydratedPrices>
-
   </div>
 );
 
