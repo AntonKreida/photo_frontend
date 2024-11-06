@@ -11,6 +11,7 @@ import { twClassNames } from "@shared/lib";
 type TLinkButtonProps = {
     children?: ReactNode;
     className?: string;
+    type?: "button" | "submit" | "reset";
 } & ({
     isNextJsLink: true;
 } & ComponentProps<typeof Link> | {
@@ -21,6 +22,7 @@ type TLinkButtonProps = {
 export const LinkButton = ({
   children,
   className,
+  type = "button",
   ...props
 }: TLinkButtonProps) => (
   props.isNextJsLink
@@ -29,7 +31,9 @@ export const LinkButton = ({
         className={ twClassNames(`py-[15px] px-[25px] w-fit h-fit flex text-sm items-center gap-2 justify-center
               border-[1px] border-black rounded-full font-futura-pt font-medium outline-1
               uppercase text-carbon/80 hover:bg-gray-100 transition active:scale-[0.8]
-              outline-none align-top`,[className]) }
+              outline-none align-top`, {
+          "bg-carbon text-white/80 hover:bg-carbon/90 border-carbon": type === "submit"
+        }, [className]) }
         { ...props }
       >
         { children }
@@ -40,7 +44,9 @@ export const LinkButton = ({
         className={ twClassNames(`py-[15px] px-[25px] w-fit h-fit flex text-sm items-center gap-2 justify-center
               border-[1px] border-black rounded-full font-futura-pt font-medium outline-1
               uppercase text-carbon/80 hover:bg-gray-100 transition active:scale-[0.8]
-              outline-none align-top`,[className]) }
+              outline-none align-top`, {
+          "bg-carbon text-white/80 hover:bg-carbon/90 border-carbon": type === "submit"
+        },[className]) }
         { ...props }
       >
         { children }

@@ -1,5 +1,7 @@
 import { FC } from "react";
 
+import { LinkButton } from "@shared/";
+
 import { IPrice } from "../lib";
 
 
@@ -36,6 +38,15 @@ export const Price: FC<IPriceProps> = ({ price }) => (
         <span>Стоимость:</span>
         <span>{ intlNumberFormat.format(price.count) }</span>
       </div>
+
+      <LinkButton
+        href="https://t.me/Melnikova_foto72"
+        isNextJsLink={ false }
+        target="_blank"
+        type="submit"
+      >
+        Связаться со мной
+      </LinkButton>
     </div>
   </div>
 );
