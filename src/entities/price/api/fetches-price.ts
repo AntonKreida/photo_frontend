@@ -1,21 +1,21 @@
 import { instance, TResponseData } from "@shared/";
 
-import { ENUM_PRICE_TYPE, IPrice } from "../lib";
+import { IPrice } from "../lib";
 
 
 const allPricesWithVariablesQueryDocument =`
-    query getPrices($type: ENUM_PRICE_TYPE) {
+    query getPrices($type: ENUM_TYPEPRICE_TYPE) {
         prices(type: $type) {
             id
             title
             description
-            count
+            cost
         }
     }
 `;
 
 
-export const getPrices = async (typePrice: ENUM_PRICE_TYPE[keyof ENUM_PRICE_TYPE]) => {
+export const getPrices = async (typePrice: string) => {
   const { data } =  await instance.post<TResponseData<{ prices: IPrice[] }>>(`${process.env.NEXT_PUBLIC_API_URL}/${process.env.NEXT_PUBLIC_API_ENDPOINT}`, {
     operationName: "getPrices",
     variables: {

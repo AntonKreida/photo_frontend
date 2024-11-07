@@ -1,12 +1,12 @@
 import { dehydrate, HydrationBoundary, QueryClient } from "@tanstack/react-query";
 import { FC, ReactNode } from "react";
 
-import { ENUM_PRICE_TYPE, getPrices } from "@entities/";
+import { getPrices } from "@entities/";
 import { QUERY_KEYS } from "@shared/";
 
 
 interface IPricesListProps {
-    searchParams?: { [key: string]: ENUM_PRICE_TYPE[keyof ENUM_PRICE_TYPE] };
+    searchParams?: { [key: string]: string };
     children: ReactNode;
 }
 

@@ -4,17 +4,20 @@ import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { useCallback, useState } from "react";
 
 
-import { filtersPrice } from "../lib";
+import { useTypePrices } from "@entities/";
+
 import { MemoizeFilterItem } from "./filter-item";
 
 
 export const FiltersPrice = () => {
+  const { typePricesResponseData } = useTypePrices();
+
   const pathname = usePathname();
   const searchParams = useSearchParams();
   const router = useRouter();
   const [activeFilter, setActiveFilter] = useState<string | null>(null);
 
-  const handleOnClickFilter = useCallback((value: typeof filtersPrice[number]["value"]) => {
+  const handleOnClickFilter = useCallback((value: string) => {
     const params = new URLSearchParams(searchParams ?? "");
 
     if (value) {
@@ -33,11 +36,11 @@ export const FiltersPrice = () => {
 
   return (
     <div className="flex items-center w-fit basis-1/2">
-      { filtersPrice.map((filter) => (
+      { typePricesResponseData?.typePrices?.map((filter) => (
         <MemoizeFilterItem
           filter={ filter }
           handleOnClickFilter={ handleOnClickFilter }
-          isActiveFilter={ searchParams?.get("type") === filter.value || activeFilter === filter.value }
+          isActiveFilter={ searchParams?.get("type") === filter.type || activeFilter === filter.type }
           key={ filter.id }
         />
       )) }

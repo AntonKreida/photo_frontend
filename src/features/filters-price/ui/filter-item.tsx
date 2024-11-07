@@ -1,13 +1,12 @@
 import { FC, memo } from "react";
 
+import { ITypePrice } from "@entities/";
 import { twClassNames } from "@shared/";
-
-import { filtersPrice } from "../lib";
 
 
 interface IFilterItemProps {
-    filter: typeof filtersPrice[number];
-    handleOnClickFilter: (value: typeof filtersPrice[number]["value"]) => void;
+    filter: ITypePrice;
+    handleOnClickFilter: (value: string) => void;
     isActiveFilter: boolean;
 }
 
@@ -20,9 +19,9 @@ const FilterItem: FC<IFilterItemProps> = ({ filter, handleOnClickFilter, isActiv
         active:text-carbon active:border-carbon`, {
       "text-carbon border-carbon": isActiveFilter
     }) }
-    onClick={ () => handleOnClickFilter(filter.value) }
+    onClick={ () => handleOnClickFilter(filter.type) }
   >
-    <span>{ filter.name }</span>
+    <span>{ filter.translate }</span>
   </button>
 );
 

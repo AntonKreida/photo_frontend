@@ -9,7 +9,7 @@ export const Prices = () => {
   return (
     <ul className="mt-[78px] grid grid-cols-[repeat(auto-fill,_minmax(400px,_1fr))] gap-10">
       { pricesResponseData?.data.prices.map((price) => (
-        <li key={ price.id }>
+        <li key={ price?.id }>
           <Price price={ price } />
         </li>
       )) }

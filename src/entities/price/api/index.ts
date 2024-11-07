@@ -1,1 +1,1 @@
-export * from "./fetch-price";
+export * from "./fetches-price";
