@@ -36,6 +36,13 @@ export const FiltersPrice = () => {
 
   return (
     <div className="flex items-center w-fit basis-1/2">
+      <MemoizeFilterItem
+        filter={{ id: 0, type: "all", translate: "Все" }}
+        handleOnClickFilter={ handleOnClickFilter }
+        isActiveFilter={ searchParams?.get("type") === "all" }
+        key="all"
+      />
+
       { typePricesResponseData?.typePrices?.map((filter) => (
         <MemoizeFilterItem
           filter={ filter }

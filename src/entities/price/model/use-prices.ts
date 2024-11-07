@@ -19,7 +19,7 @@ export const usePrices = () => {
 
     if (!currentTypePrice) {
       const params = new URLSearchParams(searchParams ?? "");
-      params.set("type", "personal");
+      params.set("type", "all");
       router.push(`${pathname}?${params.toString()}`, {
         scroll: false
       });

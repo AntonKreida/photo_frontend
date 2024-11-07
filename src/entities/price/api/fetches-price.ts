@@ -4,7 +4,7 @@ import { IPrice } from "../lib";
 
 
 const allPricesWithVariablesQueryDocument =`
-    query getPrices($type: ENUM_TYPEPRICE_TYPE) {
+    query getPrices($type: String) {
         prices(type: $type) {
             id
             title
