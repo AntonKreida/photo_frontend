@@ -16,7 +16,7 @@ export const useTypePrices = () => {
 
 
   return {
-    typePricesResponseData: data?.data,
+    typePrices: data?.typePrices ?? [],
     isLoading,
     isError
   };

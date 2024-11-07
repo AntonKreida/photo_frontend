@@ -21,5 +21,5 @@ export const getTypePrices = async () => {
   });
 
 
-  return data;
+  return data?.data;
 };

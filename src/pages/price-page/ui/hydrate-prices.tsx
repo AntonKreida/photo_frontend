@@ -12,7 +12,7 @@ interface IPricesListProps {
 
 
 export const HydratedPrices: FC<IPricesListProps> = async ({ searchParams, children }) => {
-  const queryKeyPage = searchParams?.type || "personal";
+  const queryKeyPage = searchParams?.type || "all";
 
   const queryClient = new QueryClient();
 

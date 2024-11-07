@@ -10,7 +10,7 @@ import { MemoizeFilterItem } from "./filter-item";
 
 
 export const FiltersPrice = () => {
-  const { typePricesResponseData } = useTypePrices();
+  const { typePrices } = useTypePrices();
 
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -43,7 +43,7 @@ export const FiltersPrice = () => {
         key="all"
       />
 
-      { typePricesResponseData?.typePrices?.map((filter) => (
+      { typePrices?.map((filter) => (
         <MemoizeFilterItem
           filter={ filter }
           handleOnClickFilter={ handleOnClickFilter }

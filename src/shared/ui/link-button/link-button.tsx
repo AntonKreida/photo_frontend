@@ -2,6 +2,7 @@ import Link from "next/link";
 import {
   AnchorHTMLAttributes,
   ComponentProps,
+  FC,
   ReactNode,
 } from "react";
 
@@ -19,13 +20,14 @@ type TLinkButtonProps = {
 } & AnchorHTMLAttributes<HTMLAnchorElement>);
 
 
-export const LinkButton = ({
+export const LinkButton: FC<TLinkButtonProps> = ({
   children,
   className,
   type = "button",
+  isNextJsLink,
   ...props
 }: TLinkButtonProps) => (
-  props.isNextJsLink
+  isNextJsLink
     ? (
       <Link
         className={ twClassNames(`py-[15px] px-[25px] w-fit h-fit flex text-sm items-center gap-2 justify-center
@@ -34,7 +36,7 @@ export const LinkButton = ({
               outline-none align-top`, {
           "bg-carbon text-white/80 hover:bg-carbon/90 border-carbon": type === "submit"
         }, [className]) }
-        { ...props }
+        { ...props as ComponentProps<typeof Link> }
       >
         { children }
       </Link>
@@ -47,7 +49,7 @@ export const LinkButton = ({
               outline-none align-top`, {
           "bg-carbon text-white/80 hover:bg-carbon/90 border-carbon": type === "submit"
         },[className]) }
-        { ...props }
+        { ...props as AnchorHTMLAttributes<HTMLAnchorElement> }
       >
         { children }
       </a>

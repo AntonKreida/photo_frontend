@@ -13,7 +13,7 @@ interface IPricePageProps {
 
 
 const PricePage: FC<IPricePageProps> = ({ searchParams }) => (
-  <div className="w-full">
+  <div className="w-full h-full">
     <HeaderPage
       renderComponent={ () => (
         <HydratedTypePrices />

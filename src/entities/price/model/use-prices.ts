@@ -9,15 +9,21 @@ import { QUERY_KEYS } from "@shared/";
 import { getPrices } from "../api";
 
 
-export const usePrices = () => {
+interface IUsePricesArgs {
+    filterList?: string[];
+}
+
+
+export const usePrices = ({ filterList }: IUsePricesArgs) => {
   const pathname = usePathname();
   const router = useRouter();
   const searchParams = useSearchParams();
 
+
   useEffect(() => {
     const currentTypePrice = searchParams?.get("type") as string;
 
-    if (!currentTypePrice) {
+    if (!currentTypePrice || !filterList?.includes(currentTypePrice)) {
       const params = new URLSearchParams(searchParams ?? "");
       params.set("type", "all");
       router.push(`${pathname}?${params.toString()}`, {
@@ -27,7 +33,7 @@ export const usePrices = () => {
     }
 
 
-  }, [pathname, router, searchParams]);
+  }, [pathname, router, searchParams, filterList]);
 
   const { data, isLoading, isError } = useQuery({
     queryKey: [QUERY_KEYS.PRICES, searchParams?.get("type") as string],
@@ -36,7 +42,7 @@ export const usePrices = () => {
   });
 
   return {
-    pricesResponseData: data,
+    prices: data?.prices ?? [],
     isLoading,
     isError,
   };

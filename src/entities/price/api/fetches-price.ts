@@ -24,7 +24,7 @@ export const getPrices = async (typePrice: string) => {
     query: allPricesWithVariablesQueryDocument,
   });
 
-  return data;
+  return data?.data;
 };
 
 

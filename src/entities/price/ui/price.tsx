@@ -36,7 +36,7 @@ export const Price: FC<IPriceProps> = ({ price }) => (
         и координирую по задачам съемки. Их услуги и аренда студии оплачиваются отдельно.
       </div>
 
-      <div className="flex gap-2 items-center text-carbon font-gabriela text-base font-normal">
+      <div className="flex gap-2 items-center text-carbon font-gabriela text-lg font-normal">
         <span>Стоимость:</span>
         <span>{ intlNumberFormat.format(price?.cost) }</span>
       </div>
