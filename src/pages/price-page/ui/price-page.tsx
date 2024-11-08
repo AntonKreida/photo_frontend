@@ -2,9 +2,7 @@ import { FC } from "react";
 
 import { HydratedTypePrices } from "@features/";
 import { HeaderPage } from "@shared/";
-import { Prices } from "@widgets/";
-
-import { HydratedPrices } from "./hydrate-prices";
+import { HydratedPrices } from "@widgets/";
 
 
 interface IPricePageProps {
@@ -21,9 +19,7 @@ const PricePage: FC<IPricePageProps> = ({ searchParams }) => (
       title="Прайс"
     />
 
-    <HydratedPrices searchParams={ searchParams }>
-      <Prices />
-    </HydratedPrices>
+    <HydratedPrices searchParams={ searchParams } />
   </div>
 );
 

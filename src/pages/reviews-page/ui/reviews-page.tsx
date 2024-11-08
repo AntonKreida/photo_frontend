@@ -1,11 +1,11 @@
 import { HeaderPage } from "@shared/";
-import { ReviewsFeed } from "@widgets/";
+import { HydratedReviewsFeed } from "@widgets/";
 
 
 export const ReviewsPage = () => (
-  <div className="w-full">
+  <div className="w-fit">
     <HeaderPage title="Отзывы" />
 
-    <ReviewsFeed />
+    <HydratedReviewsFeed />
   </div>
 );
