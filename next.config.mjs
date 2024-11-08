@@ -33,6 +33,11 @@ const nextConfig = {
         resourceQuery: { not: [...fileLoaderRule.resourceQuery.not, /url/] },
         use: ["@svgr/webpack"],
       },
+      {
+        test: /\.(graphql|gql)$/,
+        loader: "webpack-graphql-loader",
+        exclude: /node_modules/,
+      }
     );
 
     // настройка путей кастомных

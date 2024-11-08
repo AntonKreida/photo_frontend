@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { IGalleryCard } from "@shared/lib/interface";
+import { IGalleryCard } from "/src/shared/lib/types";
 
 import { GalleryListItem } from "./gallery-list-item";
 

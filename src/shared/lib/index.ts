@@ -1,5 +1,5 @@
 export * from "./utils";
 export * from "./constants";
 export * from "./assets";
-export * from "./interface";
+export * from "./types";
 export * from "./enums";
