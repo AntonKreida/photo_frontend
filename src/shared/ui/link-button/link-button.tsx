@@ -14,9 +14,9 @@ type TLinkButtonProps = {
     className?: string;
     type?: "button" | "submit" | "reset";
 } & ({
-    isNextJsLink: true;
+    isNextJsLink?: true;
 } & ComponentProps<typeof Link> | {
-    isNextJsLink: false;
+    isNextJsLink?: false;
 } & AnchorHTMLAttributes<HTMLAnchorElement>);
 
 
@@ -24,7 +24,7 @@ export const LinkButton: FC<TLinkButtonProps> = ({
   children,
   className,
   type = "button",
-  isNextJsLink,
+  isNextJsLink = true,
   ...props
 }: TLinkButtonProps) => (
   isNextJsLink
