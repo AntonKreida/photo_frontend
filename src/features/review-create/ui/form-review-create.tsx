@@ -19,7 +19,7 @@ interface IFormCreateReviewCreateProps {
 }
 
 export const FormReviewCreate: FC<IFormCreateReviewCreateProps> = ({ handleOnClose }) => {
-  const { handleSubmit, control } = useForm<TReviewSchemaDto>({
+  const { handleSubmit, control, watch } = useForm<TReviewSchemaDto>({
     defaultValues: {
       author: "",
       description: "",
@@ -42,7 +42,7 @@ export const FormReviewCreate: FC<IFormCreateReviewCreateProps> = ({ handleOnClo
   };
 
   return (
-    <SidebarRight onClickClose={ handleOnClose }>
+    <SidebarRight onClickClose={ handleOnClose } className="pt-[80px]">
       <form className="flex flex-col h-full justify-between" onSubmit={ handleSubmit(handleOnSubmitFormCreateReview) }>
 
         <div className="flex flex-col gap justify-start gap-2">
@@ -52,9 +52,20 @@ export const FormReviewCreate: FC<IFormCreateReviewCreateProps> = ({ handleOnClo
 
         <div className="flex-[1_0_auto] flex flex-col justify-start gap-2 mt-9">
 
-          <InputImage
-            getInputProps={ getInputProps }
-            getRootProps={ getRootProps }
+          <Controller
+            control={ control }
+            name="image"
+            render={ ({ field: { onChange, value }, fieldState: { error } }) => (
+              <InputImage
+                errorMessage={ error?.message }
+                getInputProps={ getInputProps }
+                getRootProps={ getRootProps }
+                label="Ваше фотография"
+                name="image"
+                onChange={ onChange }
+                value={ value }
+              />
+            ) }
           />
 
           <Controller
