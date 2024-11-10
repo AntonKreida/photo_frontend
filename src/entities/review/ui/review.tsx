@@ -11,7 +11,7 @@ interface IReviewProps {
 
 
 export const Review: FC<IReviewProps> = ({ review }) => (
-  <div className="w-full grid grid-cols-[repeat(2,_minmax(300px,_500px));] h-[295px] grid-rows-1 gap-5">
+  <div className="w-full grid grid-cols-2 h-[295px] grid-rows-1 gap-5">
     <div className="col-span-1 col-start-1 row-start-1">
       <AdapterImage
         alt={ review.image?.name || "" }
