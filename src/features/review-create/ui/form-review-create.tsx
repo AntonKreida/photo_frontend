@@ -1,10 +1,12 @@
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FC } from "react";
+import { useDropzone } from "react-dropzone";
 import { SubmitHandler, useForm, Controller } from "react-hook-form";
 
 import {
   Button,
   Input,
+  InputImage,
   SidebarRight,
   TextArea
 } from "@shared/";
@@ -26,6 +28,15 @@ export const FormReviewCreate: FC<IFormCreateReviewCreateProps> = ({ handleOnClo
     mode: "onTouched",
   });
 
+  const { getRootProps, getInputProps } = useDropzone({
+    accept: {
+      "image/jpeg": [],
+      "image/jpg": [],
+      "image/png": [],
+    },
+    maxFiles: 1,
+  });
+
   const handleOnSubmitFormCreateReview: SubmitHandler<TReviewSchemaDto> = (data) => {
     console.log(data);
   };
@@ -40,6 +51,11 @@ export const FormReviewCreate: FC<IFormCreateReviewCreateProps> = ({ handleOnClo
         </div>
 
         <div className="flex-[1_0_auto] flex flex-col justify-start gap-2 mt-9">
+
+          <InputImage
+            getInputProps={ getInputProps }
+            getRootProps={ getRootProps }
+          />
 
           <Controller
             control={ control }

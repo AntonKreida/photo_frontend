@@ -14,3 +14,4 @@ export * from "./footer-page";
 export * from "./link-button";
 export * from "./button-back";
 export * from "./modal-wrapper";
+export * from "./input-image";
