@@ -13,7 +13,7 @@ import { NavigateMenu } from "./navigate-menu";
 
 
 export const Sidebar = () => (
-  <aside className=" max-w-[360px] flex-grow py-[120px] px-[65px] overflow-y-auto scrollbar-none h-screen sticky top-0 shadow">
+  <aside className=" max-w-[360px] w-full flex-grow py-[120px] px-[65px] overflow-y-auto scrollbar-none h-screen sticky top-0 shadow">
     <div className="flex flex-col justify-between h-full">
 
       <div className="flex flex-col gap-4">
