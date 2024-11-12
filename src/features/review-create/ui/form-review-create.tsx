@@ -1,5 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { FC, useId, useState } from "react";
+import { FC, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { SubmitHandler, useForm, Controller } from "react-hook-form";
 
@@ -20,20 +20,19 @@ interface IFormCreateReviewCreateProps {
 }
 
 export const FormReviewCreate: FC<IFormCreateReviewCreateProps> = ({ handleOnClose }) => {
-  const toastId = useId();
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const {
     handleSubmit,
     control,
-    formState: { isSubmitted, isValid }
+    formState: { isSubmitting }
   } = useForm<TReviewSchemaDto>({
     defaultValues: {
       author: "",
       description: "",
     },
     resolver: zodResolver(ReviewSchema),
-    mode: "onTouched",
+    mode: "onSubmit",
   });
 
   const { getRootProps, getInputProps } = useDropzone({
@@ -48,36 +47,48 @@ export const FormReviewCreate: FC<IFormCreateReviewCreateProps> = ({ handleOnClo
   const handleOnSubmitFormCreateReview: SubmitHandler<TReviewSchemaDto> = async (data) => {
     const  { toast } = await import("react-toastify");
 
-    toast.loading("Отправляем отзыв...", {
-        toastId: toastId,
+    try {
+      const toastId =  toast.loading("Отправляем отзыв...", {
         position: "bottom-left",
         closeButton: true,
         isLoading: true,
-    }),
+        autoClose: 5000,
+      });
 
-    setIsLoading(true);
+      setIsLoading(true);
 
-    let idImgFile: number | undefined = undefined;
+      let idImgFile: number | undefined = undefined;
 
-    if(data.image) {
-      const newImg = await postUploadFile(data?.image);
-      idImgFile = newImg?.data?.singleUploadImg?.id;
-    }
+      if(data.image) {
+        const newImg = await postUploadFile(data?.image);
+        idImgFile = newImg?.data?.singleUploadImg?.id;
+      }
 
-    delete data.image;
-    await postCreateReview(data, idImgFile);
+      delete data.image;
+      await postCreateReview(data, idImgFile);
 
-    setIsLoading(false);
+      setIsLoading(false);
 
-    toast.update(toastId, {
+      toast.update(toastId, {
         position: "bottom-left",
         type: "success",
         render: "Отзыв успешно отправлен!",
         closeButton: true,
         isLoading: false,
+        autoClose: 5000,
       });
 
-    handleOnClose();
+      handleOnClose();
+    } catch {
+      toast.error("Произошла ошибка при отправке отзыва! Попробуйте позже...", {
+        position: "bottom-left",
+        closeButton: true,
+        isLoading: false,
+        autoClose: 5000,
+      });
+
+      handleOnClose();
+    }
   };
 
   return (
@@ -96,6 +107,7 @@ export const FormReviewCreate: FC<IFormCreateReviewCreateProps> = ({ handleOnClo
             name="image"
             render={ ({ field: { onChange, value }, fieldState: { error } }) => (
               <InputImage
+                disabled={ isLoading }
                 errorMessage={ error?.message }
                 getInputProps={ getInputProps }
                 getRootProps={ getRootProps }
@@ -103,7 +115,6 @@ export const FormReviewCreate: FC<IFormCreateReviewCreateProps> = ({ handleOnClo
                 name="image"
                 onChange={ onChange }
                 value={ value }
-                disabled={ isLoading }
               />
             ) }
           />
@@ -144,7 +155,7 @@ export const FormReviewCreate: FC<IFormCreateReviewCreateProps> = ({ handleOnClo
         <div className="flex flex-col gap-3">
           <Button
             className="w-full"
-            disabled={ isSubmitted || !isValid || isLoading }
+            disabled={ isSubmitting || isLoading }
             type="submit"
           >
             Оставить отзыв
