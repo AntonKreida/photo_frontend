@@ -1,4 +1,6 @@
 import { FileOptions } from "buffer";
+import { BufferSource } from "stream/web";
+
 
 type BlobPart = BufferSource | Blob | string;
 
