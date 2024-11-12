@@ -96,7 +96,13 @@ export const InputImage: FC<IInputImageProps> = ({
                 src={ (value as FileWithPreview ).preview }
               />
               { !!isError && (
-                <ExclamationCircleIcon className="w-8 h-8 fill-slate-400" />
+                <div className="flex flex-col justify-center items-center gap-2">
+                  <ExclamationCircleIcon className="w-8 h-8 fill-slate-400" />
+                  <span className="text-carbon font-futura-pt text-sm text-center">
+                    Ошибка при загрузке изображения
+                  </span>
+                </div>
+
               ) }
             </>
           ) }

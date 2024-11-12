@@ -2,6 +2,7 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { FC, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { SubmitHandler, useForm, Controller } from "react-hook-form";
+import { Id } from "react-toastify";
 
 import {
   Button,
@@ -22,17 +23,13 @@ interface IFormCreateReviewCreateProps {
 export const FormReviewCreate: FC<IFormCreateReviewCreateProps> = ({ handleOnClose }) => {
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
-  const {
-    handleSubmit,
-    control,
-    formState: { isSubmitting }
-  } = useForm<TReviewSchemaDto>({
+  const { handleSubmit, control } = useForm<TReviewSchemaDto>({
     defaultValues: {
       author: "",
       description: "",
     },
     resolver: zodResolver(ReviewSchema),
-    mode: "onSubmit",
+    mode: "onTouched",
   });
 
   const { getRootProps, getInputProps } = useDropzone({
@@ -47,13 +44,15 @@ export const FormReviewCreate: FC<IFormCreateReviewCreateProps> = ({ handleOnClo
   const handleOnSubmitFormCreateReview: SubmitHandler<TReviewSchemaDto> = async (data) => {
     const  { toast } = await import("react-toastify");
 
+    let toastIdForError: null | Id = null;
+
     try {
       const toastId =  toast.loading("Отправляем отзыв...", {
         position: "bottom-left",
         closeButton: true,
         isLoading: true,
-        autoClose: 5000,
       });
+      toastIdForError = toastId;
 
       setIsLoading(true);
 
@@ -75,16 +74,18 @@ export const FormReviewCreate: FC<IFormCreateReviewCreateProps> = ({ handleOnClo
         render: "Отзыв успешно отправлен!",
         closeButton: true,
         isLoading: false,
-        autoClose: 5000,
+        autoClose: 3000,
       });
 
       handleOnClose();
     } catch {
-      toast.error("Произошла ошибка при отправке отзыва! Попробуйте позже...", {
+      toast.update(toastIdForError as Id, {
         position: "bottom-left",
         closeButton: true,
         isLoading: false,
-        autoClose: 5000,
+        autoClose: 3000,
+        render: "Произошла ошибка при отправке отзыва! Попробуйте позже...",
+        type: "error",
       });
 
       handleOnClose();
@@ -155,7 +156,7 @@ export const FormReviewCreate: FC<IFormCreateReviewCreateProps> = ({ handleOnClo
         <div className="flex flex-col gap-3">
           <Button
             className="w-full"
-            disabled={ isSubmitting || isLoading }
+            disabled={ isLoading }
             type="submit"
           >
             Оставить отзыв
