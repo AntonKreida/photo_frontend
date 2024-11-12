@@ -2,6 +2,7 @@ import { ReactNode } from "react";
 
 import { gabriela, localFontFuturaPT , ProviderQuery } from "@app/";
 import "@app/styles/index.css";
+import 'react-toastify/dist/ReactToastify.css';
 import { Sidebar } from "@widgets/";
 
 

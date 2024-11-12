@@ -1,5 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { FC, useState } from "react";
+import { FC, useId, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { SubmitHandler, useForm, Controller } from "react-hook-form";
 
@@ -20,10 +20,13 @@ interface IFormCreateReviewCreateProps {
 }
 
 export const FormReviewCreate: FC<IFormCreateReviewCreateProps> = ({ handleOnClose }) => {
+  const toastId = useId();
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const {
-    handleSubmit, control, formState: { isSubmitted, isValid }
+    handleSubmit,
+    control,
+    formState: { isSubmitted, isValid }
   } = useForm<TReviewSchemaDto>({
     defaultValues: {
       author: "",
@@ -43,6 +46,15 @@ export const FormReviewCreate: FC<IFormCreateReviewCreateProps> = ({ handleOnClo
   });
 
   const handleOnSubmitFormCreateReview: SubmitHandler<TReviewSchemaDto> = async (data) => {
+    const  { toast } = await import("react-toastify");
+
+    toast.loading("Отправляем отзыв...", {
+        toastId: toastId,
+        position: "bottom-left",
+        closeButton: true,
+        isLoading: true,
+    }),
+
     setIsLoading(true);
 
     let idImgFile: number | undefined = undefined;
@@ -56,6 +68,15 @@ export const FormReviewCreate: FC<IFormCreateReviewCreateProps> = ({ handleOnClo
     await postCreateReview(data, idImgFile);
 
     setIsLoading(false);
+
+    toast.update(toastId, {
+        position: "bottom-left",
+        type: "success",
+        render: "Отзыв успешно отправлен!",
+        closeButton: true,
+        isLoading: false,
+      });
+
     handleOnClose();
   };
 
