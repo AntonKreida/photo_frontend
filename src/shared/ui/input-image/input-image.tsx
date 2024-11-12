@@ -14,6 +14,7 @@ interface IInputImageProps {
     onChange: (...event: unknown[]) => void;
     errorMessage?: string;
     value?: File | null;
+    disabled?: boolean;
 }
 
 export const InputImage: FC<IInputImageProps> = ({
@@ -24,9 +25,14 @@ export const InputImage: FC<IInputImageProps> = ({
   onChange,
   errorMessage,
   value,
+  disabled,
 }) => (
   <label className="w-full h-fit flex flex-col gap-1 cursor-pointer" htmlFor={ name }>
-    <span className={ twClassNames("text-carbon text-base font-futura-pt font-normal", { "text-red-400": !!errorMessage }) }>
+    <span className={ twClassNames("text-carbon text-base font-futura-pt font-normal", {
+      "text-red-400": !!errorMessage,
+      "text-carbon/50": disabled,
+    }) }
+    >
       { !errorMessage
         ?  label
         :  errorMessage }
@@ -36,10 +42,13 @@ export const InputImage: FC<IInputImageProps> = ({
       className={ twClassNames(`w-full h-[150px] p-2 bg-white-smoke flex items-center justify-center
                         cursor-pointer outline-none outline-1 text-carbon focus:outline-carbon`, {
         "text-red-400  outline-red-400": !!errorMessage,
+        "bg-gray-200 cursor-not-allowed outline-0": disabled,
       }) }
       { ...getRootProps() }
     >
-      <input { ...getInputProps() }
+      <input
+        { ...getInputProps() }
+        disabled={ disabled }
         onChange={ (event) => {
           if(!event.target.files || event.target.files.length === 0) return;
           const file = event.target.files[0];
@@ -51,11 +60,15 @@ export const InputImage: FC<IInputImageProps> = ({
             const { width, height } = event.target as HTMLImageElement;
 
             Object.assign(file, {
-              preview: URL.createObjectURL(file),
               width: width || 0,
               height: height || 0,
             });
           };
+
+
+          Object.assign(file, {
+            preview: URL.createObjectURL(file),
+          });
 
           onChange(file);
         } }
@@ -67,7 +80,7 @@ export const InputImage: FC<IInputImageProps> = ({
         : (
           <img
             alt="image"
-            className="w-full h-full object-contain object-center"
+            className="w-full h-full object-contain object-center pointer-events-none"
             src={ (value as FileWithPreview ).preview }
           />
         ) }

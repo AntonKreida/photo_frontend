@@ -1,6 +1,11 @@
 import { instance, TResponseDataMutation } from "@shared/";
 
-import { IReviewDataForm, EntityFileImageResponse, IImgData, IImgFile } from "../lib";
+import {
+  IReviewDataForm,
+  EntityFileImageResponse,
+  IImgData,
+  IImgFile
+} from "../lib";
 
 
 const mutationCreateReview =`

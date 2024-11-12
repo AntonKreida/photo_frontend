@@ -1,5 +1,5 @@
 import { zodResolver } from "@hookform/resolvers/zod";
-import { FC } from "react";
+import { FC, useState } from "react";
 import { useDropzone } from "react-dropzone";
 import { SubmitHandler, useForm, Controller } from "react-hook-form";
 
@@ -20,8 +20,10 @@ interface IFormCreateReviewCreateProps {
 }
 
 export const FormReviewCreate: FC<IFormCreateReviewCreateProps> = ({ handleOnClose }) => {
+  const [isLoading, setIsLoading] = useState<boolean>(false);
+
   const {
-    handleSubmit, control, watch, formState: { isSubmitted }
+    handleSubmit, control, formState: { isSubmitted, isValid }
   } = useForm<TReviewSchemaDto>({
     defaultValues: {
       author: "",
@@ -41,6 +43,8 @@ export const FormReviewCreate: FC<IFormCreateReviewCreateProps> = ({ handleOnClo
   });
 
   const handleOnSubmitFormCreateReview: SubmitHandler<TReviewSchemaDto> = async (data) => {
+    setIsLoading(true);
+
     let idImgFile: number | undefined = undefined;
 
     if(data.image) {
@@ -50,10 +54,10 @@ export const FormReviewCreate: FC<IFormCreateReviewCreateProps> = ({ handleOnClo
 
     delete data.image;
     await postCreateReview(data, idImgFile);
+
+    setIsLoading(false);
+    handleOnClose();
   };
-
-
-  console.log(watch());
 
   return (
     <SidebarRight className="pt-[80px]" onClickClose={ handleOnClose }>
@@ -78,6 +82,7 @@ export const FormReviewCreate: FC<IFormCreateReviewCreateProps> = ({ handleOnClo
                 name="image"
                 onChange={ onChange }
                 value={ value }
+                disabled={ isLoading }
               />
             ) }
           />
@@ -87,10 +92,12 @@ export const FormReviewCreate: FC<IFormCreateReviewCreateProps> = ({ handleOnClo
             name="author"
             render={ ({ field: { value, onChange }, fieldState: { error } }) => (
               <Input
+                disabled={ isLoading }
                 errorMessage={ error?.message }
                 label="Ваше имя"
                 name="author"
                 onChange={ onChange }
+                required
                 value={ value }
               />
             ) }
@@ -101,10 +108,12 @@ export const FormReviewCreate: FC<IFormCreateReviewCreateProps> = ({ handleOnClo
             name="description"
             render={ ({ field: { value, onChange }, fieldState: { error } }) => (
               <TextArea
+                disabled={ isLoading }
                 errorMessage={ error?.message }
                 label="Ваш отзыв"
                 name="description"
                 onChange={ onChange }
+                required
                 value={ value }
               />
             ) }
@@ -114,7 +123,7 @@ export const FormReviewCreate: FC<IFormCreateReviewCreateProps> = ({ handleOnClo
         <div className="flex flex-col gap-3">
           <Button
             className="w-full"
-            disabled={ isSubmitted }
+            disabled={ isSubmitted || !isValid || isLoading }
             type="submit"
           >
             Оставить отзыв
