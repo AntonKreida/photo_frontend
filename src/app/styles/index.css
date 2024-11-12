@@ -1,2 +1,6 @@
 /* 1. BASE */
-@import "./base/_base.css"
+@import "./base/_base.css";
+
+
+/* 2. UTILS */
+@import "./utils/toast.css";

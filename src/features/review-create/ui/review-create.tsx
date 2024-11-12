@@ -35,7 +35,7 @@ export const ReviewCreate = () => {
           </Portal>
         ) }
       </AnimatePresence>
-      <WithLazyLoadingToastContainer />
+      <WithLazyLoadingToastContainer rtl={ false } />
     </>
   );
 };
