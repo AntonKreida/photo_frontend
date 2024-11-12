@@ -4,8 +4,8 @@ import { IReview } from "../lib";
 
 
 const allReviewsWithVariablesQueryDocument =`
-    query getReviews($isActiveReview: Boolean!) {
-        reviews(isActiveReview: $isActiveReview) {
+    query getReviews($isActiveReview: Boolean!, $sort: LinkReviewByInput) {
+        reviews(isActiveReview: $isActiveReview, sort: $sort) {
             id
             author
             description
@@ -25,7 +25,10 @@ export const getReviews = async () => {
     operationName: "getReviews",
     query: allReviewsWithVariablesQueryDocument,
     variables: {
-      isActiveReview: true
+      isActiveReview: true,
+      sort: {
+        createdAt: "desc"
+      }
     }
   });
 

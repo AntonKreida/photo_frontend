@@ -1,3 +1,4 @@
+import { CheckCircleIcon, ExclamationCircleIcon } from "@heroicons/react/24/solid";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { FC, useState } from "react";
 import { useDropzone } from "react-dropzone";
@@ -51,6 +52,9 @@ export const FormReviewCreate: FC<IFormCreateReviewCreateProps> = ({ handleOnClo
         position: "bottom-left",
         closeButton: true,
         isLoading: true,
+        hideProgressBar: false,
+        className: "font-futura-pt",
+        autoClose: false,
       });
       toastIdForError = toastId;
 
@@ -71,10 +75,11 @@ export const FormReviewCreate: FC<IFormCreateReviewCreateProps> = ({ handleOnClo
       toast.update(toastId, {
         position: "bottom-left",
         type: "success",
-        render: "Отзыв успешно отправлен!",
+        render: () => <span className="font-futura-pt">Отзыв успешно отправлен!</span>,
         closeButton: true,
         isLoading: false,
-        autoClose: 3000,
+        icon: () => <CheckCircleIcon />,
+        hideProgressBar: false,
       });
 
       handleOnClose();
@@ -83,9 +88,11 @@ export const FormReviewCreate: FC<IFormCreateReviewCreateProps> = ({ handleOnClo
         position: "bottom-left",
         closeButton: true,
         isLoading: false,
-        autoClose: 3000,
-        render: "Произошла ошибка при отправке отзыва! Попробуйте позже...",
+        autoClose: false,
+        render: () => <span className="font-futura-pt">Произошла ошибка при отправке отзыва! Попробуйте позже...</span>,
         type: "error",
+        icon: () => <ExclamationCircleIcon />,
+        hideProgressBar: false,
       });
 
       handleOnClose();
