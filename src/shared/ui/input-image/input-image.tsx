@@ -13,7 +13,7 @@ interface IInputImageProps {
     getInputProps: <T extends DropzoneInputProps>(props?: T) => T;
     onChange: (...event: unknown[]) => void;
     errorMessage?: string;
-    value?: FileWithPreview | null;
+    value?: File | null;
 }
 
 export const InputImage: FC<IInputImageProps> = ({
@@ -44,9 +44,18 @@ export const InputImage: FC<IInputImageProps> = ({
           if(!event.target.files || event.target.files.length === 0) return;
           const file = event.target.files[0];
 
-          Object.assign(file, {
-            preview: URL.createObjectURL(file)
-          });
+          const img = new Image();
+          img.src = URL.createObjectURL(file);
+
+          img.onload = function(event) {
+            const { width, height } = event.target as HTMLImageElement;
+
+            Object.assign(file, {
+              preview: URL.createObjectURL(file),
+              width: width || 0,
+              height: height || 0,
+            });
+          };
 
           onChange(file);
         } }
@@ -59,7 +68,7 @@ export const InputImage: FC<IInputImageProps> = ({
           <img
             alt="image"
             className="w-full h-full object-contain object-center"
-            src={ value.preview }
+            src={ (value as FileWithPreview ).preview }
           />
         ) }
     </div>

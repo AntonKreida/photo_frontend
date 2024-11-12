@@ -11,6 +11,7 @@ import {
   TextArea
 } from "@shared/";
 
+import { postCreateReview, postUploadFile } from "../api";
 import { ReviewSchema, TReviewSchemaDto } from "../model";
 
 
@@ -19,7 +20,9 @@ interface IFormCreateReviewCreateProps {
 }
 
 export const FormReviewCreate: FC<IFormCreateReviewCreateProps> = ({ handleOnClose }) => {
-  const { handleSubmit, control, watch } = useForm<TReviewSchemaDto>({
+  const {
+    handleSubmit, control, watch, formState: { isSubmitted }
+  } = useForm<TReviewSchemaDto>({
     defaultValues: {
       author: "",
       description: "",
@@ -37,12 +40,23 @@ export const FormReviewCreate: FC<IFormCreateReviewCreateProps> = ({ handleOnClo
     maxFiles: 1,
   });
 
-  const handleOnSubmitFormCreateReview: SubmitHandler<TReviewSchemaDto> = (data) => {
-    console.log(data);
+  const handleOnSubmitFormCreateReview: SubmitHandler<TReviewSchemaDto> = async (data) => {
+    let idImgFile: number | undefined = undefined;
+
+    if(data.image) {
+      const newImg = await postUploadFile(data?.image);
+      idImgFile = newImg?.data?.singleUploadImg?.id;
+    }
+
+    delete data.image;
+    await postCreateReview(data, idImgFile);
   };
 
+
+  console.log(watch());
+
   return (
-    <SidebarRight onClickClose={ handleOnClose } className="pt-[80px]">
+    <SidebarRight className="pt-[80px]" onClickClose={ handleOnClose }>
       <form className="flex flex-col h-full justify-between" onSubmit={ handleSubmit(handleOnSubmitFormCreateReview) }>
 
         <div className="flex flex-col gap justify-start gap-2">
@@ -100,6 +114,7 @@ export const FormReviewCreate: FC<IFormCreateReviewCreateProps> = ({ handleOnClo
         <div className="flex flex-col gap-3">
           <Button
             className="w-full"
+            disabled={ isSubmitted }
             type="submit"
           >
             Оставить отзыв
