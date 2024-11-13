@@ -28,7 +28,7 @@ export const AdapterImage: FC<IAdapterImageProps> = ({
   };
 
   return (
-    <div className={ twClassNames(" relative", [classNameWrapper]) }>
+    <div className={ twClassNames("relative", [classNameWrapper]) }>
       <Image
         alt={ alt }
         className={ twClassNames("w-full h-full pointer-events-none", {

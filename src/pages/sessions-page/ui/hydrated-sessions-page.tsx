@@ -2,10 +2,10 @@ import { dehydrate, HydrationBoundary, QueryClient } from "@tanstack/react-query
 import { headers } from "next/headers";
 
 import { QUERY_KEYS } from "@shared/";
+import { HydratedGalleries } from "@widgets/";
 
 import { getSessionsPage } from "../api";
 import { SessionsPage } from "./sessions-page";
-import { HydratedGalleries } from "@widgets/";
 
 
 export const HydratedSessionsPage = async () => {
@@ -21,9 +21,9 @@ export const HydratedSessionsPage = async () => {
 
   return (
     <HydrationBoundary state={ dehydrate(queryClient) }>
-        <SessionsPage pathname={ pathname as string }>
-            <HydratedGalleries pathname={ pathname as string } />
-        </SessionsPage>
+      <SessionsPage pathname={ pathname as string }>
+        <HydratedGalleries pathname={ pathname as string } />
+      </SessionsPage>
     </HydrationBoundary>
   );
 };

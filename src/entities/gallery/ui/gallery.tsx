@@ -13,7 +13,7 @@ interface IGalleryProps {
 
 export const Gallery: FC<IGalleryProps> = ({ card, pathname }) => (
   <Link
-    className="flex flex-col gap-4 items-center col-span-4 w-fit h-fit group"
+    className="flex flex-col gap-4 items-center w-[300px] col-span-4 h-fit group"
     href={ `${pathname}/${card.documentId}` }
   >
     <AdapterImage
@@ -27,7 +27,7 @@ export const Gallery: FC<IGalleryProps> = ({ card, pathname }) => (
       width={ card.titleImage.width }
     />
 
-    <span className="text-carbon text-2xl font-normal font-gabriela group-hover:text-gray-300 transition-[color]">
+    <span className="text-carbon text-2xl font-normal font-gabriela text-center group-hover:text-gray-300 transition-[color]">
       { card.title }
     </span>
   </Link>

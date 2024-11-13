@@ -25,22 +25,22 @@ export const SessionsPage: FC<ISessionsPageProps> = ({ pathname, children }) => 
   const { data } = useSessionsPage({ pathname });
 
   return (
-    <div className="w-full">
+    <div>
       <HeaderPage
-        subTitle={data?.subPageTitle}
-        title={data?.titlePage}
         renderComponent={ () => (
-        <LinkButton
+          <LinkButton
             href="https://t.me/Melnikova_foto72"
             isNextJsLink={ false }
             rel="noreferrer"
             target="_blank"
-        >
+          >
             Заказать съемку
-        </LinkButton>
+          </LinkButton>
         ) }
+        subTitle={ data?.subPageTitle }
+        title={ data?.titlePage }
       />
-        { children }
+      { children }
       <FooterPage classNameInner="justify-center">
         <LinkButton href={ ROUTES_PAGES.PRICE }>
           <span>Узнать стоимость услуг</span>
