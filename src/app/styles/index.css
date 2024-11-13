@@ -1,2 +1,10 @@
 /* 1. BASE */
-@import "./base/_base.css"
+@import "./base/_base.css";
+
+
+/* 2. UTILS */
+@import "./utils/toast.css";
+
+
+/*3. LIB */
+@import '~react-toastify/dist/ReactToastify.min.css';

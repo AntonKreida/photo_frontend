@@ -1,17 +1,18 @@
 import { dehydrate, HydrationBoundary, QueryClient } from "@tanstack/react-query";
-import { FC, ReactNode } from "react";
+import { FC } from "react";
 
 import { getPrices } from "@entities/";
 import { QUERY_KEYS } from "@shared/";
 
+import { Prices } from "./prices";
+
 
 interface IPricesListProps {
     searchParams?: { [key: string]: string };
-    children: ReactNode;
 }
 
 
-export const HydratedPrices: FC<IPricesListProps> = async ({ searchParams, children }) => {
+export const HydratedPrices: FC<IPricesListProps> = async ({ searchParams }) => {
   const queryKeyPage = searchParams?.type || "all";
 
   const queryClient = new QueryClient();
@@ -23,7 +24,7 @@ export const HydratedPrices: FC<IPricesListProps> = async ({ searchParams, child
 
   return (
     <HydrationBoundary state={ dehydrate(queryClient) }>
-      { children }
+      <Prices />
     </HydrationBoundary>
   );
 };
