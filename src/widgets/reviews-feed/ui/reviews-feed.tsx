@@ -7,7 +7,7 @@ export const ReviewsFeed = () => {
   const { reviews } = useReviews();
 
   return (
-    <div className="mt-[76px] flex flex-col gap-[51px] [&>div:nth-child(even)>div:nth-child(1)]:col-start-2
+    <div className="mt-[76px] grid grid-flow-row grid-rows-[auto] gap-[51px] [&>div:nth-child(even)>div:nth-child(1)]:col-start-2
         [&>div:nth-child(even)>div:nth-child(2)]:col-start-1"
     >
       { reviews.length > 0

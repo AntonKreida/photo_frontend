@@ -1,5 +1,4 @@
 import { ReactNode } from "react";
-import "react-toastify/dist/ReactToastify.css";
 
 import { gabriela, localFontFuturaPT , ProviderQuery } from "@app/";
 import "@app/styles/index.css";
@@ -13,7 +12,9 @@ interface IRootLayoutProps {
 export default function RootLayout ({ children }: IRootLayoutProps) {
   return (
     <html
-      className={ `${gabriela.variable} ${localFontFuturaPT.variable} scrollbar-thin scrollbar-thumb-carbon/70 scrollbar-track-white-smoke` }
+      className={ `${gabriela.variable} ${localFontFuturaPT.variable}
+      scrollbar-thin scrollbar-thumb-carbon/50 scrollbar-track-white-smoke scrollbar-track-rounded-full
+      scrollbar-thumb-rounded-full` }
       lang="ru"
     >
       <body className="min-h-screen" id="root">

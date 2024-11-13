@@ -4,3 +4,7 @@
 
 /* 2. UTILS */
 @import "./utils/toast.css";
+
+
+/*3. LIB */
+@import '~react-toastify/dist/ReactToastify.min.css';
