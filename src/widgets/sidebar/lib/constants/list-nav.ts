@@ -14,7 +14,7 @@ export const listNav = [
       {
         id: 3,
         title: "Индивидуальные",
-        path: ROUTES_PAGES.INDIVIDUAL,
+        path: ROUTES_PAGES.INDIVIDUALS,
       },
       {
         id: 4,
@@ -34,12 +34,12 @@ export const listNav = [
     ],
   },
   {
-    id: 6,
+    id: 7,
     title: "Прайс",
     path: ROUTES_PAGES.PRICE,
   },
   {
-    id: 7,
+    id: 8,
     title: "Отзывы",
     path: ROUTES_PAGES.REVIEWS,
   }

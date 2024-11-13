@@ -46,9 +46,11 @@ const SubNavItem: FC<ISubNavItemProps> = ({
         "grid-rows-[1fr] ": isActiveSubNav
       }) }
     >
-      <ul className={ twClassNames("overflow-hidden flex-col justify-start hidden pt-[30px]", {
-        "flex": isActiveSubNav
-      }) }
+      <ul
+        className={ twClassNames("overflow-hidden flex-col justify-start hidden pt-[30px]", {
+          "flex": isActiveSubNav
+        }) }
+        onClick={ (event) => event.stopPropagation() }
       >
         { navItem.subNav?.map((subNavItem) => (
           <MemoNavItem

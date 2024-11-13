@@ -3,7 +3,7 @@ export const ROUTES_PAGES = {
   ABOUT: "/about",
   PRICE: "/price?type=all",
   REVIEWS: "/reviews",
-  INDIVIDUAL: "/individual",
+  INDIVIDUALS: "/individuals",
   FAMILY: "/family",
   WEDDING: "/wedding",
   BRANDS: "/brands",
