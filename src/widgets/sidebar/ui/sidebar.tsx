@@ -1,11 +1,11 @@
 import Link from "next/link";
 
-import { FormContact } from "@features/";
 import {
   ROUTES_PAGES,
   InstagramIcon,
   TelegramIcon,
-  VkIcon
+  VkIcon,
+  LinkButton
 } from "@shared/";
 
 
@@ -36,7 +36,13 @@ export const Sidebar = () => (
           <a><InstagramIcon className="w-5 h-5" /></a>
         </div>
         <div className="py-4">
-          <FormContact />
+          <LinkButton
+            href="https://t.me/Melnikova_foto72"
+            isNextJsLink={ false }
+            target="_blank"
+          >
+            Связаться со мной
+          </LinkButton>
         </div>
       </div>
     </div>

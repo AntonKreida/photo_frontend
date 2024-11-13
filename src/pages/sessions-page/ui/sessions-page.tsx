@@ -1,6 +1,5 @@
 import { ArrowRightIcon, ArrowUpCircleIcon } from "@heroicons/react/24/solid";
 
-import { FormContact } from "@features/";
 import {
   Button,
   FooterPage,
@@ -17,12 +16,6 @@ import mockImage from "../mock/mock.jpg";
 const SessionsPage = () => (
   <div className="w-full">
     <HeaderPage
-      renderComponent={ () => (
-        <FormContact
-          iconButtonOpen={ <ArrowRightIcon className="w-5 h-5" /> }
-          textButtonOpen="Заказать съемку"
-        />
-      ) }
       subTitle="портретная съемка как зеркало души"
       title="Личные фотосессии"
     />
