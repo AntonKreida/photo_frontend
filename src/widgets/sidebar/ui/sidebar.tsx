@@ -26,9 +26,9 @@ export const Sidebar = () => (
       <div className="mt-auto flex flex-col justify-start py-4">
         <a
           className="text-carbon text-sm font-futura-pt font-medium uppercase py-4"
-          href="tel:+79923127209"
+          href="tel:+79220070075"
         >
-          +7 (922) 007-00-35
+          +7 (922) 007-00-75
         </a>
         <div className="flex items-center gap-2 py-4">
           <a
