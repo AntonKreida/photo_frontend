@@ -3,4 +3,5 @@ export const QUERY_KEYS = {
   TYPE_PRICES: "type-prices",
   REVIEWS: "reviews",
   SESSIONS: "sessions",
+  GALLERY: "gallery",
 } as const;

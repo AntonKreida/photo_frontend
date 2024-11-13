@@ -1,12 +1,11 @@
 "use client";
 
 import { ArrowRightIcon, ArrowUpCircleIcon } from "@heroicons/react/24/solid";
-import { FC } from "react";
+import { FC, ReactNode } from "react";
 
 import {
   Button,
   FooterPage,
-  GalleryListWrapper,
   HeaderPage,
   LinkButton,
   ROUTES_PAGES,
@@ -14,15 +13,15 @@ import {
 } from "@shared/";
 
 import { useSessionsPage } from "../hook";
-import mockImage from "../mock/mock.jpg";
 
 
 interface ISessionsPageProps {
-    pathname: string
+    pathname: string;
+    children: ReactNode;
 }
 
 
-export const SessionsPage: FC<ISessionsPageProps> = ({ pathname }) => {
+export const SessionsPage: FC<ISessionsPageProps> = ({ pathname, children }) => {
   const { data } = useSessionsPage({ pathname });
 
   return (
@@ -41,9 +40,7 @@ export const SessionsPage: FC<ISessionsPageProps> = ({ pathname }) => {
         </LinkButton>
         ) }
       />
-
-      <GalleryListWrapper galleryList={ Array.from({ length: 12 }).map((_, index) => ({ id: index, href: mockImage, title: "Алена" })) } />
-
+        { children }
       <FooterPage classNameInner="justify-center">
         <LinkButton href={ ROUTES_PAGES.PRICE }>
           <span>Узнать стоимость услуг</span>

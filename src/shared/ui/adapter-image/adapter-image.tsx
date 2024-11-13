@@ -10,12 +10,12 @@ import { SkeletonAdapterImage } from "./skeleton-adapter-image";
 
 interface IAdapterImageProps extends ImageProps {
     className?: string;
-
+    classNameWrapper?: string;
 }
 
 
 export const AdapterImage: FC<IAdapterImageProps> = ({
-  alt, src, className, ...props
+  alt, src, className, classNameWrapper, ...props
 }) => {
   const [currentStatus, setCurrentStatus] = useState<STATUS_LOADED_IMAGE>(STATUS_LOADED_IMAGE.LOADING);
 
@@ -28,7 +28,7 @@ export const AdapterImage: FC<IAdapterImageProps> = ({
   };
 
   return (
-    <div className="w-full h-full relative">
+    <div className={ twClassNames(" relative", [classNameWrapper]) }>
       <Image
         alt={ alt }
         className={ twClassNames("w-full h-full pointer-events-none", {
