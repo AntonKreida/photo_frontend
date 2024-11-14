@@ -44,10 +44,12 @@ export const ModalGallery: FC<IModalShowGalleryProps> = ({ children, sessionCard
           <AdapterImage
             alt="image"
             className="object-contain max-h-[calc(100vh-20px)] h-full"
-            height={ 100 }
+            classNameWrapper="w-full h-full"
+            height={ card.height }
+            priority
+            quality={ 100 }
             src={ original }
-            unoptimized
-            width={ 100 }
+            width={ card.width }
           />
         </div>
       ),
