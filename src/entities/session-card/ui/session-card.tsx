@@ -1,6 +1,6 @@
 "use client";
 
-import { FC } from "react";
+import { FC, Ref } from "react";
 
 import { AdapterImage, twClassNames } from "@shared/";
 
@@ -11,14 +11,21 @@ interface ISessionCardProps {
     sessionCard: ISessionCard;
     className?: string;
     actionCard?: (card: ISessionCard) => void;
+    innerRef?: Ref<HTMLDivElement>;
 }
 
-export const SessionCard: FC<ISessionCardProps> = ({ className, sessionCard, actionCard }) => (
+export const SessionCard: FC<ISessionCardProps> = ({
+  className,
+  sessionCard,
+  actionCard,
+  innerRef,
+}) => (
   <div
     className={ twClassNames("col-span-4 rounded overflow-hidden", {
       "cursor-pointer hover:scale-105 transition-[transform] hover:z-10": !!actionCard
     }, [className]) }
     onClick={ () => actionCard?.(sessionCard) }
+    ref={ innerRef }
   >
     <AdapterImage
       alt={ sessionCard.name }
