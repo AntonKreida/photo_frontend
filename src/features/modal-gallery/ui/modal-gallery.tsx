@@ -9,7 +9,7 @@ import {
 import ImageGallery, { ReactImageGalleryItem } from "react-image-gallery";
 import "react-image-gallery/styles/css/image-gallery.css";
 
-import { ICardPhoto } from "@entities/";
+import { ISessionCard } from "@entities/";
 import { AdapterImage, ModalWrapper, twClassNames } from "@shared/";
 
 
@@ -19,10 +19,10 @@ interface IModalShowGalleryProps {
         onHideModal: () => void;
         modalActive: boolean;
     }) => ReactNode;
-    cardsPhoto: ICardPhoto[];
+    sessionCards: ISessionCard[];
 }
 
-export const ModalGallery: FC<IModalShowGalleryProps> = ({ children, cardsPhoto }) => {
+export const ModalGallery: FC<IModalShowGalleryProps> = ({ children, sessionCards }) => {
   const [startIndex, setStartIndex] = useState(0);
   const [modalActive, setModalActive] = useState(false);
   const [isFullScreen, setIsFullScreen] = useState(false);
@@ -34,9 +34,8 @@ export const ModalGallery: FC<IModalShowGalleryProps> = ({ children, cardsPhoto 
   const onHideModal = () => setModalActive(false);
 
   const images = useMemo<ReactImageGalleryItem[]>(() => (
-    cardsPhoto.map((card) => ({
-      original: card.href,
-      thumbnail: card.href,
+    sessionCards.map((card) => ({
+      original: `${ process.env.NEXT_PUBLIC_API_URL }${ card.url }`,
       renderItem: ({ original }) => (
         <div className={ twClassNames("relative h-full p-2", {
           "h-[500px]": !isFullScreen
@@ -53,7 +52,7 @@ export const ModalGallery: FC<IModalShowGalleryProps> = ({ children, cardsPhoto 
         </div>
       ),
     }))
-  ), [cardsPhoto, isFullScreen]);
+  ), [sessionCards, isFullScreen]);
 
 
   return (

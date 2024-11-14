@@ -8,7 +8,7 @@ import { getSessionsPage } from "../api";
 import { SessionsPage } from "./sessions-page";
 
 
-export const HydratedSessionsPage = async () => {
+const HydratedSessionsPage = async () => {
   const headerList = headers();
   const pathname = headerList.get("x-current-path")?.replace(/\//gm, "");
 
