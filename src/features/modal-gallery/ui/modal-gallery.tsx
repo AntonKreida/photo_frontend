@@ -1,5 +1,6 @@
 "use client";
 
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import {
   FC,
@@ -12,8 +13,6 @@ import "react-image-gallery/styles/css/image-gallery.css";
 
 import { ISessionCard } from "@entities/";
 import { ModalWrapper, twClassNames } from "@shared/";
-
-import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
 
 
 interface IModalShowGalleryProps {
