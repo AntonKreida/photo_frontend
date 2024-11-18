@@ -22,7 +22,9 @@ export const Sidebar = () => (
         </Link>
         <h2 className="text-xs text-carbon/50 font-normal font-gabriela uppercase tracking-[7px]">Photographer</h2>
       </div>
+
       <NavigateMenu />
+      
       <div className="mt-auto flex flex-col justify-start py-4">
         <a
           className="text-carbon text-sm font-futura-pt font-medium uppercase py-4"

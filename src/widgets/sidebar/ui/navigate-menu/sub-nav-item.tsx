@@ -47,7 +47,7 @@ const SubNavItem: FC<ISubNavItemProps> = ({
       }) }
     >
       <ul
-        className={ twClassNames("overflow-hidden flex-col justify-start hidden pt-[30px]", {
+        className={ twClassNames("overflow-hidden flex-col justify-start hidden pt-[15px]", {
           "flex": isActiveSubNav
         }) }
         onClick={ (event) => event.stopPropagation() }
