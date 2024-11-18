@@ -1,72 +1,40 @@
+"use client";
+
 import Image from "next/image";
 
-import { HeaderPage, LayoutContent, LikeIcon } from "@shared/";
+import { HeaderPage, LayoutContent } from "@shared/";
 
-import { listItem } from "../constants/list-item";
-import about from "../mock/about.jpg";
+import { useAboutPage } from "../model";
 
 
-const AboutPage = () => (
-  <div className="w-full">
-    <HeaderPage title="Обо мне" />
-    <LayoutContent className="flex gap-[65px] flex-wrap">
-      <div className="w-[471px] h-[614px] flex-shrink-0">
-        <Image
-          alt="about"
-          className="w-full h-full object-cover"
-          height={ 614 }
-          priority
-          src={ about }
-          width={ 471 }
+export const AboutPage = () => {
+  const { aboutPage } = useAboutPage();
+
+  return (
+    <div className="w-full">
+      <HeaderPage title={ aboutPage?.title } />
+      <LayoutContent className="flex gap-[65px] flex-wrap">
+        <div className="w-[471px] h-[614px] flex-shrink-0">
+          <Image
+            alt={ aboutPage?.aboutImage.name ?? "about" }
+            className="w-full h-full object-cover"
+            height={ aboutPage?.aboutImage?.height ?? 471 }
+            priority
+            quality={ 100 }
+            src={ `${ process.env.NEXT_PUBLIC_API_URL }${ aboutPage?.aboutImage?.url }` }
+            width={ aboutPage?.aboutImage?.width ?? 614 }
+          />
+        </div>
+        <div
+          className="max-w-[400px]
+                [&_h1]:text-xl [&_h1]:text-carbon [&_h1]:font-normal [&_h1]:font-gabriela [&_h1]:mb-4
+                [&_p]:text-xl [&_p]:text-carbon [&_p]:font-light [&_p]:font-futura-pt [&_p]:mb-4
+                [&_ul]:list-none [&_ul]:mb-4
+                [&_li]:text-xl [&_li]:text-carbon [&_li]:font-light [&_li]:font-futura-pt [&_li]:relative"
+          dangerouslySetInnerHTML={{ __html: aboutPage?.descriptions ?? "" }}
         />
-      </div>
-      <div className="flex flex-col gap-[60px] max-w-[400px]">
+      </LayoutContent>
+    </div>
+  );
+};
 
-        <div className="flex flex-col gap-3">
-          <h2 className="text-carbon text-xl font-normal font-gabriela">
-            Привет! Приятно познакомиться, я
-            <br />
-            Марамчина Александра – фотограф.
-          </h2>
-          <p className="text-carbon text-xl font-light font-futura-pt">
-            За три года в фотографии я провела более 1000 успешных съёмок, публиковалась в международных журналах,
-            работала с брендами и начала обучать фотографии других.
-            Знаю всё о позировании и том, как сделать так, чтобы фотографии Вам понравились.
-          </p>
-        </div>
-
-        <div className="flex flex-col gap-3 text-carbon text-xl font-light font-futura-pt">
-          <h2 className="text-carbon text-xl font-normal font-gabriela">
-            Почему фотографии ?
-          </h2>
-          <div>
-            <p>
-              Честно, она помогла мне реализовать три потребности:
-            </p>
-            <ul className="list-none">
-              { listItem.map((text, index, array) => (
-                <li
-                  className="text-carbon pl-6 text-xl font-light font-futura-pt relative"
-                  key={ index }
-                >
-                  { index !== array.length - 1
-                    ? `${text},`
-                    : `${text}.` }
-
-                  <LikeIcon className="absolute top-0 left-0 w-5 h-5 translate-y-[35%]" />
-                </li>
-              )) }
-            </ul>
-          </div>
-          <p>
-            Здесь я чувствую себя на своём месте.
-            <br />
-            Именно поэтому меня ценят клиенты, и мы вместе достигаем крутых результатов.
-          </p>
-        </div>
-      </div>
-    </LayoutContent>
-  </div>
-);
-
-export default AboutPage;

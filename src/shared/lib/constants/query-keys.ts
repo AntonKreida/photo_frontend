@@ -4,4 +4,5 @@ export const QUERY_KEYS = {
   REVIEWS: "reviews",
   SESSIONS: "sessions",
   GALLERY: "gallery",
+  ABOUT: "about",
 } as const;
