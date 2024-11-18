@@ -1,2 +1,1 @@
-export * from "./reviews-feed";
-export * from "./hydrate-reviews-feed";
+export { HydratedReviewsFeed as ReviewsFeed } from "./hydrate-reviews-feed";

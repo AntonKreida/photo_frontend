@@ -1,6 +1,6 @@
 import { ReviewCreate } from "@features/";
 import { HeaderPage } from "@shared/";
-import { HydratedReviewsFeed } from "@widgets/";
+import { ReviewsFeed } from "@widgets/";
 
 
 export const ReviewsPage = () => (
@@ -12,6 +12,6 @@ export const ReviewsPage = () => (
       title="Отзывы"
     />
 
-    <HydratedReviewsFeed />
+    <ReviewsFeed />
   </div>
 );

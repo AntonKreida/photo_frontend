@@ -1,1 +1,1 @@
-export * from "./session-feed";
+export * from "./session-page";

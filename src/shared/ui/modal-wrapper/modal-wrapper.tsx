@@ -12,13 +12,15 @@ interface IModalWrapperProps {
     children: ReactNode;
     handleOnCloseModal?: () => void;
     className?: string;
+    classNameInner?: string;
 }
 
 export const ModalWrapper: FC<IModalWrapperProps> = ({
   children,
   isOpen,
   handleOnCloseModal,
-  className
+  className,
+  classNameInner,
 }) => (
   <AnimatePresence>
     { !!isOpen && (
@@ -35,7 +37,7 @@ export const ModalWrapper: FC<IModalWrapperProps> = ({
                   onClick={ handleOnCloseModal }
                 />
               ) }
-            <div className="w-full h-full px-10 py-8">
+            <div className={ twClassNames("w-full h-full px-10 py-8", [classNameInner]) }>
               { children }
             </div>
           </div>

@@ -44,7 +44,7 @@ export const SessionPage: FC<ISessionPage> = ({ pathname, individualId }) => {
         title={ sessionPage?.title }
       />
 
-      <SessionFeed sessionCards={ sessionPage?.sessionImages || [] } />
+      <SessionFeed sessionImages={ sessionPage?.sessionImages ?? [] } />
 
       <ScrollLink className="fixed bottom-10 right-5 z-20" heightVisible={ 100 } href="#root">
         <Button className="rounded-full p-0 bg-white hover:bg-white">

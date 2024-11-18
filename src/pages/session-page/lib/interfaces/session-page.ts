@@ -1,8 +1,8 @@
 import { ISessionCard } from "@entities/";
 
 
-export interface ISessionFeed {
+export interface ISessionPage {
     documentId: string;
     title: string;
-    sessionImages: ISessionCard[]
+    sessionImages: ISessionCard[];
 }

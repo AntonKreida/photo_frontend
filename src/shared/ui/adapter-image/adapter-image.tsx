@@ -11,11 +11,12 @@ import { SkeletonAdapterImage } from "./skeleton-adapter-image";
 interface IAdapterImageProps extends ImageProps {
     className?: string;
     classNameWrapper?: string;
+    classNameSkeleton?: string;
 }
 
 
 export const AdapterImage: FC<IAdapterImageProps> = ({
-  alt, src, className, classNameWrapper, ...props
+  alt, src, className, classNameWrapper, classNameSkeleton, ...props
 }) => {
   const [currentStatus, setCurrentStatus] = useState<STATUS_LOADED_IMAGE>(STATUS_LOADED_IMAGE.LOADING);
 
@@ -40,8 +41,8 @@ export const AdapterImage: FC<IAdapterImageProps> = ({
         { ...props }
       />
 
-      { !!(STATUS_LOADED_IMAGE.LOADING === currentStatus || STATUS_LOADED_IMAGE.ERROR === currentStatus) && (
-        <SkeletonAdapterImage status={ currentStatus } />
+      { !!(currentStatus === STATUS_LOADED_IMAGE.LOADING || currentStatus === STATUS_LOADED_IMAGE.ERROR) && (
+        <SkeletonAdapterImage className={ classNameSkeleton } status={ currentStatus } />
       ) }
     </div>
   );

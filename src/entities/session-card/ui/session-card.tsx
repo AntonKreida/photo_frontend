@@ -29,6 +29,7 @@ export const SessionCard: FC<ISessionCardProps> = ({
   >
     <AdapterImage
       alt={ sessionCard.name }
+      classNameWrapper="w-full h-full"
       height={ sessionCard.height }
       priority
       quality={ 100 }

@@ -1,6 +1,6 @@
 import { instance, TResponseData } from "@shared/";
 
-import { ISessionFeed } from "../lib";
+import { ISessionPage } from "../lib";
 
 
 const withSessionQueryDocument = (namePage: string) =>(`
@@ -9,20 +9,20 @@ const withSessionQueryDocument = (namePage: string) =>(`
             documentId
             title
             sessionImages {
-                documentId
-                name
-                url
-                width
-                height
-                alternativeText
+               documentId,
+               name,
+               url,
+               width,
+               height,
             }
         }
     }
 `);
 
+
 export const getSessionPage = async (namePage: string, documentId: string) => {
   const { data } =  await instance
-    .post<TResponseData<{ [namePage: string]: ISessionFeed }>>(`${process.env.NEXT_PUBLIC_API_URL}/${process.env.NEXT_PUBLIC_API_ENDPOINT}`, {
+    .post<TResponseData<{ [namePage: string]: ISessionPage }>>(`${process.env.NEXT_PUBLIC_API_URL}/${process.env.NEXT_PUBLIC_API_ENDPOINT}`, {
       operationName: "getSessionsPage",
       query: withSessionQueryDocument(namePage),
       variables: {
@@ -32,3 +32,4 @@ export const getSessionPage = async (namePage: string, documentId: string) => {
 
   return data?.data[`${namePage}Session`];
 };
+
