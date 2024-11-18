@@ -1,1 +1,1 @@
-export { default as AboutPage } from "./ui/about-page";
+export { default as AboutPage } from "./ui/hydrate-about-page";
