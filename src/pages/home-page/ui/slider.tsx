@@ -3,28 +3,18 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useRef, useState } from "react";
+import {
+  FC, useEffect, useRef, useState
+} from "react";
+
+import { ISlider } from "../lib";
 
 
-// TODO: Убрать мок когда перейдем к бэку
-import { ROUTES_PAGES } from "@shared/";
+interface ISliderProps {
+    sliders: ISlider[];
+}
 
-import slider from "../mock/slide.jpg";
-
-
-const arrayMockSlide = [
-  {
-    title: "лукбуки",
-  },
-  {
-    title: "кампейн",
-  },
-  {
-    title: "бъюти",
-  },
-];
-
-export const Slider = () => {
+export const Slider: FC<ISliderProps> = ({ sliders }) => {
   const [width, setWidth] = useState<number>(0);
   const carouselRef = useRef<HTMLDivElement | null>(null);
 
@@ -44,25 +34,27 @@ export const Slider = () => {
         drag="x"
         dragConstraints={{ right: 0, left: -width }}
       >
-        { arrayMockSlide.map((item, index) => (
+        { sliders.map((slider) => (
           <div
             className={ `text-carbon uppercase text-sm font-futura-pt
-                font-medium min-w-[401px] min-h-[614px] px-[15px] relative` }
-            key={ index }
+                font-medium w-[401px] h-[614px] px-[15px] relative` }
+            key={ slider.documentId }
           >
             <Image
               alt="slider"
-              className="w-full h-full object-cover pointer-events-none"
-              height={ 614 }
-              src={ slider }
-              width={ 371 }
+              className="w-full h-full object-cover pointer-events-none shadow"
+              height={ slider?.sliderImage?.height ?? 614 }
+              priority
+              quality={ 100 }
+              src={ `${ process.env.NEXT_PUBLIC_API_URL }${ slider.sliderImage.url }` }
+              width={ slider?.sliderImage?.width ?? 401 }
             />
             <Link
               className={ `text-white text-3xl z-10 font-medium font-futura-pt uppercase
                   absolute left-[50%] bottom-10 translate-x-[-50%] hover:text-orochimaru transition-[color]` }
-              href={ ROUTES_PAGES.ABOUT }
+              href={ slider.url }
             >
-              { item.title }
+              { slider.title }
             </Link>
           </div>
         )) }
