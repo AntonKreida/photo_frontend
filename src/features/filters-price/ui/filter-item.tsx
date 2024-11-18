@@ -16,7 +16,7 @@ const FilterItem: FC<IFilterItemProps> = ({ filter, handleOnClickFilter, isActiv
         text-[15px] outline-none flex-[1_0_0] w-fit text-nowrap
         pb-4 border-b-2 border-beluga text-beluga uppercase
         hover:text-carbon transition-[color,_border-color]
-        active:text-carbon active:border-carbon`, {
+        active:text-carbon active:border-carbon pl-4`, {
       "text-carbon border-carbon": isActiveFilter
     }) }
     onClick={ () => handleOnClickFilter(filter.type) }

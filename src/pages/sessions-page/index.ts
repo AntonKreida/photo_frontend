@@ -1,1 +1,1 @@
-export { default as SessionsPage } from "./ui/sessions-page";
+export { default as SessionsPage } from "./ui/hydrated-sessions-page";

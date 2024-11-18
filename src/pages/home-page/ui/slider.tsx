@@ -60,7 +60,7 @@ export const Slider = () => {
             <Link
               className={ `text-white text-3xl z-10 font-medium font-futura-pt uppercase
                   absolute left-[50%] bottom-10 translate-x-[-50%] hover:text-orochimaru transition-[color]` }
-              href={ ROUTES_PAGES.LOOKBOOK }
+              href={ ROUTES_PAGES.ABOUT }
             >
               { item.title }
             </Link>

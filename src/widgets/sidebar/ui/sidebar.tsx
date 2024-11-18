@@ -1,11 +1,11 @@
 import Link from "next/link";
 
-import { FormContact } from "@features/";
 import {
   ROUTES_PAGES,
   InstagramIcon,
   TelegramIcon,
-  VkIcon
+  VkIcon,
+  LinkButton
 } from "@shared/";
 
 
@@ -18,7 +18,7 @@ export const Sidebar = () => (
 
       <div className="flex flex-col gap-4">
         <Link className="cursor-pointer" href={ ROUTES_PAGES.HOME }>
-          <h1 className="text-3xl font-normal font-gabriela uppercase">Александра Марамчина</h1>
+          <h1 className="text-3xl font-normal font-gabriela uppercase">Александра Мельникова</h1>
         </Link>
         <h2 className="text-xs text-carbon/50 font-normal font-gabriela uppercase tracking-[7px]">Photographer</h2>
       </div>
@@ -26,17 +26,45 @@ export const Sidebar = () => (
       <div className="mt-auto flex flex-col justify-start py-4">
         <a
           className="text-carbon text-sm font-futura-pt font-medium uppercase py-4"
-          href="tel:+79923127209"
+          href="tel:+79220070075"
         >
-          +7 (922) 007-00-35
+          +7 (922) 007-00-75
         </a>
         <div className="flex items-center gap-2 py-4">
-          <a><TelegramIcon className="w-5 h-5" /></a>
-          <a><VkIcon className="w-5 h-5" /></a>
-          <a><InstagramIcon className="w-5 h-5" /></a>
+          <a
+            className="cursor-pointer"
+            href="https://t.me/Melnikova_foto72"
+            rel="noreferrer"
+            target="_blank"
+          >
+            <TelegramIcon className="w-5 h-5 fill-carbon/70" />
+          </a>
+          <a
+            className="cursor-pointer"
+            href="https://vk.com/melnikova_foto72"
+            rel="noreferrer"
+            target="_blank"
+          >
+            <VkIcon className="w-5 h-5 fill-carbon/70" />
+          </a>
+          <a
+            className="cursor-pointer"
+            href="https://www.instagram.com/melnikova_foto72"
+            rel="noreferrer"
+            target="_blank"
+          >
+            <InstagramIcon className="w-5 h-5 fill-carbon/70" />
+          </a>
         </div>
         <div className="py-4">
-          <FormContact />
+          <LinkButton
+            href="https://t.me/Melnikova_foto72"
+            isNextJsLink={ false }
+            rel="noreferrer"
+            target="_blank"
+          >
+            Связаться со мной
+          </LinkButton>
         </div>
       </div>
     </div>

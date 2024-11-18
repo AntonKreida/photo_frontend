@@ -7,7 +7,6 @@ import { FiltersPrice } from "./filters-price";
 
 
 export const HydratedTypePrices = async () => {
-
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({

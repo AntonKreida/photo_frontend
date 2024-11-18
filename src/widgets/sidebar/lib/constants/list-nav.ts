@@ -9,52 +9,37 @@ export const listNav = [
   },
   {
     id: 2,
-    title: "Для брендов",
+    title: "Портфолио",
     subNav: [
       {
         id: 3,
-        title: "Лукбуки",
-        path: ROUTES_PAGES.LOOKBOOK,
+        title: "Индивидуальные",
+        path: ROUTES_PAGES.INDIVIDUAL,
       },
       {
         id: 4,
-        title: "Кампейн",
-        path: ROUTES_PAGES.CAMPAIGN,
+        title: "Семейные",
+        path: ROUTES_PAGES.FAMILY,
       },
       {
         id: 5,
-        title: "Предметное фото",
-        path: ROUTES_PAGES.SUBJECT,
+        title: "Свадебные",
+        path: ROUTES_PAGES.WEDDING,
       },
       {
         id: 6,
-        title: "Бьюти",
-        path: ROUTES_PAGES.BEAUTY,
+        title: "Бренды",
+        path: ROUTES_PAGES.BRAND,
       }
     ],
   },
   {
-    id: 3,
-    title: "Для блогов и экспертов",
-    path: ROUTES_PAGES.BLOCKS,
-  },
-  {
-    id: 4,
-    title: "Личные фотосессии",
-    path: ROUTES_PAGES.PHOTO_SESSIONS,
-  },
-  {
-    id: 5,
-    title: "Публикация в журналах",
-    path: ROUTES_PAGES.MAGAZINE,
-  },
-  {
-    id: 6,
+    id: 7,
     title: "Прайс",
     path: ROUTES_PAGES.PRICE,
   },
   {
-    id: 7,
+    id: 8,
     title: "Отзывы",
     path: ROUTES_PAGES.REVIEWS,
   }

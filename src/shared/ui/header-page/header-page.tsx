@@ -4,7 +4,7 @@ import { twClassNames } from "@shared/lib";
 
 
 interface IHeaderPageProps {
-    title: string;
+    title?: string;
     subTitle?: string;
     renderComponent?: () => ReactNode;
     classNameTitle?: string;

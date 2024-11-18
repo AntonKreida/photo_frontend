@@ -36,7 +36,7 @@ const SubNavItem: FC<ISubNavItemProps> = ({
       <ChevronIcon
         className={ twClassNames(`w-[15px] h-[15px] stroke-carbon
               transition-[stroke_transform] group-hover:stroke-orochimaru`, {
-          "rotate-90 stroke-orochimaru": isActiveSubNav
+          "rotate-90 stroke-orochimaru": isActiveSubNav,
         }) }
       />
     </div>
@@ -46,9 +46,11 @@ const SubNavItem: FC<ISubNavItemProps> = ({
         "grid-rows-[1fr] ": isActiveSubNav
       }) }
     >
-      <ul className={ twClassNames("overflow-hidden flex-col justify-start hidden pt-[30px]", {
-        "flex": isActiveSubNav
-      }) }
+      <ul
+        className={ twClassNames("overflow-hidden flex-col justify-start hidden pt-[30px]", {
+          "flex": isActiveSubNav
+        }) }
+        onClick={ (event) => event.stopPropagation() }
       >
         { navItem.subNav?.map((subNavItem) => (
           <MemoNavItem
