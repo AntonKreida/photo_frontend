@@ -36,7 +36,7 @@ const SubNavItem: FC<ISubNavItemProps> = ({
       <ChevronIcon
         className={ twClassNames(`w-[15px] h-[15px] stroke-carbon
               transition-[stroke_transform] group-hover:stroke-orochimaru`, {
-          "rotate-90 stroke-orochimaru": isActiveSubNav
+          "rotate-90 stroke-orochimaru": isActiveSubNav,
         }) }
       />
     </div>
