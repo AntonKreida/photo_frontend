@@ -11,11 +11,12 @@ interface IReviewProps {
 
 
 export const Review: FC<IReviewProps> = ({ review }) => (
-  <div className="h-full grid grid-cols-[1fr,_1fr] max-h-[295px] grid-rows-1 gap-5 overflow-hidden break-all">
+  <div className="h-full grid grid-cols-[1fr,_1fr] max-h-[350px] grid-rows-1 gap-5 overflow-hidden break-all">
     <div className="col-span-1 col-start-1 row-start-1">
       <AdapterImage
         alt={ review.image?.name || "" }
         className="object-contain"
+        classNameWrapper="h-full w-full"
         height={ review.image?.height }
         priority
         quality={ 100 }

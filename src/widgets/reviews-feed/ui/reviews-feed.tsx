@@ -22,7 +22,7 @@ export const ReviewsFeed = () => {
         : (
           <div className="flex w-full h-full flex-col justify-center items-center">
             <div className="text-carbon/50 text-xl font-normal font-futura-pt text-center">
-              На данный момент на сайте нет ни одного отзыва
+              На данный момент нет ни одного отзыва
             </div>
           </div>
         ) }
