@@ -33,7 +33,6 @@ export const AboutPage = () => {
                 [&_li]:text-xl [&_li]:text-carbon [&_li]:font-light [&_li]:font-futura-pt [&_li]:relative"
           dangerouslySetInnerHTML={{ __html: aboutPage?.descriptions ?? "" }}
         />
-
       </LayoutContent>
     </div>
   );
