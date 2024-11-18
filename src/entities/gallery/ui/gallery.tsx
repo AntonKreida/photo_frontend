@@ -19,7 +19,7 @@ export const Gallery: FC<IGalleryProps> = ({ card, pathname }) => (
     <AdapterImage
       alt={ card.titleImage.name }
       className="object-cover object-center"
-      classNameWrapper="h-[310px] w-[300px] overflow-hidden"
+      classNameWrapper="h-[310px] w-[300px] overflow-hidden shadow-lg"
       height={ card.titleImage.height }
       priority
       quality={ 100 }
