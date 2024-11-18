@@ -25,7 +25,7 @@ export const SessionsPage: FC<ISessionsPageProps> = ({ pathname, children }) => 
   const { data } = useSessionsPage({ pathname });
 
   return (
-    <div>
+    <div className="h-full overflow-hidden">
       <HeaderPage
         renderComponent={ () => (
           <LinkButton
@@ -37,10 +37,11 @@ export const SessionsPage: FC<ISessionsPageProps> = ({ pathname, children }) => 
             Заказать съемку
           </LinkButton>
         ) }
-        subTitle={ data?.subPageTitle }
+        subTitle={ data?.subTitlePage }
         title={ data?.titlePage }
       />
       { children }
+
       <FooterPage classNameInner="justify-center">
         <LinkButton href={ ROUTES_PAGES.PRICE }>
           <span>Узнать стоимость услуг</span>

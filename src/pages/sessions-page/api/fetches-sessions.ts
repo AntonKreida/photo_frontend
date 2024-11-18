@@ -7,7 +7,7 @@ const withSessionQueryDocument = (namePage: string) => (`
         query getSessionsPage {
             ${namePage} {
                 titlePage,
-                subPageTitle
+                subTitlePage
             }
         }
     `);
