@@ -29,7 +29,7 @@ export const listNav = [
       {
         id: 6,
         title: "Бренды",
-        path: ROUTES_PAGES.BRANDS,
+        path: ROUTES_PAGES.BRAND,
       }
     ],
   },

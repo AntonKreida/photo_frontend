@@ -10,7 +10,7 @@ import { SessionPage } from "./session-page";
 
 interface IHydratedSessionPageProps {
     params: {
-        "individual-id": string
+        "id": string
     }
 }
 
@@ -22,13 +22,13 @@ const HydratedSessionPage: FC<IHydratedSessionPageProps> = async ({ params }) =>
   const queryClient = new QueryClient();
 
   await queryClient.prefetchQuery({
-    queryKey: [QUERY_KEYS.SESSIONS, pathname, params["individual-id"]],
-    queryFn: () =>  getSessionPage(pathname as string, params["individual-id"]),
+    queryKey: [QUERY_KEYS.SESSIONS, pathname, params["id"]],
+    queryFn: () =>  getSessionPage(pathname as string, params["id"]),
   });
 
   return (
     <HydrationBoundary state={ dehydrate(queryClient) }>
-      <SessionPage individualId={ params["individual-id"] } pathname={ pathname as string } />
+      <SessionPage individualId={ params["id"] } pathname={ pathname as string } />
     </HydrationBoundary>
   );
 };
