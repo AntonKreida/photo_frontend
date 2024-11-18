@@ -13,6 +13,8 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import { ISessionCard } from "@entities/";
 import { ModalWrapper, twClassNames } from "@shared/";
 
+import { ChevronLeftIcon, ChevronRightIcon } from "@heroicons/react/24/solid";
+
 
 interface IModalShowGalleryProps {
     children: ({ onShowModal, onHideModal, modalActive }: {
@@ -63,6 +65,28 @@ export const ModalGallery: FC<IModalShowGalleryProps> = ({ children, sessionCard
       >
         <ImageGallery
           items={ images }
+          renderLeftNav={ (onClick) => (
+            <button
+              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 image-gallery-left-nav group"
+              onClick={ onClick  }
+            >
+              <ChevronLeftIcon
+                className="w-20 h-20 fill-carbon group-active:scale-90 transition
+                group-hover:fill-gray-400"
+              />
+            </button>
+          ) }
+          renderRightNav={ (onClick) => (
+            <button
+              className="absolute  right-0 top-1/2 -translate-y-1/2 z-10 image-gallery-right-nav group"
+              onClick={ onClick }
+            >
+              <ChevronRightIcon
+                className="w-20 h-20 fill-carbon group-active:scale-90 transition
+                group-hover:fill-gray-400"
+              />
+            </button>
+          ) }
           showBullets
           showFullscreenButton={ false }
           showIndex={ true }
