@@ -5,4 +5,5 @@ export const QUERY_KEYS = {
   SESSIONS: "sessions",
   GALLERY: "gallery",
   ABOUT: "about",
+  HOME: "home",
 } as const;
