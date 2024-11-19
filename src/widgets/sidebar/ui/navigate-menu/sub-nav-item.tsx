@@ -8,17 +8,19 @@ import { ISubNavItem } from "../../lib";
 
 interface ISubNavItemProps {
     navItem: ISubNavItem;
-    isActiveSubNav: boolean;
+    isOpen: boolean;
     pathname: string | null;
     handleClickSubNav: (_idSubMenu: number) => void;
+    isActiveSubNav?: boolean;
 }
 
 
 const SubNavItem: FC<ISubNavItemProps> = ({
   navItem,
-  isActiveSubNav,
+  isOpen,
   handleClickSubNav,
   pathname,
+  isActiveSubNav,
 }) => (
   <li
     className={ twClassNames(`relative text-carbon py-4 text-sm font-futura-pt
@@ -29,26 +31,30 @@ const SubNavItem: FC<ISubNavItemProps> = ({
   >
 
     <div className={ twClassNames("flex items-center gap-1 cursor-pointer", {
-      "text-orochimaru": isActiveSubNav
+      [`before:absolute before:w-[3px] before:left-[-10px] before:translate-y-[-50%]
+      before:top-[50%] before:h-[18px] before:bg-orochimaru last:before:translate-y-0 text-orochimaru`]: isActiveSubNav,
+      [`before:absolute before:w-[3px] before:left-[-10px] before:translate-y-[0%]
+      before:top-4 before:h-[18px] before:bg-orochimaru last:before:translate-y-0 text-orochimaru`]: isOpen || isActiveSubNav
     }) }
     >
       { navItem.title }
       <ChevronIcon
         className={ twClassNames(`w-[15px] h-[15px] stroke-carbon
               transition-[stroke_transform] group-hover:stroke-orochimaru`, {
-          "rotate-90 stroke-orochimaru": isActiveSubNav,
+          "rotate-90": isOpen,
+          "stroke-orochimaru": isOpen || isActiveSubNav
         }) }
       />
     </div>
 
     <div
       className={ twClassNames("gap-4 grid grid-rows-[0fr] pl-6 transition-[grid-template-rows]", {
-        "grid-rows-[1fr] ": isActiveSubNav
+        "grid-rows-[1fr] ": isOpen
       }) }
     >
       <ul
         className={ twClassNames("pl-[10px] flex-col justify-start hidden pt-[15px]", {
-          "flex overflow-hidden": isActiveSubNav
+          "flex overflow-hidden": isOpen
         }) }
         onClick={ (event) => event.stopPropagation() }
       >

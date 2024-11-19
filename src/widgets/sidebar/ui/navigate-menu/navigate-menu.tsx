@@ -30,7 +30,8 @@ export const NavigateMenu = () => {
             return (
               <MemoSubNavItem
                 handleClickSubNav={ handleClickSubNav }
-                isActiveSubNav={ currentSubNav === navItem.id }
+                isActiveSubNav={ !!navItem.subNav.find((subNav) => !!pathname?.includes(subNav.path.replace(/\?[\w=]+/gi, ""))) }
+                isOpen={ currentSubNav === navItem.id }
                 key={ navItem.id }
                 navItem={ navItem }
                 pathname={ pathname }
