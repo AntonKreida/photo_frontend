@@ -1,8 +1,7 @@
 "use client";
 
-import Image from "next/image";
 
-import { HeaderPage, LayoutContent } from "@shared/";
+import { AdapterImage, HeaderPage, LayoutContent } from "@shared/";
 
 import { useAboutPage } from "../model";
 
@@ -12,19 +11,18 @@ export const AboutPage = () => {
 
   return (
     <div className="w-full">
-      <HeaderPage title={ aboutPage?.title } />
+      <HeaderPage title={ aboutPage?.title ?? "Обо мне" } />
       <LayoutContent className="flex gap-[65px] flex-wrap">
-        <div className="w-[471px] h-[614px] flex-shrink-0">
-          <Image
-            alt={ aboutPage?.aboutImage.name ?? "about" }
-            className="w-full h-full object-cover"
-            height={ aboutPage?.aboutImage?.height ?? 471 }
-            priority
-            quality={ 100 }
-            src={ `${ process.env.NEXT_PUBLIC_API_URL }${ aboutPage?.aboutImage?.url }` }
-            width={ aboutPage?.aboutImage?.width ?? 614 }
-          />
-        </div>
+        <AdapterImage
+          alt={ aboutPage?.aboutImage.name ?? "about" }
+          className="w-full h-full object-cover"
+          classNameWrapper="w-[471px] h-[614px] flex-shrink-0"
+          height={ aboutPage?.aboutImage?.height ?? 471 }
+          priority
+          quality={ 100 }
+          src={ `${ process.env.NEXT_PUBLIC_API_URL }${ aboutPage?.aboutImage?.url }` }
+          width={ aboutPage?.aboutImage?.width ?? 614 }
+        />
         <div
           className="max-w-[400px]
                 [&_h1]:text-xl [&_h1]:text-carbon [&_h1]:font-normal [&_h1]:font-gabriela [&_h1]:mb-4

@@ -25,5 +25,5 @@ export const getAboutPage = async () => {
     query: withAboutQueryDocument
   });
 
-  return data?.data.about;
+  return data?.data?.about;
 };

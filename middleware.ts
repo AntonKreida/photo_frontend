@@ -5,7 +5,7 @@ export default function middleware(request: NextRequest) {
   const { headers, nextUrl, url } = request;
   const { pathname } = nextUrl;
 
-  if(pathname.match(/^(\/?(education)\/?)(?!\w)$/ig)) {
+  if(pathname.match(/^(\/?(educations?)\/?)(?!\w)$/ig)) {
     return NextResponse.redirect(new URL("/", url));
   }
 
