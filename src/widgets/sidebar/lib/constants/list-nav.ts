@@ -35,6 +35,11 @@ export const listNav = [
   },
   {
     id: 7,
+    title: "Обучение",
+    subNav: [],
+  },
+  {
+    id: 7,
     title: "Прайс",
     path: ROUTES_PAGES.PRICE,
   },

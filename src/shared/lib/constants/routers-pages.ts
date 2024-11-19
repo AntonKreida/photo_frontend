@@ -7,4 +7,5 @@ export const ROUTES_PAGES = {
   FAMILY: "/family",
   WEDDING: "/wedding",
   BRAND: "/brand",
+  EDUCATION: "/education",
 } as const;

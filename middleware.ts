@@ -2,10 +2,17 @@ import { NextResponse, type NextRequest } from "next/server";
 
 
 export default function middleware(request: NextRequest) {
-  const headers = new Headers(request.headers);
-  headers.set("x-current-path", request.nextUrl.pathname);
+  const { headers, nextUrl, url } = request;
+  const { pathname } = nextUrl;
 
-  return NextResponse.next({ headers });
+  if(pathname.match(/^(\/?(education)\/?)(?!\w)$/ig)) {
+    return NextResponse.redirect(new URL("/", url));
+  }
+
+  const headersRequest = new Headers(headers);
+  headersRequest.set("x-current-path", pathname);
+
+  return NextResponse.next({ headers: headersRequest });
 }
 
 export const config = {

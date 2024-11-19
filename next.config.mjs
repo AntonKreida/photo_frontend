@@ -1,5 +1,4 @@
 import fs from "node:fs";
-import { hostname } from "node:os";
 import { resolve, dirname } from "node:path";
 import { fileURLToPath } from "node:url";
 

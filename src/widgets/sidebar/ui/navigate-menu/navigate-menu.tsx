@@ -4,9 +4,10 @@ import { usePathname } from "next/navigation";
 import { useCallback, useState } from "react";
 
 
+import { listNav } from "@widgets/sidebar/lib";
+
 import { MemoNavItem } from "./nav-item";
 import { MemoSubNavItem } from "./sub-nav-item";
-import { listNav } from "../../lib";
 
 
 export const NavigateMenu = () => {
@@ -26,7 +27,7 @@ export const NavigateMenu = () => {
     <nav className="mt-[60px]">
       <ul className="flex flex-col justify-start flex-[1_0_auto]">
         { listNav.map((navItem) => {
-          if (navItem.subNav) {
+          if (navItem.subNav && navItem.subNav.length > 0) {
             return (
               <MemoSubNavItem
                 handleClickSubNav={ handleClickSubNav }
@@ -38,13 +39,17 @@ export const NavigateMenu = () => {
             );
           }
 
-          return (
-            <MemoNavItem
-              isActiveLink={ pathname === navItem.path || !!pathname?.includes(navItem.path) }
-              key={ navItem.id }
-              navItem={ navItem }
-            />
-          );
+          if(navItem.path) {
+            return (
+              <MemoNavItem
+                isActiveLink={ pathname === navItem.path || !!pathname?.includes(navItem.path) }
+                key={ navItem.id }
+                navItem={ navItem }
+              />
+            );
+          }
+
+          return null;
         }) }
       </ul>
     </nav>
