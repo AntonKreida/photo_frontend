@@ -21,7 +21,7 @@ export const ButtonBack: FC<IButtonBackProps> = ({ children, className }) => {
   return (
     <Button
       className={ className }
-      onClick={ handleBack }
+      onMouseDown={ handleBack }
     >
       { children }
     </Button>

@@ -27,15 +27,16 @@ const SubNavItem: FC<ISubNavItemProps> = ({
         font-medium uppercase hover:text-orochimaru max-h-screen group
         transition-[grid-template-rows]`) }
     key={ navItem.id }
-    onClick={ () => handleClickSubNav(navItem.id) }
   >
 
-    <div className={ twClassNames("flex items-center gap-1 cursor-pointer", {
-      [`before:absolute before:w-[3px] before:left-[-10px] before:translate-y-[-50%]
+    <div
+      className={ twClassNames("flex items-center gap-1 cursor-pointer w-fit", {
+        [`before:absolute before:w-[3px] before:left-[-10px] before:translate-y-[-50%]
       before:top-[50%] before:h-[18px] before:bg-orochimaru last:before:translate-y-0 text-orochimaru`]: isActiveSubNav,
-      [`before:absolute before:w-[3px] before:left-[-10px] before:translate-y-[0%]
+        [`before:absolute before:w-[3px] before:left-[-10px] before:translate-y-[0%]
       before:top-4 before:h-[18px] before:bg-orochimaru last:before:translate-y-0 text-orochimaru`]: isOpen || isActiveSubNav
-    }) }
+      }) }
+      onClick={ () => handleClickSubNav(navItem.id) }
     >
       { navItem.title }
       <ChevronIcon

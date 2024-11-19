@@ -33,8 +33,8 @@ export const ModalWrapper: FC<IModalWrapperProps> = ({
             { !!handleOnCloseModal
               && (
                 <XMarkIcon
-                  className="w-8 h-8 active:scale-[0.8] transition-[transform] absolute top-1 right-2 cursor-pointer z-10"
-                  onClick={ handleOnCloseModal }
+                  className="w-8 h-8 active:scale-[0.9] transition-[transform] absolute top-1 right-2 cursor-pointer z-10"
+                  onMouseDown={ handleOnCloseModal }
                 />
               ) }
             <div className={ twClassNames("w-full h-full px-10 py-8", [classNameInner]) }>

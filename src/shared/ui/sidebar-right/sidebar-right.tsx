@@ -28,8 +28,8 @@ export const SidebarRight: FC<ISidebarRightProps> = ( { children, onClickClose, 
     <div className={ twClassNames("pt-[130px] px-[30px] pb-[70px] h-full w-full", [className]) }>
       { !!onClickClose && (
         <XMarkIcon
-          className="w-8 h-8 absolute top-[30px] right-[30px] cursor-pointer active:scale-[0.8] transition-[transform]"
-          onClick={ onClickClose }
+          className="w-8 h-8 absolute top-[30px] right-[30px] cursor-pointer active:scale-[0.9] transition-[transform]"
+          onMouseDown={ onClickClose }
         />
       ) }
       { children }
