@@ -22,7 +22,6 @@ export const NavigateMenu = () => {
     setCurrentSubNav(idSubMenu);
   }, [currentSubNav]);
 
-
   return (
     <nav className="mt-[60px]">
       <ul className="flex flex-col justify-start flex-[1_0_auto]">
@@ -42,7 +41,7 @@ export const NavigateMenu = () => {
           if(navItem.path) {
             return (
               <MemoNavItem
-                isActiveLink={ pathname === navItem.path || !!pathname?.includes(navItem.path) }
+                isActiveLink={ pathname === navItem.path.replace(/\?[\w=]+/gi, "") || !!pathname?.includes(navItem.path.replace(/\?[\w=]+/gi, "")) }
                 key={ navItem.id }
                 navItem={ navItem }
               />

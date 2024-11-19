@@ -47,14 +47,14 @@ const SubNavItem: FC<ISubNavItemProps> = ({
       }) }
     >
       <ul
-        className={ twClassNames("overflow-hidden flex-col justify-start hidden pt-[15px]", {
-          "flex": isActiveSubNav
+        className={ twClassNames("pl-[10px] flex-col justify-start hidden pt-[15px]", {
+          "flex overflow-hidden": isActiveSubNav
         }) }
         onClick={ (event) => event.stopPropagation() }
       >
         { navItem.subNav?.map((subNavItem) => (
           <MemoNavItem
-            isActiveLink={ pathname === subNavItem.path }
+            isActiveLink={ pathname === subNavItem.path || !!pathname?.includes(subNavItem.path) }
             key={ subNavItem.id }
             navItem={ subNavItem }
           />

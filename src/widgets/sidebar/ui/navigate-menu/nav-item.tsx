@@ -16,7 +16,7 @@ const NavItem: FC<INavItemProps> = ({ navItem, isActiveLink }) => (
     className={ twClassNames(`relative text-carbon text-sm py-4 font-futura-pt last:pb-0
       font-medium uppercase hover:text-orochimaru transition-[color]`,{
       [`before:absolute before:w-[3px] before:left-[-10px] before:translate-y-[-50%]
-      before:top-[50%] before:h-[18px] before:bg-orochimaru`]: isActiveLink
+      before:top-[50%] before:h-[18px] before:bg-orochimaru last:before:translate-y-0`]: isActiveLink
     }) }
     key={ navItem.id }
   >
