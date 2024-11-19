@@ -1,1 +1,1 @@
-export * from "./sidebar";
+export { default as Sidebar } from "./hydrated-sidebar";

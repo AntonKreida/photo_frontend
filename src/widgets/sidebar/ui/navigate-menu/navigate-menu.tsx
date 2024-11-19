@@ -1,20 +1,25 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import { useCallback, useState } from "react";
+import { FC, useCallback, useState } from "react";
 
 
-import { listNav } from "@widgets/sidebar/lib";
+import { INavItem } from "@widgets/sidebar/lib";
 
 import { MemoNavItem } from "./nav-item";
 import { MemoSubNavItem } from "./sub-nav-item";
 
 
-export const NavigateMenu = () => {
-  const pathname = usePathname();
-  const [currentSubNav, setCurrentSubNav] = useState<number | null>(null);
+interface INavigateMenuProps {
+    navItems: INavItem[]
+}
 
-  const handleClickSubNav = useCallback((idSubMenu: number) => {
+
+export const NavigateMenu: FC<INavigateMenuProps> = ({ navItems }) => {
+  const pathname = usePathname();
+  const [currentSubNav, setCurrentSubNav] = useState<number | string | null>(null);
+
+  const handleClickSubNav = useCallback((idSubMenu: number | string) => {
     if(currentSubNav === idSubMenu) {
       setCurrentSubNav(null);
       return;
@@ -25,12 +30,12 @@ export const NavigateMenu = () => {
   return (
     <nav className="mt-[60px]">
       <ul className="flex flex-col justify-start flex-[1_0_auto]">
-        { listNav.map((navItem) => {
+        { navItems?.map((navItem) => {
           if (navItem.subNav && navItem.subNav.length > 0) {
             return (
               <MemoSubNavItem
                 handleClickSubNav={ handleClickSubNav }
-                isActiveSubNav={ !!navItem.subNav.find((subNav) => !!pathname?.includes(subNav.path.replace(/\?[\w=]+/gi, ""))) }
+                isActiveSubNav={ !!navItem.subNav.find((subNav) => !!pathname?.includes(subNav.path?.replace(/\?[\w=]+/gi, "") ?? "")) }
                 isOpen={ currentSubNav === navItem.id }
                 key={ navItem.id }
                 navItem={ navItem }

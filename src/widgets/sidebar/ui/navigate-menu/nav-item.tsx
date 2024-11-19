@@ -24,7 +24,7 @@ const NavItem: FC<INavItemProps> = ({ navItem, isActiveLink }) => (
       className={ twClassNames("hover:text-orochimaru transition-[color] text-carbon",{
         "text-orochimaru": isActiveLink
       }) }
-      href={ navItem.path }
+      href={ navItem?.path ?? "" }
       passHref
     >
       { navItem.title }

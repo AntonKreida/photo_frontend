@@ -3,14 +3,14 @@ import { FC, memo } from "react";
 import { twClassNames, ChevronIcon } from "@shared/";
 
 import { MemoNavItem } from "./nav-item";
-import { ISubNavItem } from "../../lib";
+import { INavItem } from "../../lib";
 
 
 interface ISubNavItemProps {
-    navItem: ISubNavItem;
+    navItem: INavItem;
     isOpen: boolean;
     pathname: string | null;
-    handleClickSubNav: (_idSubMenu: number) => void;
+    handleClickSubNav: (_idSubMenu: number | string) => void;
     isActiveSubNav?: boolean;
 }
 
@@ -30,15 +30,15 @@ const SubNavItem: FC<ISubNavItemProps> = ({
   >
 
     <div
-      className={ twClassNames("flex items-center gap-1 cursor-pointer w-fit", {
+      className={ twClassNames("flex items-center gap-1 cursor-pointer", {
         [`before:absolute before:w-[3px] before:left-[-10px] before:translate-y-[-50%]
       before:top-[50%] before:h-[18px] before:bg-orochimaru last:before:translate-y-0 text-orochimaru`]: isActiveSubNav,
         [`before:absolute before:w-[3px] before:left-[-10px] before:translate-y-[0%]
       before:top-4 before:h-[18px] before:bg-orochimaru last:before:translate-y-0 text-orochimaru`]: isOpen || isActiveSubNav
       }) }
-      onClick={ () => handleClickSubNav(navItem.id) }
+      onClick={ () => handleClickSubNav(navItem?.id) }
     >
-      { navItem.title }
+      <span>{ navItem.title }</span>
       <ChevronIcon
         className={ twClassNames(`w-[15px] h-[15px] stroke-carbon
               transition-[stroke_transform] group-hover:stroke-orochimaru`, {
@@ -61,7 +61,7 @@ const SubNavItem: FC<ISubNavItemProps> = ({
       >
         { navItem.subNav?.map((subNavItem) => (
           <MemoNavItem
-            isActiveLink={ pathname === subNavItem.path || !!pathname?.includes(subNavItem.path) }
+            isActiveLink={ pathname === subNavItem.path || !!pathname?.includes(subNavItem?.path ?? "") }
             key={ subNavItem.id }
             navItem={ subNavItem }
           />

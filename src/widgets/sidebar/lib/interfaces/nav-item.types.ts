@@ -1,11 +1,6 @@
 export interface INavItem {
-    id: number;
+    id: number | string;
     title: string;
-    path: string;
-}
-
-export interface ISubNavItem {
-    id: number;
-    title: string;
-    subNav: INavItem[];
+    path?: string;
+    subNav?: INavItem[];
 }

@@ -1,7 +1,9 @@
 import { ROUTES_PAGES } from "@shared/index";
 
+import { INavItem } from "../interfaces";
 
-export const listNav = [
+
+export const listNav: INavItem[] = [
   {
     id: 1,
     title: "Обо мне",
@@ -39,12 +41,12 @@ export const listNav = [
     subNav: [],
   },
   {
-    id: 7,
+    id: 8,
     title: "Прайс",
     path: ROUTES_PAGES.PRICE,
   },
   {
-    id: 8,
+    id: 9,
     title: "Отзывы",
     path: ROUTES_PAGES.REVIEWS,
   }
