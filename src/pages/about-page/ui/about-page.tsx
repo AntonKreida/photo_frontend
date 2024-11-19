@@ -15,7 +15,7 @@ export const AboutPage = () => {
       <LayoutContent className="flex gap-[65px] flex-wrap">
         <AdapterImage
           alt={ aboutPage?.aboutImage.name ?? "about" }
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover shadow-sm"
           classNameWrapper="w-[471px] h-[614px] flex-shrink-0"
           height={ aboutPage?.aboutImage?.height ?? 471 }
           priority
