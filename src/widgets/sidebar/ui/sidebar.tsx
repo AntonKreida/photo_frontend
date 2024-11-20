@@ -22,8 +22,8 @@ export const Sidebar = () => {
 
   const navItems = useMemo(() => listNav.map((navItem) => {
     if(navItem.title === "Обучение") {
-      const newSubNav = educations?.map((education) => ({
-        id: education.documentId,
+      const newSubNav = educations?.map((education, index) => ({
+        id: index,
         title: education.title,
         path: `/educations/${education.path}`,
       }));
