@@ -6,6 +6,7 @@ import { FC } from "react";
 import {
   AdapterImage,
   Button,
+  FooterPage,
   HeaderPage,
   LinkButton,
   ScrollLink
@@ -89,6 +90,17 @@ export const EducationPage: FC<IEducationPageProps> = ({ documentId }) => {
           <ArrowUpCircleIcon className="w-10 h-10" />
         </Button>
       </ScrollLink>
+
+      <FooterPage classNameInner="justify-center">
+        <LinkButton
+          href="https://t.me/Melnikova_foto72"
+          rel="noreferrer"
+          target="_blank"
+          type="submit"
+        >
+          <span>Записаться на обучение</span>
+        </LinkButton>
+      </FooterPage>
     </div>
   );
 };
