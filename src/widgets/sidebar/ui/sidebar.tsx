@@ -21,18 +21,18 @@ export const Sidebar = () => {
   const { educations } = useEducationForSidebar();
 
   const navItems = useMemo(() => listNav.map((navItem) => {
-        if(navItem.title === "Обучение") {
-            const newSubNav = educations?.map((education) => ({
-                id: education.documentId,
-                title: education.title,
-                path: `/educations/${education.path}`,
-            }));
+    if(navItem.title === "Обучение") {
+      const newSubNav = educations?.map((education) => ({
+        id: education.documentId,
+        title: education.title,
+        path: `/educations/${education.path}`,
+      }));
 
-            navItem.subNav = newSubNav;
-        }
+      navItem.subNav = newSubNav;
+    }
 
-        return navItem;
-    }), [educations]);
+    return navItem;
+  }), [educations]);
 
   return (
     <aside className="min-w-[360px] max-w-[370px] w-full flex-grow py-[120px] px-[65px] overflow-y-auto scrollbar-none h-screen sticky top-0 shadow">
