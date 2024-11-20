@@ -1,1 +1,1 @@
-export { default as PricePage } from "./ui/price-page";
+export { PricePage } from "./ui";

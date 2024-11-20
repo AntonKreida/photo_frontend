@@ -3,7 +3,7 @@ import { HeaderPage } from "@shared/";
 import { ReviewsFeed } from "@widgets/";
 
 
-export const ReviewsPage = () => (
+const ReviewsPage = () => (
   <div className="w-full">
     <HeaderPage
       renderComponent={ () => (
@@ -15,3 +15,5 @@ export const ReviewsPage = () => (
     <ReviewsFeed />
   </div>
 );
+
+export default ReviewsPage;
