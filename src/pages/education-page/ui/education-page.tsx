@@ -69,7 +69,7 @@ export const EducationPage: FC<IEducationPageProps> = ({ documentId }) => {
       />
 
       { !!education?.price && (
-        <div className="flex items-center justify-center mt-10 flex-col gap-4 bg-orochimaru/15 py-5 px-3">
+        <div className="flex items-center justify-center mt-10 flex-col gap-4 bg-orochimaru/15 py-5 px-3 rounded-sm shadow">
           <span className="text-carbon font-gabriela text-xl font-normal uppercase">
             { `Стоимость обучения:  ${ intlNumberFormat.format(education?.price) }` }
           </span>
