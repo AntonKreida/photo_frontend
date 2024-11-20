@@ -24,7 +24,7 @@ export const ReviewCreate = () => {
 
   return (
     <>
-      <Button onClick={ handleIsOpenForm }>
+      <Button onMouseDown={ handleIsOpenForm } type="submit">
         Оставить отзыв
       </Button>
       <AnimatePresence mode="wait">

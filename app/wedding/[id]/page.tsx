@@ -1,1 +1,1 @@
-export { SessionPage as default } from "@pages/session-page";
+export { SessionPage as default } from "@pages/";

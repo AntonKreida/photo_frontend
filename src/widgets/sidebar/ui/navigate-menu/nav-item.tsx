@@ -13,18 +13,18 @@ interface INavItemProps {
 
 const NavItem: FC<INavItemProps> = ({ navItem, isActiveLink }) => (
   <li
-    className={ twClassNames(`relative text-carbon text-sm py-4 font-futura-pt last:pb-0
-      font-medium uppercase hover:text-orochimaru transition-[color]`,{
+    className={ twClassNames(`relative text-sm py-4 font-futura-pt last:pb-0
+      font-medium uppercase`,{
       [`before:absolute before:w-[3px] before:left-[-10px] before:translate-y-[-50%]
-      before:top-[50%] before:h-[18px] before:bg-orochimaru`]: isActiveLink
+      before:top-[50%] before:h-[18px] before:bg-orochimaru last:before:translate-y-0`]: isActiveLink
     }) }
     key={ navItem.id }
   >
     <Link
-      className={ twClassNames({
+      className={ twClassNames("hover:text-orochimaru transition-[color] text-carbon",{
         "text-orochimaru": isActiveLink
       }) }
-      href={ navItem.path }
+      href={ navItem?.path ?? "" }
       passHref
     >
       { navItem.title }

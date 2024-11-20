@@ -3,58 +3,65 @@ import { FC, memo } from "react";
 import { twClassNames, ChevronIcon } from "@shared/";
 
 import { MemoNavItem } from "./nav-item";
-import { ISubNavItem } from "../../lib";
+import { INavItem } from "../../lib";
 
 
 interface ISubNavItemProps {
-    navItem: ISubNavItem;
-    isActiveSubNav: boolean;
+    navItem: INavItem;
+    isOpen: boolean;
     pathname: string | null;
-    handleClickSubNav: (_idSubMenu: number) => void;
+    handleClickSubNav: (_idSubMenu: number | string) => void;
+    isActiveSubNav?: boolean;
 }
 
 
 const SubNavItem: FC<ISubNavItemProps> = ({
   navItem,
-  isActiveSubNav,
+  isOpen,
   handleClickSubNav,
   pathname,
+  isActiveSubNav,
 }) => (
   <li
     className={ twClassNames(`relative text-carbon py-4 text-sm font-futura-pt
         font-medium uppercase hover:text-orochimaru max-h-screen group
         transition-[grid-template-rows]`) }
     key={ navItem.id }
-    onClick={ () => handleClickSubNav(navItem.id) }
   >
 
-    <div className={ twClassNames("flex items-center gap-1 cursor-pointer", {
-      "text-orochimaru": isActiveSubNav
-    }) }
+    <div
+      className={ twClassNames("flex items-center gap-1 cursor-pointer", {
+        [`before:absolute before:w-[3px] before:left-[-10px] before:translate-y-[-50%]
+      before:top-[50%] before:h-[18px] before:bg-orochimaru last:before:translate-y-0 text-orochimaru`]: isActiveSubNav,
+        [`before:absolute before:w-[3px] before:left-[-10px] before:translate-y-[0%]
+      before:top-4 before:h-[18px] before:bg-orochimaru last:before:translate-y-0 text-orochimaru`]: isOpen || isActiveSubNav
+      }) }
+      onClick={ () => handleClickSubNav(navItem?.id) }
     >
-      { navItem.title }
+      <span>{ navItem.title }</span>
       <ChevronIcon
         className={ twClassNames(`w-[15px] h-[15px] stroke-carbon
               transition-[stroke_transform] group-hover:stroke-orochimaru`, {
-          "rotate-90 stroke-orochimaru": isActiveSubNav,
+          "rotate-90": isOpen,
+          "stroke-orochimaru": isOpen || isActiveSubNav
         }) }
       />
     </div>
 
     <div
       className={ twClassNames("gap-4 grid grid-rows-[0fr] pl-6 transition-[grid-template-rows]", {
-        "grid-rows-[1fr] ": isActiveSubNav
+        "grid-rows-[1fr] ": isOpen
       }) }
     >
       <ul
-        className={ twClassNames("overflow-hidden flex-col justify-start hidden pt-[15px]", {
-          "flex": isActiveSubNav
+        className={ twClassNames("pl-[10px] flex-col justify-start hidden pt-[15px]", {
+          "flex overflow-hidden": isOpen
         }) }
         onClick={ (event) => event.stopPropagation() }
       >
         { navItem.subNav?.map((subNavItem) => (
           <MemoNavItem
-            isActiveLink={ pathname === subNavItem.path }
+            isActiveLink={ pathname === subNavItem.path || !!pathname?.includes(subNavItem?.path ?? "") }
             key={ subNavItem.id }
             navItem={ subNavItem }
           />

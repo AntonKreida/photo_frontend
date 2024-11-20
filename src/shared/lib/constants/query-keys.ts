@@ -6,4 +6,5 @@ export const QUERY_KEYS = {
   GALLERY: "gallery",
   ABOUT: "about",
   HOME: "home",
+  EDUCATIONS: "educations",
 } as const;
