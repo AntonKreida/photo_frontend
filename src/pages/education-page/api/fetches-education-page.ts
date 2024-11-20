@@ -9,6 +9,13 @@ const withEducationQueryDocument = `
             documentId
             title
             subTitle
+            titleImage {
+                name
+                url
+                width
+                height
+                alternativeText
+            }
         }
     }
 `;

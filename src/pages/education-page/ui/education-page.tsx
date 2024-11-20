@@ -3,7 +3,7 @@
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
 import { FC } from "react";
 
-import { HeaderPage, LinkButton } from "@shared/";
+import { AdapterImage, HeaderPage, LinkButton } from "@shared/";
 
 import { useEducation } from "../model/use-education";
 
@@ -14,8 +14,6 @@ interface IEducationPageProps {
 
 export const EducationPage: FC<IEducationPageProps> = ({ documentId }) => {
   const { education } = useEducation(documentId);
-
-  console.log(education);
 
   return  (
     <div className="w-full">
@@ -35,6 +33,19 @@ export const EducationPage: FC<IEducationPageProps> = ({ documentId }) => {
         subTitle={ education?.subTitle }
         title={ education?.title }
       />
+
+      <div className="mt-[57px] w-full h-[564px]">
+        <AdapterImage
+          alt={ education?.titleImage.name ?? "education" }
+          className="object-cover object-center"
+          classNameWrapper="w-full h-full"
+          height={ education?.titleImage.height ?? 564 }
+          priority
+          quality={ 100 }
+          src={ `${ process.env.NEXT_PUBLIC_API_URL }${ education?.titleImage?.url }` }
+          width={ education?.titleImage.width ?? 1024 }
+        />
+      </div>
     </div>
   );
 };
