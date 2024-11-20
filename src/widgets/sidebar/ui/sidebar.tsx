@@ -25,7 +25,7 @@ export const Sidebar = () => {
       const newSubNav = educations?.map((education, index) => ({
         id: index,
         title: education.title,
-        path: `/educations/${education.path}`,
+        path: `/educations/${education.documentId}`,
       }));
 
       navItem.subNav = newSubNav;

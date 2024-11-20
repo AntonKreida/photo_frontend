@@ -8,7 +8,6 @@ const withSidebarGetEducationQueryDocument = `
         educations {
             documentId
             title
-            path
         }
     }
 `;

@@ -1,1 +1,1 @@
-export { default as EducationPage } from  "./education-page";
+export { default as EducationPage } from  "./hydrated-education-page";
