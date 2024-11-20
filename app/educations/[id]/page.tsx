@@ -1,6 +1,1 @@
-const EducationPage = () => (
-  <div />
-);
-
-
-export default EducationPage;
+export { EducationPage as default } from "@pages/education-page";
