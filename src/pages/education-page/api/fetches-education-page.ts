@@ -9,6 +9,8 @@ const withEducationQueryDocument = `
             documentId
             title
             subTitle
+            price
+            description
             titleImage {
                 name
                 url
