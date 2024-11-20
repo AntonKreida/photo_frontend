@@ -33,6 +33,7 @@ export const SessionsPage: FC<ISessionsPageProps> = ({ pathname, children }) => 
             isNextJsLink={ false }
             rel="noreferrer"
             target="_blank"
+            type="submit"
           >
             Заказать съемку
           </LinkButton>
@@ -43,7 +44,7 @@ export const SessionsPage: FC<ISessionsPageProps> = ({ pathname, children }) => 
       { children }
 
       <FooterPage classNameInner="justify-center">
-        <LinkButton href={ ROUTES_PAGES.PRICE }>
+        <LinkButton href={ ROUTES_PAGES.PRICE } type="submit">
           <span>Узнать стоимость услуг</span>
           <ArrowRightIcon className="w-5 h-5" />
         </LinkButton>

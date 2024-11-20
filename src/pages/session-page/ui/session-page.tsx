@@ -53,7 +53,7 @@ export const SessionPage: FC<ISessionPage> = ({ pathname, individualId }) => {
       </ScrollLink>
 
       <FooterPage classNameInner="justify-center">
-        <LinkButton href={ ROUTES_PAGES.PRICE }>
+        <LinkButton href={ ROUTES_PAGES.PRICE } type="submit">
           <span>Узнать стоимость услуг</span>
           <ArrowRightIcon className="w-5 h-5" />
         </LinkButton>

@@ -11,8 +11,9 @@ import {
   LinkButton,
   ScrollLink
 } from "@shared/";
+import { StudentWorkFeed } from "@widgets/";
 
-import { useEducation } from "../model/use-education";
+import { useEducation } from "../model";
 
 
 const intlNumberFormat = new Intl.NumberFormat("ru-RU", {
@@ -91,16 +92,22 @@ export const EducationPage: FC<IEducationPageProps> = ({ documentId }) => {
         </Button>
       </ScrollLink>
 
-      <FooterPage classNameInner="justify-center">
-        <LinkButton
-          href="https://t.me/Melnikova_foto72"
-          rel="noreferrer"
-          target="_blank"
-          type="submit"
-        >
-          <span>Записаться на обучение</span>
-        </LinkButton>
-      </FooterPage>
+      { !!education?.student_works && education.student_works.length > 0 && (
+        <>
+          <StudentWorkFeed studentWorks={ education.student_works } />
+
+          <FooterPage classNameInner="justify-center">
+            <LinkButton
+              href="https://t.me/Melnikova_foto72"
+              rel="noreferrer"
+              target="_blank"
+              type="submit"
+            >
+              <span>Записаться на обучение</span>
+            </LinkButton>
+          </FooterPage>
+        </>
+      ) }
     </div>
   );
 };

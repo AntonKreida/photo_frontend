@@ -18,6 +18,17 @@ const withEducationQueryDocument = `
                 height
                 alternativeText
             }
+            student_works {
+                documentId
+                title
+                workImage {
+                    name
+                    url
+                    width
+                    height
+                    alternativeText
+                }
+            }
         }
     }
 `;
