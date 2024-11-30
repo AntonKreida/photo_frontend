@@ -29,6 +29,7 @@ export const SessionCard: FC<ISessionCardProps> = ({
   >
     <AdapterImage
       alt={ sessionCard.name }
+      className="object-cover object-center"
       classNameWrapper="w-full h-full"
       height={ sessionCard.height }
       priority

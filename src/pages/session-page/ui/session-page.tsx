@@ -1,7 +1,6 @@
 "use client";
 
 import {
-  ArrowRightIcon,
   ArrowUpCircleIcon,
   ArrowUturnLeftIcon
 } from "@heroicons/react/24/solid";
@@ -10,10 +9,7 @@ import { FC } from "react";
 import {
   Button,
   ButtonBack,
-  FooterPage,
   HeaderPage,
-  LinkButton,
-  ROUTES_PAGES,
   ScrollLink
 } from "@shared/";
 
@@ -51,13 +47,6 @@ export const SessionPage: FC<ISessionPage> = ({ pathname, individualId }) => {
           <ArrowUpCircleIcon className="w-10 h-10" />
         </Button>
       </ScrollLink>
-
-      <FooterPage classNameInner="justify-center">
-        <LinkButton href={ ROUTES_PAGES.PRICE } type="submit">
-          <span>Узнать стоимость услуг</span>
-          <ArrowRightIcon className="w-5 h-5" />
-        </LinkButton>
-      </FooterPage>
     </div>
   );
 };

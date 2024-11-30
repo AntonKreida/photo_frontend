@@ -1,6 +1,8 @@
 import { ReactNode } from "react";
 
-import { gabriela, localFontFuturaPT , ProviderQuery } from "@app/";
+import {
+  gabriela, localFontFuturaPT , ProviderQuery, ProviderTransitionRoute
+} from "@app/";
 import "@app/styles/index.css";
 import { Sidebar } from "@widgets/";
 
@@ -32,15 +34,18 @@ export default function RootLayout ({ children }: IRootLayoutProps) {
           <div className="w-full min-h-screen flex items-center">
             <main className="flex min-h-screen w-full">
               <Sidebar />
-              <div className="flex max-w-[1118px] flex-grow overflow-x-hidden mr-auto">
+              <div className="flex max-w-[1118px] flex-grow overflow-x-hidden mr-auto content">
                 <div className="px-[47px] w-full pb-[40px] pt-[152px]">
-                  { children }
+                  <ProviderTransitionRoute>
+                    { children }
+                  </ProviderTransitionRoute>
                 </div>
               </div>
             </main>
           </div>
           <div id="modal" />
         </ProviderQuery>
+
       </body>
     </html>
   );
