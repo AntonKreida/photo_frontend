@@ -23,9 +23,9 @@ export const Galleries: FC<IGalleriesProps> = ({ pathname }) => {
         grid grid-cols-12 grid-rows-auto gap-[35px] pt-14
         [&>*:nth-child(5n-1)]:col-span-6 [&>*:nth-child(5n)]:col-span-6
         [&>*:nth-child(5n-1)]:row-span-2 [&>*:nth-child(5n)]:row-span-2
-        [&>*:nth-child(5n-1)]:w-[485px] [&>*:nth-child(5n)]:w-[485px]
-        [&>*:nth-child(5n-1)>div]:w-[485px] [&>*:nth-child(5n-1)>div]:h-[485px]
-        [&>*:nth-child(5n)>div]:w-[485px] [&>*:nth-child(5n)>div]:h-[485px]`, {
+        [&>*:nth-child(5n-1)]:max-w-[485px] [&>*:nth-child(5n)]:max-w-[485px]
+        [&>*:nth-child(5n-1)>div]:max-w-[485px] [&>*:nth-child(5n-1)>div]:h-[485px]
+        [&>*:nth-child(5n)>div]:max-w-[485px] [&>*:nth-child(5n)>div]:h-[485px]`, {
         "flex flex-col justify-center items-center h-full": galleries.length === 0
       }) }
       >

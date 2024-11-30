@@ -35,7 +35,7 @@ export default function RootLayout ({ children }: IRootLayoutProps) {
             <main className="flex min-h-screen w-full">
               <Sidebar />
               <div className="flex max-w-[1118px] flex-grow overflow-x-hidden mr-auto">
-                <div className="px-[47px] w-full pb-[40px] pt-[152px]">
+                <div className="px-[47px] w-full pb-[146px] pt-[152px]">
                   <ProviderTransitionRoute>
                     { children }
                   </ProviderTransitionRoute>

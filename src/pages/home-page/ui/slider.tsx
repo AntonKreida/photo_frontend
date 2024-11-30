@@ -25,19 +25,19 @@ export const Slider: FC<ISliderProps> = ({ sliders }) => {
 
   return (
     <motion.div
-      className="cursor-grab"
+      className="cursor-grab h-full xl:h-fit"
       ref={ carouselRef }
       whileTap={{ cursor: "grabbing" }}
     >
       <motion.div
-        className="flex w-fit"
+        className="flex w-fit xl:h-fit h-full"
         drag="x"
         dragConstraints={{ right: 0, left: -width }}
       >
         { sliders.map((slider) => (
           <div
             className={ `text-carbon uppercase text-sm font-futura-pt
-                font-medium w-[401px] h-[614px] relative px-[15px] first:pl-0 last:pr-0` }
+                font-medium w-[401px] h-full xl:h-[614px] relative px-[15px] first:pl-0 last:pr-0` }
             key={ slider.documentId }
           >
             <Image

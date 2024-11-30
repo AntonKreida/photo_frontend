@@ -26,7 +26,7 @@ export const ProviderTransitionRoute = ({ children }: { children: ReactNode }) =
         );
       } }
     >
-      <div ref={ wrapperRef }>{ children }</div>
+      <div ref={ wrapperRef } className="w-full h-full">{ children }</div>
     </TransitionRouter>
   );
 };
