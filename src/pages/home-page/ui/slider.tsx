@@ -30,19 +30,19 @@ export const Slider: FC<ISliderProps> = ({ sliders }) => {
       whileTap={{ cursor: "grabbing" }}
     >
       <motion.div
-        className="flex"
+        className="flex w-fit"
         drag="x"
         dragConstraints={{ right: 0, left: -width }}
       >
         { sliders.map((slider) => (
           <div
             className={ `text-carbon uppercase text-sm font-futura-pt
-                font-medium w-[401px] h-[614px] px-[15px] relative` }
+                font-medium w-[401px] h-[614px] relative px-[15px] first:pl-0 last:pr-0` }
             key={ slider.documentId }
           >
             <Image
               alt="slider"
-              className="w-full h-full object-cover pointer-events-none shadow"
+              className="w-full h-full object-cover pointer-events-none shadow "
               height={ slider?.sliderImage?.height ?? 614 }
               priority
               quality={ 100 }
