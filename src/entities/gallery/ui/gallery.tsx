@@ -1,4 +1,4 @@
-import Link from "next/link";
+import { Link } from "next-transition-router";
 import { FC } from "react";
 
 import { AdapterImage } from "@shared/";

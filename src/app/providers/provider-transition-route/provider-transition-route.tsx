@@ -2,10 +2,15 @@
 
 import { animate } from "framer-motion/dom";
 import { TransitionRouter } from "next-transition-router";
-import { ReactNode, useRef } from "react";
+import { FC, ReactNode, useRef } from "react";
 
 
-export const ProviderTransitionRoute = ({ children }: { children: ReactNode }) => {
+interface IProviderTransitionRouteProps {
+    children: ReactNode;
+}
+
+
+export const ProviderTransitionRoute: FC<IProviderTransitionRouteProps> = ({ children }) => {
   const wrapperRef = useRef<HTMLDivElement>(null!);
 
   return (
@@ -26,7 +31,7 @@ export const ProviderTransitionRoute = ({ children }: { children: ReactNode }) =
         );
       } }
     >
-      <div ref={ wrapperRef } className="w-full h-full">{ children }</div>
+      <div className="w-full h-full" ref={ wrapperRef }>{ children }</div>
     </TransitionRouter>
   );
 };
