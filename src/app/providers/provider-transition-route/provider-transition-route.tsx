@@ -19,15 +19,15 @@ export const ProviderTransitionRoute: FC<IProviderTransitionRouteProps> = ({ chi
       enter={ (next) => {
         animate(
           wrapperRef.current,
-          { opacity: [0.3, 1], filter: ["blur(12px)", "blur(0px)"] },
-          { duration: 0.5, onComplete: next }
+          { opacity: [0, 1], x: [50, 0] },
+          { duration: 1,  ease: [0.43, 0.13, 0.23, 0.96], onComplete: next }
         );
       } }
       leave={ (next) => {
         animate(
           wrapperRef.current,
-          { opacity: [1, 0.3], filter: ["blur(0px)", "blur(12px)"] },
-          { duration: 0.5, onComplete: next }
+          { opacity: [1, 0], x: [0, 50] },
+          { duration: 1, ease: [0.43, 0.13, 0.23, 0.96], onComplete: next }
         );
       } }
     >

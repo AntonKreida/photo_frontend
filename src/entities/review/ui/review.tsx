@@ -12,7 +12,7 @@ interface IReviewProps {
 
 export const Review: FC<IReviewProps> = ({ review }) => (
   <div className="h-full grid grid-cols-[1fr,_1fr] max-h-[350px] grid-rows-1 gap-x-[115px] overflow-hidden break-all">
-    <div className="col-span-1 col-start-1 row-start-1 w-[431px] h-[295px]">
+    <div className="col-span-1 col-start-1 row-start-1 max-w-[431px] h-[295px]">
       <AdapterImage
         alt={ review.image?.name || "" }
         className="object-cover object-center"

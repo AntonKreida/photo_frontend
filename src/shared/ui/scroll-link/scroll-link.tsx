@@ -50,15 +50,13 @@ export const ScrollLink: FC<IScrollLinkProps> = ({
 
     window.addEventListener("scroll", handleScrollVisible);
 
-    return () => {
-      window.removeEventListener("scroll", handleScrollVisible);
-    };
+    return () => window.removeEventListener("scroll", handleScrollVisible);
   }, [heightVisible]);
 
 
   return (
     <Link
-      className={ twClassNames("transition duration-300 hover:text-orochimaru", {
+      className={ twClassNames("transition duration-300 hover:text-orochimaru fixed bottom-10 right-5 z-[9999]", {
         ["hidden"]: !isVisible
       }, className) }
       onClick={ handleScroll }

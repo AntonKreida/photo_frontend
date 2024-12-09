@@ -8,7 +8,7 @@ import { twClassNames } from "../../lib";
 
 interface IBackdropProps {
   children?: ReactNode;
-  zIndexString?: "z-10" | "z-50";
+  zIndexString?: string
   onClick?: () => void;
   className?: string;
 }
@@ -20,7 +20,7 @@ const variantsBackdrop: Variants = {
 
 export const Backdrop = ({
   children,
-  zIndexString = "z-50",
+  zIndexString = "z-[9999999]",
   onClick,
   className = "items-center",
 }: IBackdropProps) => {
