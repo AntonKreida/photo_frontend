@@ -8,7 +8,7 @@ import {
   useState
 } from "react";
 
-import { twClassNames } from "../../lib";
+import { twClassNames } from "@shared/lib";
 
 
 type TAnchorProps = Omit<AnchorHTMLAttributes<HTMLAnchorElement>, keyof LinkProps>;
