@@ -49,13 +49,14 @@ const SubNavItem: FC<ISubNavItemProps> = ({
     </div>
 
     <div
-      className={ twClassNames("gap-4 grid grid-rows-[0fr] pl-6 transition-[grid-template-rows]", {
+      className={ twClassNames("gap-4 grid relative duration-[0.5s] grid-rows-[0fr] pl-6 transition-[grid-template-rows]", {
         "grid-rows-[1fr] ": isOpen
       }) }
     >
       <ul
-        className={ twClassNames("pl-[10px] flex-col justify-start hidden pt-[15px]", {
-          "flex overflow-hidden": isOpen
+        className={ twClassNames(`pl-[10px] min-h-0 duration-[0.3s] delay-[0.3s,_0s]
+            flex-col justify-start invisible flex overflow-hidden transition-[visibility,_padding]`, {
+          "visible pt-[15px]": isOpen
         }) }
         onClick={ (event) => event.stopPropagation() }
       >
