@@ -1,6 +1,7 @@
 "use client";
 
 import Link, { LinkProps } from "next/link";
+import { useTransitionState } from "next-transition-router";
 import {
   AnchorHTMLAttributes, FC, MouseEventHandler, ReactNode,
   useEffect,
@@ -26,6 +27,7 @@ export const ScrollLink: FC<IScrollLinkProps> = ({
   ...props
 }) => {
   const [isVisible, setIsVisible] = useState(false);
+  const { isReady } = useTransitionState();
 
   const handleScroll: MouseEventHandler<HTMLAnchorElement>  = (event) => {
     event.preventDefault();
@@ -40,6 +42,8 @@ export const ScrollLink: FC<IScrollLinkProps> = ({
   };
 
   useEffect(() => {
+    const abortController = new AbortController();
+
     const handleScrollVisible = () => {
       if (window.scrollY > heightVisible) {
         setIsVisible(true);
@@ -48,16 +52,16 @@ export const ScrollLink: FC<IScrollLinkProps> = ({
       }
     };
 
-    window.addEventListener("scroll", handleScrollVisible);
+    window.addEventListener("scroll", handleScrollVisible, { signal: abortController.signal });
 
-    return () => window.removeEventListener("scroll", handleScrollVisible);
+    return () => abortController.abort();
   }, [heightVisible]);
 
 
   return (
     <Link
       className={ twClassNames("transition duration-300 hover:text-orochimaru fixed bottom-10 right-5 z-[9999]", {
-        ["hidden"]: !isVisible
+        ["hidden"]: !isVisible || !isReady
       }, className) }
       onClick={ handleScroll }
       { ...props }
