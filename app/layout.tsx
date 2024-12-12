@@ -32,9 +32,9 @@ export default function RootLayout ({ children }: IRootLayoutProps) {
       <body className="min-h-screen" id="root">
         <ProviderQuery>
           <div className="w-full min-h-screen flex items-center">
-            <main className="flex min-h-screen w-full">
+            <main className="flex min-h-screen w-full lg:flex-row flex-col">
               <Sidebar />
-              <div className="flex max-w-[1118px] flex-grow overflow-x-hidden mr-auto">
+              <div className="flex lg:max-w-[1118px] w-full lg:w-auto flex-grow overflow-x-hidden mr-auto">
                 <div className="px-[47px] w-full pb-[146px] pt-[152px]">
                   <ProviderTransitionRoute>
                     { children }
