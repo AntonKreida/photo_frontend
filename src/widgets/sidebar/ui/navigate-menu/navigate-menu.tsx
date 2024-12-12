@@ -28,7 +28,7 @@ export const NavigateMenu: FC<INavigateMenuProps> = ({ navItems }) => {
   }, [currentSubNav]);
 
   return (
-    <nav className="mt-[60px] mb-[30px]">
+    <nav className="mt-[35px] lg:mt-[60px] mb-[30px]">
       <ul className="flex flex-col justify-start flex-[1_0_auto]">
         { navItems?.map((navItem) => {
           if (navItem.subNav && navItem.subNav.length > 0) {

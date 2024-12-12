@@ -13,7 +13,7 @@ interface INavItemProps {
 
 const NavItem: FC<INavItemProps> = ({ navItem, isActiveLink }) => (
   <li
-    className={ twClassNames(`relative text-sm py-4 font-futura-pt last:pb-0
+    className={ twClassNames(`relative text-base lg:text-sm py-2 lg:py-4 font-futura-pt last:pb-0
       font-medium uppercase`,{
       [`before:absolute before:w-[3px] before:left-[-10px] before:translate-y-[-50%]
       before:top-[50%] before:h-[18px] before:bg-orochimaru last:before:translate-y-0`]: isActiveLink

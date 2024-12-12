@@ -23,14 +23,14 @@ const SubNavItem: FC<ISubNavItemProps> = ({
   isActiveSubNav,
 }) => (
   <li
-    className={ twClassNames(`relative text-carbon py-4 text-sm font-futura-pt
+    className={ twClassNames(`relative text-carbon py-2 lg:py-4 text-base lg:text-sm font-futura-pt
         font-medium uppercase hover:text-orochimaru max-h-screen group
         transition-[grid-template-rows]`) }
     key={ navItem.id }
   >
 
     <div
-      className={ twClassNames("flex items-center gap-1 cursor-pointer", {
+      className={ twClassNames("flex items-center gap-1 cursor-pointer ", {
         [`before:absolute before:w-[3px] before:left-[-10px] before:translate-y-[-50%]
       before:top-[50%] before:h-[18px] before:bg-orochimaru last:before:translate-y-0 text-orochimaru`]: isActiveSubNav,
         [`before:absolute before:w-[3px] before:left-[-10px] before:translate-y-[0%]

@@ -23,7 +23,7 @@ export const BurgerButton: FC<IBurgerButtonProps> = ({
         ? "active"
         : "rest" }
       className={ twClassNames(`relative w-20 h-20 rounded-full bg-white/0
-        transition-colors hover:bg-gray-100/70`, [className]) }
+        transition-colors`, [className]) }
       initial={ false }
       onClick={ onClick }
       { ...props }
