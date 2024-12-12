@@ -52,9 +52,9 @@ export const Sidebar = () => {
         <div className="flex justify-between items-center">
           <div className="flex flex-col gap-4">
             <Link className="cursor-pointer" href={ ROUTES_PAGES.HOME }>
-              <h1 className="text-2xl lg:text-3xl text-wrap font-normal font-gabriela uppercase">
+              <h1 className="text-2xl lg:text-3xl font-gabriela uppercase">
                 Александра
-                <br className="lg:hidden" />
+                <br />
                 Мельникова
               </h1>
             </Link>
