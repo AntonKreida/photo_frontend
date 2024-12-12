@@ -50,7 +50,7 @@ export const Slider: FC<ISliderProps> = ({ sliders }) => {
               width={ slider?.sliderImage?.width ?? 401 }
             />
             <Link
-              className={ `text-white text-3xl z-10 font-medium font-futura-pt uppercase
+              className={ `text-white text-2xl  lg:text-3xl z-10 font-medium font-futura-pt uppercase
                   absolute left-[50%] bottom-10 translate-x-[-50%] hover:text-orochimaru transition-[color]` }
               href={ slider.url }
             >

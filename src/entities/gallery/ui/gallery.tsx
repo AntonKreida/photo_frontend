@@ -13,13 +13,14 @@ interface IGalleryProps {
 
 export const Gallery: FC<IGalleryProps> = ({ card, pathname }) => (
   <Link
-    className="flex flex-col gap-4 items-center max-w-[300px] w-full col-span-4 h-fit group rounded-sm overflow-hidden"
+    className="flex flex-col gap-4 items-center sm:max-w-[300px]
+    h-fit col-span-3 w-full lg:col-span-4 group rounded-sm overflow-hidden"
     href={ `${pathname}/${card.documentId}` }
   >
     <AdapterImage
       alt={ card.titleImage.name }
       className="object-cover object-center"
-      classNameWrapper="h-[310px] w-[300px] w-full overflow-hidden shadow"
+      classNameWrapper="sm:h-[310px] h-[500px] w-full w-full overflow-hidden shadow"
       height={ card.titleImage.height }
       priority
       quality={ 100 }

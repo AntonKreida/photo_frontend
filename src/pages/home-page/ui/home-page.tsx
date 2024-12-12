@@ -10,9 +10,9 @@ export const HomePage = () => {
   const { homePage } = useHomePage();
 
   return (
-    <div className="w-full flex flex-col gap-[86px] h-full">
+    <div className="w-full flex flex-col h-full">
       <HeaderPage subTitle={ homePage?.subTitle } title={ homePage?.title } />
-      <LayoutContent className="mt-0 flex-grow">
+      <LayoutContent className="flex-grow">
         <Slider sliders={ homePage?.sliders ?? [] } />
       </LayoutContent>
     </div>

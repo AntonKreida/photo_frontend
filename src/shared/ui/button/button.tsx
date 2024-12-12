@@ -22,7 +22,7 @@ export const Button: FC<IButtonProps> = ({
   ...props
 }) => (
   <button
-    className={ twClassNames(`py-[15px] px-[25px] w-fit h-fit flex text-sm items-center gap-2 justify-center
+    className={ twClassNames(`py-[15px] px-[25px] h-fit flex w-full lg:w-fit text-base items-center gap-2 justify-center
         border-[1px] border-carbon rounded-full font-futura-pt font-medium outline-1
         uppercase text-carbon/80 hover:bg-gray-100 transition active:scale-[0.9]
         outline-none align-top disabled:active:scale-100 disabled:cursor-not-allowed disabled:hover:bg-carbon/50

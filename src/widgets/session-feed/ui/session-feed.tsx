@@ -12,7 +12,7 @@ interface ISessionFeedProps {
 
 export const SessionFeed: FC<ISessionFeedProps> = ({ sessionImages }) => (
   <>
-    <div className={ `w-full mt-[90px] grid grid-cols-12 gap-[2px] grid-rows-2
+    <div className={ `w-full grid grid-cols-12 gap-[2px] grid-rows-2
                       [&>*:nth-child(9n-8)]:col-span-8 [&>*:nth-child(9n-8)]:row-span-2
                       [&>*:nth-child(9n-1)]:col-span-8 [&>*:nth-child(9n-1)]:row-span-2
                       [&>*:nth-last-child(1):nth-child(9n-1)]:col-span-6

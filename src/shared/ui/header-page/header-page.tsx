@@ -14,9 +14,9 @@ export const HeaderPage: FC<IHeaderPageProps> = ({
   title, subTitle, renderComponent, classNameTitle
 }) => (
   <div className="w-full">
-    <div className="w-full flex justify-between">
+    <div className="w-full flex lg:justify-between flex-col lg:flex-row items-start gap-5 lg:gap-0 lg:items-start">
       <div>
-        <h1 className={ twClassNames("text-carbon text-4xl font-normal font-gabriela uppercase", [classNameTitle]) }>
+        <h1 className={ twClassNames("text-carbon text-3xl lg:text-4xl font-normal font-gabriela uppercase", [classNameTitle]) }>
           { title }
         </h1>
         { !!subTitle && (

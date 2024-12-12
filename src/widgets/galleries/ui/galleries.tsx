@@ -20,12 +20,13 @@ export const Galleries: FC<IGalleriesProps> = ({ pathname }) => {
   return (
     <>
       <div className={ twClassNames(`
-        grid grid-cols-12 grid-rows-auto gap-[35px] pt-14
-        [&>*:nth-child(5n-1)]:col-span-6 [&>*:nth-child(5n)]:col-span-6
-        [&>*:nth-child(5n-1)]:row-span-2 [&>*:nth-child(5n)]:row-span-2
-        [&>*:nth-child(5n-1)]:max-w-[485px] [&>*:nth-child(5n)]:max-w-[485px]
-        [&>*:nth-child(5n-1)>div]:max-w-[485px] [&>*:nth-child(5n-1)>div]:h-[485px]
-        [&>*:nth-child(5n)>div]:max-w-[485px] [&>*:nth-child(5n)>div]:h-[485px]`, {
+        grid lg:grid-cols-12 grid-rows-auto gap-[35px]
+        lg:[&>*:nth-child(5n-1)]:col-span-6 lg:[&>*:nth-child(5n)]:col-span-6
+        lg:[&>*:nth-child(5n-1)]:row-span-2 lg:[&>*:nth-child(5n)]:row-span-2
+        lg:[&>*:nth-child(5n-1)]:max-w-[485px] lg:[&>*:nth-child(5n)]:max-w-[485px]
+        lg:[&>*:nth-child(5n-1)>div]:max-w-[485px] lg:[&>*:nth-child(5n-1)>div]:h-[485px]
+        lg:[&>*:nth-child(5n)>div]:max-w-[485px] lg:[&>*:nth-child(5n)>div]:h-[485px]
+        sm:grid-cols-6 grid-cols-3`, {
         "flex flex-col justify-center items-center h-full": galleries.length === 0
       }) }
       >
@@ -48,7 +49,7 @@ export const Galleries: FC<IGalleriesProps> = ({ pathname }) => {
 
       { galleries.length > 3 && (
         <FooterPage classNameInner="justify-center">
-          <LinkButton href={ ROUTES_PAGES.PRICE } type="submit">
+          <LinkButton className="w-full lg:w-fit text-base" href={ ROUTES_PAGES.PRICE } type="submit">
             <span>Узнать стоимость услуг</span>
             <ArrowRightIcon className="w-5 h-5" />
           </LinkButton>

@@ -8,8 +8,9 @@ import { FC } from "react";
 
 import {
   Button,
-  ButtonBack,
   HeaderPage,
+  LayoutContent,
+  LinkButton,
   ScrollLink
 } from "@shared/";
 
@@ -32,15 +33,17 @@ export const SessionPage: FC<ISessionPage> = ({ pathname, individualId }) => {
       <HeaderPage
         classNameTitle="normal-case"
         renderComponent={ () => (
-          <ButtonBack>
+          <LinkButton href={ `/${pathname}` }>
             <ArrowUturnLeftIcon className="w-5 h-5" />
             <span>Назад</span>
-          </ButtonBack>
+          </LinkButton>
         ) }
         title={ sessionPage?.title }
       />
 
-      <SessionFeed sessionImages={ sessionPage?.sessionImages ?? [] } />
+      <LayoutContent>
+        <SessionFeed sessionImages={ sessionPage?.sessionImages ?? [] } />
+      </LayoutContent>
 
       <ScrollLink heightVisible={ 100 } href="#root">
         <Button className="rounded-full p-0 bg-white hover:bg-white">

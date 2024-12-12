@@ -6,6 +6,7 @@ import { FC, ReactNode } from "react";
 import {
   Button,
   HeaderPage,
+  LayoutContent,
   LinkButton,
   ScrollLink,
 } from "@shared/";
@@ -27,6 +28,7 @@ export const SessionsPage: FC<ISessionsPageProps> = ({ pathname, children }) => 
       <HeaderPage
         renderComponent={ () => (
           <LinkButton
+            className="w-full lg:w-fit text-base"
             href="https://t.me/Melnikova_foto72"
             isNextJsLink={ false }
             rel="noreferrer"
@@ -39,8 +41,9 @@ export const SessionsPage: FC<ISessionsPageProps> = ({ pathname, children }) => 
         subTitle={ data?.subTitlePage }
         title={ data?.titlePage }
       />
-      { children }
-
+      <LayoutContent>
+        { children }
+      </LayoutContent>
       <ScrollLink heightVisible={ 100 } href="#root">
         <Button className="rounded-full p-0 bg-white hover:bg-white">
           <ArrowUpCircleIcon className="w-10 h-10" />
