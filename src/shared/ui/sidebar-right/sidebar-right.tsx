@@ -20,7 +20,7 @@ interface ISidebarRightProps {
 export const SidebarRight: FC<ISidebarRightProps> = ( { children, onClickClose, className }) => (
   <motion.div
     animate="visible"
-    className="w-[359px] h-full bg-white relative right-0 top-0"
+    className="md:w-[359px] w-full h-full bg-white relative right-0 top-0"
     initial="hidden"
     transition={{ duration: 0.5 }}
     variants={ variants }

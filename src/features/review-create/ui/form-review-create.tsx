@@ -78,6 +78,7 @@ export const FormReviewCreate: FC<IFormCreateReviewCreateProps> = ({ handleOnClo
         render: () => <span className="font-futura-pt">Отзыв успешно отправлен!</span>,
         closeButton: true,
         isLoading: false,
+        className: "font-futura-pt",
         icon: () => <CheckCircleIcon />,
         hideProgressBar: false,
       });
@@ -89,6 +90,7 @@ export const FormReviewCreate: FC<IFormCreateReviewCreateProps> = ({ handleOnClo
         closeButton: true,
         isLoading: false,
         autoClose: false,
+        className: "font-futura-pt",
         render: () => <span className="font-futura-pt">Произошла ошибка при отправке отзыва! Попробуйте позже...</span>,
         type: "error",
         icon: () => <ExclamationCircleIcon />,
@@ -160,7 +162,7 @@ export const FormReviewCreate: FC<IFormCreateReviewCreateProps> = ({ handleOnClo
           />
         </div>
 
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col gap-3 mt-5">
           <Button
             className="w-full"
             disabled={ isLoading }
