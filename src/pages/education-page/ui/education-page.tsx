@@ -103,7 +103,7 @@ export const EducationPage: FC<IEducationPageProps> = ({ documentId }) => {
           <>
             <StudentWorkFeed studentWorks={ education.student_works } />
 
-            <FooterPage classNameInner="hidden sm:block" classNameWrapper="justify-center hidden sm:block">
+            <FooterPage classNameInner="hidden sm:flex justify-center items-center" classNameWrapper="justify-center hidden sm:block">
               <LinkButton
                 href="https://t.me/Melnikova_foto72"
                 rel="noreferrer"
@@ -127,7 +127,7 @@ export const EducationPage: FC<IEducationPageProps> = ({ documentId }) => {
           target="_blank"
           type="submit"
         >
-          Заказать на обучение
+          Записаться на обучение
         </LinkButton>
       </div>
     </div>

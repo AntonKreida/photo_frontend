@@ -43,7 +43,7 @@ export const LinkButton: FC<TLinkButtonProps> = ({
     )
     : (
       <a
-        className={ twClassNames(`py-[15px] px-[25px] h-fit flex w-full lg:w-fit text-base  items-center gap-2 justify-center
+        className={ twClassNames(`py-[15px] px-[25px] h-fit flex w-full lg:w-fit text-base items-center gap-2 justify-center
               border-[1px] border-black rounded-full font-futura-pt font-medium outline-1
               uppercase text-carbon/80 hover:bg-gray-100 transition active:scale-[0.9]
               outline-none align-top`, {
