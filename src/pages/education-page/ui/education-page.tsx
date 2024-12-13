@@ -127,7 +127,7 @@ export const EducationPage: FC<IEducationPageProps> = ({ documentId }) => {
           target="_blank"
           type="submit"
         >
-          Заказать съемку
+          Заказать на обучение
         </LinkButton>
       </div>
     </div>

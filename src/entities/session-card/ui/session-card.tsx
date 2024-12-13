@@ -21,7 +21,7 @@ export const SessionCard: FC<ISessionCardProps> = ({
   innerRef,
 }) => (
   <div
-    className={ twClassNames("col-span-4 rounded overflow-hidden", {
+    className={ twClassNames("col-span-4 overflow-hidden", {
       "cursor-pointer hover:scale-105 transition-[transform] hover:z-10": !!actionCard
     }, [className]) }
     onClick={ () => actionCard?.(sessionCard) }
