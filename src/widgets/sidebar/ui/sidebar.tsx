@@ -44,7 +44,7 @@ export const Sidebar = () => {
 
   return (
     <aside className="lg:min-w-[360px] lg:max-w-[370px]
-    w-full lg:flex-grow lg:py-[120px] lg:px-[65px] px-[35px] py-[30px] lg:overflow-y-auto
+    w-full lg:flex-grow lg:py-[120px] lg:px-[65px] px-5 md:px-[35px] py-[30px] lg:overflow-y-auto
     scrollbar-none lg:h-screen lg:sticky fixed top-0 shadow bg-white z-50"
     >
       <div className="flex flex-col justify-between h-full">
