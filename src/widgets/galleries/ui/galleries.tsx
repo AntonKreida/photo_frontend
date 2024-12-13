@@ -42,7 +42,7 @@ export const Galleries: FC<IGalleriesProps> = ({ pathname }) => {
           )
           : (
             <div className="text-carbon/50 text-xl font-normal font-futura-pt text-center">
-              Портфолио выбранной категории временно пусто
+              На данный момент портфолио временно пустое
             </div>
           ) }
       </div>

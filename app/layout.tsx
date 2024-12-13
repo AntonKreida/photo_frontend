@@ -26,7 +26,9 @@ export default function RootLayout ({ children }: IRootLayoutProps) {
         <meta charSet="UTF-8" />
         <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <link href="/favicon.ico" rel="icon" type="image/x-icon" />
         <meta content={ metadata.description as string } name="description" />
+        <meta content={ metadata.keywords as string } name="keywords" />
         <title>{ metadata.title as string }</title>
       </head>
       <body className="min-h-screen" id="root">
@@ -35,7 +37,7 @@ export default function RootLayout ({ children }: IRootLayoutProps) {
             <main className="flex min-h-screen w-full lg:flex-row flex-col">
               <Sidebar />
               <div className="flex lg:max-w-[1118px] w-full lg:w-auto flex-grow overflow-x-hidden mr-auto">
-                <div className="px-5 md:px-[35px] w-full pb-[110px] md:pb-[80px] lg:pb-[30px] pt-[190px] lg:pt-[152px]">
+                <div className="px-5 md:px-[35px] w-full pb-[110px] md:pb-[80px] lg:pb-[50px] pt-[190px] lg:pt-[152px]">
                   <ProviderTransitionRoute>
                     { children }
                   </ProviderTransitionRoute>

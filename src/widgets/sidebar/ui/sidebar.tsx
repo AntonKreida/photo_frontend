@@ -44,7 +44,7 @@ export const Sidebar = () => {
 
   return (
     <aside className="lg:min-w-[360px] lg:max-w-[370px]
-    w-full lg:flex-grow lg:py-[120px] lg:px-[65px] px-5 md:px-[35px] py-[30px] lg:overflow-y-auto
+    w-full lg:flex-grow lg:pt-[120px] lg:pb-[30px] lg:px-[65px] px-5 md:px-[35px] py-[30px] lg:overflow-y-auto
     scrollbar-none lg:h-screen lg:sticky fixed top-0 shadow bg-white z-50"
     >
       <div className="flex flex-col justify-between h-full">
@@ -76,21 +76,21 @@ export const Sidebar = () => {
             "grid-rows-[1fr]": isOpenNav
           }) }
         >
-          <div className={ twClassNames(`min-h-0 lg:h-full lg:min-h-full
+          <div className={ twClassNames(`min-h-0 lg:h-full flex flex-col justify-between lg:min-h-full
           invisible lg:visible transition-[visibility] duration-[0.65s]`, {
             "visible": isOpenNav
           }) }
           >
             <NavigateMenu navItems={ navItems } />
 
-            <div className="mt-auto flex flex-col justify-start lg:py-4">
+            <div className="flex flex-col justify-start lg:pt-4 lg:pb-5">
               <a
                 className="text-carbon text-sm font-futura-pt font-medium uppercase py-4"
                 href="tel:+79220070075"
               >
                 +7 (922) 007-00-75
               </a>
-              <div className="flex items-center gap-2 lg:py-4">
+              <div className="flex items-center mt-auto gap-2 lg:py-4">
                 <a
                   className="cursor-pointer"
                   href="https://t.me/Melnikova_foto72"
@@ -116,7 +116,7 @@ export const Sidebar = () => {
                   <InstagramIcon className="w-5 h-5 fill-carbon/70" />
                 </a>
               </div>
-              <div className="lg:py-4 hidden lg:block">
+              <div className="lg:pt-4 hidden lg:block">
                 <LinkButton
                   href="https://t.me/Melnikova_foto72"
                   isNextJsLink={ false }

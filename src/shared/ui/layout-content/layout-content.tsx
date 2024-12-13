@@ -10,7 +10,7 @@ interface ILayoutContentProps {
 
 
 export const LayoutContent: FC<ILayoutContentProps> = ({ className, children }) => (
-  <div className={ twClassNames("mt-7 lg:mt-[86px]", className) }>
+  <div className={ twClassNames("mt-7 lg:mt-[86px]", [className]) }>
     { children }
   </div>
 );

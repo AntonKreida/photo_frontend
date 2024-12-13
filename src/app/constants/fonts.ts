@@ -7,6 +7,7 @@ export const gabriela = Gabriela({
   subsets: ["latin", "cyrillic"],
   variable: "--font-gabriela",
   display: "swap",
+  preload: true,
 });
 
 export const localFontFuturaPT = localFont({
@@ -49,4 +50,6 @@ export const localFontFuturaPT = localFont({
   ],
   variable: "--font-futura-pt",
   display: "swap",
+  preload: true,
+  fallback: ["Helvetica", "Arial", "sans-serif"],
 });

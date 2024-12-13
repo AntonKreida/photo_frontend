@@ -1,0 +1,108 @@
+networks:
+  traefik-net:
+   driver: bridge
+  strapi:
+    driver: bridge
+
+services:
+  traefik:
+    image: traefik:v2.5
+    ports:
+      - "80:80"
+      - "443:443"
+    environment:
+      TRAEFIK_CERTIFICATE_EMAIL: ${TRAEFIK_CERTIFICATE_EMAIL}
+    volumes:
+        - /var/run/docker.sock:/var/run/docker.sock:ro
+        - ./traefik.yml:/etc/traefik/traefik.yml
+        - ./traefik/letsencrypt:/letsencrypt
+    networks:
+      - traefik-net
+
+  strapi:
+    container_name: strapi
+    build:
+      context: ../photo_backend
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATABASE_CLIENT: ${DATABASE_CLIENT}
+      DATABASE_HOST: strapiDB
+      DATABASE_PORT: ${DATABASE_PORT}
+      DATABASE_NAME: ${DATABASE_NAME}
+      DATABASE_USERNAME: ${DATABASE_USERNAME}
+      DATABASE_PASSWORD: ${DATABASE_PASSWORD}
+      JWT_SECRET: ${JWT_SECRET}
+      ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
+      APP_KEYS: ${APP_KEYS}
+      NODE_ENV: ${NODE_ENV}
+    volumes:
+      - ../photo_backend/config:/opt/app/config
+      - ../photo_backend/src:/opt/app/src
+      - ../photo_backend/package.json:/opt/package.json
+      - ../photo_backend/yarn.lock:/opt/yarn.lock
+      - .env:/opt/app/.env
+      - ../photo_backend/public/uploads:/opt/app/public/uploads
+    ports:
+      - "1337"
+    networks:
+      - strapi
+      - traefik-net
+    depends_on:
+      - strapiDB
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=photo_frontend_traefik-net"
+      - "traefik.http.routers.admin.rule=Host(`admin.melnikova-foto72.ru`)"
+      - "traefik.http.routers.admin.tls=true"
+      - "traefik.http.services.admin.loadbalancer.server.port=1337"
+      - "traefik.http.services.admin.loadbalancer.server.scheme=http"
+      - "traefik.http.routers.admin.entrypoints=websecure"
+      - "traefik.http.routers.admin.tls.certresolver=myresolver"
+      - "traefik.http.routers.admin.service=admin"
+  strapiDB:
+    container_name: strapiDB
+    platform: linux/amd64
+    restart: unless-stopped
+    env_file: .env
+    image: postgres:12.0-alpine
+    environment:
+      POSTGRES_USER: ${DATABASE_USERNAME}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      POSTGRES_DB: ${DATABASE_NAME}
+      USER_ID: ${USER_ID}
+      GROUP_ID: ${GROUP_ID}
+      PGDATA: /data/postgres
+      PGUSER: ${DB_ROOT_USERNAME}
+    volumes:
+      - strapi-data:/var/lib/postgresql/data/ # использование volume
+    ports:
+      - "5432"
+    networks:
+      - strapi
+  web:
+    container_name: web
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000" # Порт внутри контейнера
+    restart: always
+    environment:
+      NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL}
+      NEXT_PUBLIC_API_ENDPOINT: ${NEXT_PUBLIC_API_ENDPOINT}
+    networks:
+      - traefik-net
+    labels:
+        - "traefik.enable=true"
+        - "traefik.docker.network=photo_frontend_traefik-net"
+        - "traefik.http.routers.public.rule=Host(`melnikova-foto72.ru`)"
+        - "traefik.http.routers.public.tls=true"
+        - "traefik.http.services.public.loadbalancer.server.port=3000"
+        - "traefik.http.services.public.loadbalancer.server.scheme=http"
+        - "traefik.http.routers.public.entrypoints=websecure"
+        - "traefik.http.routers.public.tls.certresolver=myresolver"
+        - "traefik.http.routers.public.service=public"
+volumes:
+  strapi-data:

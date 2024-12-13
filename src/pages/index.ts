@@ -5,3 +5,4 @@ export { PricePage } from "./price-page";
 export { ReviewsPage } from "./reviews-page";
 export { SessionPage } from "./session-page";
 export { SessionsPage } from "./sessions-page";
+export { NotFoundPage } from "./not-found-page";

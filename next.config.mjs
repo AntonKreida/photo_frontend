@@ -56,18 +56,12 @@ const nextConfig = {
     remotePatterns: [
         {
             protocol: "https",
-            port: "",
-            hostname: "localhost",
-            pathname: "/**",
-        },
-        {
-            protocol: "http",
-            port: "1337",
-            hostname: "localhost",
+            hostname: `${process.env.NEXT_PUBLIC_API_URL}`,
             pathname: "/**",
         }
     ]
-  }
+  },
+  output: "standalone",
 };
 
 export default nextConfig;

@@ -27,7 +27,7 @@ export const ScrollLink: FC<IScrollLinkProps> = ({
   ...props
 }) => {
   const [isVisible, setIsVisible] = useState(false);
-  const { stage } = useTransitionState();
+  const { isReady, stage } = useTransitionState();
 
   const handleScroll: MouseEventHandler<HTMLAnchorElement>  = (event) => {
     event.preventDefault();
@@ -60,8 +60,8 @@ export const ScrollLink: FC<IScrollLinkProps> = ({
 
   return (
     <Link
-      className={ twClassNames("transition duration-300 hover:text-orochimaru fixed bottom-10 right-5 z-[9999]", {
-        ["hidden"]: !isVisible || stage !== "none"
+      className={ twClassNames("transition duration-300 hidden md:block hover:text-orochimaru fixed bottom-10 right-5 z-[9999]", {
+        ["!hidden"]: !isVisible || !isReady || stage !== "none",
       }, className) }
       onClick={ handleScroll }
       { ...props }

@@ -12,7 +12,7 @@ export const AboutPage = () => {
   return (
     <div className="w-full">
       <HeaderPage title={ aboutPage?.title ?? "Обо мне" } />
-      <LayoutContent className="flex justify-between gap-[65px] flex-wrap xl:flex-nowrap">
+      <LayoutContent className="flex gap-[60px] flex-wrap xl:flex-nowrap">
         <AdapterImage
           alt={ aboutPage?.aboutImage.name ?? "about" }
           className="w-full h-full object-cover shadow-sm"

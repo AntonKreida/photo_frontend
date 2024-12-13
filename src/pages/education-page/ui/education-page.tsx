@@ -93,7 +93,7 @@ export const EducationPage: FC<IEducationPageProps> = ({ documentId }) => {
           </div>
         ) }
 
-        <ScrollLink className="hidden md:block" heightVisible={ 100 } href="#root">
+        <ScrollLink heightVisible={ 100 } href="#root">
           <Button className="rounded-full p-0 bg-white hover:bg-white">
             <ArrowUpCircleIcon className="w-10 h-10" />
           </Button>

@@ -10,7 +10,7 @@ interface IStudentWorkProps {
 }
 
 export const StudentWork: FC<IStudentWorkProps> = ({ studentCard }) => (
-  <div className="flex flex-col gap-4 items-center lg:max-w-[300px] w-full h-[400px] col-span-3 lg:col-span-4 lg:h-[300px] rounded-sm overflow-hidden">
+  <div className="flex flex-col gap-4 items-center lg:max-w-[300px] w-full h-[400px] col-span-3 lg:col-span-4 lg:h-[300px] overflow-hidden">
     <AdapterImage
       alt={ studentCard.workImage.name }
       className="object-cover object-center"
