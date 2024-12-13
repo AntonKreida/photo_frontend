@@ -26,11 +26,11 @@ export const Review: FC<IReviewProps> = ({ review }) => (
         width={ review.image?.width }
       />
     </div>
-    <div className="col-span-1 col-start-2 row-start-1  flex flex-col justify-center gap-[14px] text-left overflow-hidden">
+    <div className="col-span-1 col-start-2 row-start-1 flex flex-col justify-center gap-[14px] text-left overflow-hidden">
       <div
         className="font-futura-pt text-xl text-carbon/60 font-light overflow-hidden overflow-y-auto
       scrollbar-thin scrollbar-thumb-carbon/50 scrollbar-track-white-smoke scrollbar-track-rounded-full
-      scrollbar-thumb-rounded-full h-fit sm:max-h-[200px]"
+      scrollbar-thumb-rounded-full max-h-[300px] sm:max-h-[200px]"
       >
         { review.description }
       </div>

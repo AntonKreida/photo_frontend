@@ -33,10 +33,12 @@ export const SessionPage: FC<ISessionPage> = ({ pathname, individualId }) => {
       <HeaderPage
         classNameTitle="normal-case"
         renderComponent={ () => (
-          <LinkButton href={ `/${pathname}` }>
-            <ArrowUturnLeftIcon className="w-5 h-5" />
-            <span>Назад</span>
-          </LinkButton>
+          <div className="hidden sm:block w-full lg:w-fit">
+            <LinkButton href={ `/${pathname}` }>
+              <ArrowUturnLeftIcon className="w-5 h-5" />
+              <span>Назад</span>
+            </LinkButton>
+          </div>
         ) }
         title={ sessionPage?.title }
       />
@@ -45,11 +47,25 @@ export const SessionPage: FC<ISessionPage> = ({ pathname, individualId }) => {
         <SessionFeed sessionImages={ sessionPage?.sessionImages ?? [] } />
       </LayoutContent>
 
-      <ScrollLink heightVisible={ 100 } href="#root">
+      <ScrollLink className="hidden md:block" heightVisible={ 100 } href="#root">
         <Button className="rounded-full p-0 bg-white hover:bg-white">
           <ArrowUpCircleIcon className="w-10 h-10" />
         </Button>
       </ScrollLink>
+
+
+      <div className="block sm:hidden w-full p-5 fixed left-0 bottom-0 shadow border-t-2 z-[1000] bg-white">
+        <LinkButton
+          className="w-full lg:w-fit text-base"
+          href="https://t.me/Melnikova_foto72"
+          isNextJsLink={ false }
+          rel="noreferrer"
+          target="_blank"
+          type="submit"
+        >
+          Заказать съемку
+        </LinkButton>
+      </div>
     </div>
   );
 };

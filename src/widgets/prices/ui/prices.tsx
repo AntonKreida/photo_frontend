@@ -17,7 +17,7 @@ export const Prices = () => {
   return (
     prices.length > 0
       ? (
-        <ul className="mt-[78px] grid grid-cols-[repeat(auto-fill,_minmax(400px,_1fr))] gap-10">
+        <ul className="mt-[78px] grid sm:grid-cols-[repeat(auto-fill,_minmax(400px,_1fr))] gap-10">
           { prices.map((price) => (
             <li key={ price?.id }>
               <Price price={ price } />

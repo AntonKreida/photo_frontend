@@ -36,15 +36,17 @@ export const EducationPage: FC<IEducationPageProps> = ({ documentId }) => {
       <HeaderPage
         classNameTitle="uppercase"
         renderComponent={ () => (
-          <LinkButton
-            href="https://t.me/Melnikova_foto72"
-            rel="noreferrer"
-            target="_blank"
-            type="submit"
-          >
-            <span>Записаться</span>
-            <ArrowRightIcon className="w-5 h-5" />
-          </LinkButton>
+          <div className="hidden sm:block w-full lg:w-fit">
+            <LinkButton
+              href="https://t.me/Melnikova_foto72"
+              rel="noreferrer"
+              target="_blank"
+              type="submit"
+            >
+              <span>Записаться</span>
+              <ArrowRightIcon className="w-5 h-5" />
+            </LinkButton>
+          </div>
         ) }
         subTitle={ education?.subTitle }
         title={ education?.title }
@@ -73,22 +75,25 @@ export const EducationPage: FC<IEducationPageProps> = ({ documentId }) => {
 
         { !!education?.price && (
           <div className="flex items-center justify-center mt-10 flex-col gap-4 bg-orochimaru/15 py-5 px-3 rounded-sm shadow">
-            <span className="text-carbon font-gabriela text-xl font-normal uppercase">
+            <span className="text-carbon font-gabriela text-xl text-center font-normal uppercase">
               { `Стоимость обучения:  ${ intlNumberFormat.format(education?.price) }` }
             </span>
 
-            <LinkButton
-              href="https://t.me/Melnikova_foto72"
-              rel="noreferrer"
-              target="_blank"
-              type="submit"
-            >
-              <span>Записаться на обучение</span>
-            </LinkButton>
+            <div className="hidden md:block md:w-full lg:w-fit">
+              <LinkButton
+                className=""
+                href="https://t.me/Melnikova_foto72"
+                rel="noreferrer"
+                target="_blank"
+                type="submit"
+              >
+                <span>Записаться на обучение</span>
+              </LinkButton>
+            </div>
           </div>
         ) }
 
-        <ScrollLink heightVisible={ 100 } href="#root">
+        <ScrollLink className="hidden md:block" heightVisible={ 100 } href="#root">
           <Button className="rounded-full p-0 bg-white hover:bg-white">
             <ArrowUpCircleIcon className="w-10 h-10" />
           </Button>
@@ -98,7 +103,7 @@ export const EducationPage: FC<IEducationPageProps> = ({ documentId }) => {
           <>
             <StudentWorkFeed studentWorks={ education.student_works } />
 
-            <FooterPage classNameInner="justify-center">
+            <FooterPage classNameInner="hidden sm:block" classNameWrapper="justify-center hidden sm:block">
               <LinkButton
                 href="https://t.me/Melnikova_foto72"
                 rel="noreferrer"
@@ -111,6 +116,20 @@ export const EducationPage: FC<IEducationPageProps> = ({ documentId }) => {
           </>
         ) }
       </LayoutContent>
+
+
+      <div className="block sm:hidden w-full p-5 fixed left-0 bottom-0 shadow border-t-2 z-[1000] bg-white">
+        <LinkButton
+          className="w-full lg:w-fit text-base"
+          href="https://t.me/Melnikova_foto72"
+          isNextJsLink={ false }
+          rel="noreferrer"
+          target="_blank"
+          type="submit"
+        >
+          Заказать съемку
+        </LinkButton>
+      </div>
     </div>
 
   );

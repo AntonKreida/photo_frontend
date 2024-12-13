@@ -45,7 +45,7 @@ export const SessionFeed: FC<ISessionFeedProps> = ({ sessionImages }) => (
     </div>
 
     { sessionImages.length > 0 && (
-      <FooterPage classNameInner="justify-center">
+      <FooterPage classNameInner="hidden md:block" classNameWrapper="justify-center hidden md:block">
         <LinkButton href={ ROUTES_PAGES.PRICE } type="submit">
           <span>Узнать стоимость услуг</span>
           <ArrowRightIcon className="w-5 h-5" />

@@ -48,7 +48,7 @@ export const Galleries: FC<IGalleriesProps> = ({ pathname }) => {
       </div>
 
       { galleries.length > 3 && (
-        <FooterPage classNameInner="justify-center">
+        <FooterPage classNameInner="hidden md:block" classNameWrapper="justify-center hidden md:block">
           <LinkButton className="w-full lg:w-fit text-base" href={ ROUTES_PAGES.PRICE } type="submit">
             <span>Узнать стоимость услуг</span>
             <ArrowRightIcon className="w-5 h-5" />

@@ -27,28 +27,46 @@ export const SessionsPage: FC<ISessionsPageProps> = ({ pathname, children }) => 
     <div className="h-full overflow-hidden">
       <HeaderPage
         renderComponent={ () => (
-          <LinkButton
-            className="w-full lg:w-fit text-base"
-            href="https://t.me/Melnikova_foto72"
-            isNextJsLink={ false }
-            rel="noreferrer"
-            target="_blank"
-            type="submit"
-          >
-            Заказать съемку
-          </LinkButton>
+          <div className="hidden sm:block w-full lg:w-fit">
+            <LinkButton
+              className="w-full lg:w-fit text-base"
+              href="https://t.me/Melnikova_foto72"
+              isNextJsLink={ false }
+              rel="noreferrer"
+              target="_blank"
+              type="submit"
+            >
+              Заказать съемку
+            </LinkButton>
+          </div>
         ) }
         subTitle={ data?.subTitlePage }
         title={ data?.titlePage }
       />
+
       <LayoutContent>
         { children }
       </LayoutContent>
-      <ScrollLink heightVisible={ 100 } href="#root">
+
+      <ScrollLink className="hidden md:block" heightVisible={ 100 } href="#root">
         <Button className="rounded-full p-0 bg-white hover:bg-white">
           <ArrowUpCircleIcon className="w-10 h-10" />
         </Button>
       </ScrollLink>
+
+
+      <div className="block sm:hidden w-full p-5 fixed left-0 bottom-0 shadow border-t-2 z-[1000] bg-white">
+        <LinkButton
+          className="w-full lg:w-fit text-base"
+          href="https://t.me/Melnikova_foto72"
+          isNextJsLink={ false }
+          rel="noreferrer"
+          target="_blank"
+          type="submit"
+        >
+          Заказать съемку
+        </LinkButton>
+      </div>
     </div>
   );
 };
