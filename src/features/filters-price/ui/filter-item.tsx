@@ -12,8 +12,8 @@ interface IFilterItemProps {
 
 const FilterItem: FC<IFilterItemProps> = ({ filter, handleOnClickFilter, isActiveFilter }) => (
   <button
-    className={ twClassNames(`text-end font-futura-pt font-medium
-        text-[15px] outline-none flex-[1_0_0] w-fit text-nowrap
+    className={ twClassNames(`text-end font-futura-pt text-xl font-medium
+        lg:text-base outline-none flex-[1_0_0] w-fit text-nowrap
         pb-4 border-b-2 border-beluga text-beluga uppercase
         hover:text-carbon transition-[color,_border-color]
         active:text-carbon active:border-carbon pl-4`, {

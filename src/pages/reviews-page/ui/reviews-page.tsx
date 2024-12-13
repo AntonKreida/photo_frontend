@@ -1,7 +1,9 @@
 import { ArrowUpCircleIcon } from "@heroicons/react/24/solid";
 
 import { ReviewCreate } from "@features/";
-import { Button, HeaderPage, ScrollLink } from "@shared/";
+import {
+  Button, HeaderPage, LayoutContent, ScrollLink 
+} from "@shared/";
 import { ReviewsFeed } from "@widgets/";
 
 
@@ -14,7 +16,9 @@ const ReviewsPage = () => (
       title="Отзывы"
     />
 
-    <ReviewsFeed />
+    <LayoutContent>
+      <ReviewsFeed />
+    </LayoutContent>
 
     <ScrollLink heightVisible={ 100 } href="#root">
       <Button className="rounded-full p-0 bg-white hover:bg-white">

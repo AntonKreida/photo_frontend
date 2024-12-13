@@ -42,7 +42,7 @@ export const Price: FC<IPriceProps> = ({ price }) => (
       </div>
 
       <LinkButton
-        className="p-3"
+        className="lg:p-3"
         href="https://t.me/Melnikova_foto72"
         isNextJsLink={ false }
         target="_blank"

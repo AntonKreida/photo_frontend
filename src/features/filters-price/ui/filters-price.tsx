@@ -35,7 +35,7 @@ export const FiltersPrice = () => {
   }, [pathname, router, searchParams]);
 
   return (
-    <div className="flex items-center w-fit basis-1/2">
+    <div className="flex items-center w-full lg:w-fit basis-1/2">
       <MemoizeFilterItem
         filter={{ id: 0, type: "all", translate: "Все" }}
         handleOnClickFilter={ handleOnClickFilter }
