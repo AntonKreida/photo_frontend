@@ -8,4 +8,6 @@
 * Основной стек: Next.js, tailwind, framer-motion, zod, react-hook-form, typescript, tanstack-query, react-dropzone, react-toastify, next-transition-router
 * Линтер: eslint.
 
+В качестве proxy использовался traefik, для создания образа сайта использовался Docker.
+
 Рабочая ссылка на работу: https://melnikova-foto72.ru/
