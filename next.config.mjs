@@ -53,13 +53,7 @@ const nextConfig = {
     return config;
   },
   images: {
-    remotePatterns: [
-        {
-            protocol: "https",
-            hostname: `${process.env.NEXT_PUBLIC_API_URL}`,
-            pathname: "/**",
-        }
-    ]
+    domains: [process.env.NEXT_PUBLIC_API_HOST],
   },
   output: "standalone",
   experimental: {

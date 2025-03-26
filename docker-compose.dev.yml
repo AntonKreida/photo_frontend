@@ -10,4 +10,5 @@ services:
         environment:
             NEXT_PUBLIC_API_URL: ${NEXT_PUBLIC_API_URL}
             NEXT_PUBLIC_API_ENDPOINT: ${NEXT_PUBLIC_API_ENDPOINT}
+            NEXT_PUBLIC_API_HOST: ${NEXT_PUBLIC_API_HOST}
 
