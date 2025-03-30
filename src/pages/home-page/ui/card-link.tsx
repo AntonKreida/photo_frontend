@@ -13,7 +13,7 @@ interface ICardLinkProps {
 export const CardLink: FC<ICardLinkProps> = ({ card }) => (
   <Link
     className="flex flex-col gap-4 items-center sm:max-w-[300px]
-    h-fit col-span-3 w-full lg:col-span-4 group rounded-sm overflow-hidden"
+    h-fit col-span-3 w-full sm:col-span-4 group rounded-sm overflow-hidden"
     href={ `${card.url}` }
   >
     <AdapterImage
