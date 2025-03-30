@@ -53,7 +53,7 @@ const nextConfig = {
     return config;
   },
   images: {
-    domains: [process.env.NEXT_PUBLIC_API_HOST],
+    domains: [process.env.NEXT_PUBLIC_API_HOST || "localhost"],
   },
   output: "standalone",
   experimental: {
