@@ -31,10 +31,11 @@ export const Price: FC<IPriceProps> = ({ price }) => (
     />
 
     <div className="flex flex-col gap-4 mt-auto">
-      <div className="text-carbon/50 text-base font-normal font-futura-pt">
-        У меня есть слаженная команда из специалистов стилиста и визажиста, которых я рекомендую
-        и координирую по задачам съемки. Их услуги и аренда студии оплачиваются отдельно.
-      </div>
+      { !!price?.subDescription && (
+        <div className="text-carbon/50 text-base font-normal font-futura-pt">
+          { price?.subDescription }
+        </div>
+      ) }
 
       <div className="flex gap-2 items-center text-carbon font-gabriela text-lg font-normal">
         <span>Стоимость:</span>

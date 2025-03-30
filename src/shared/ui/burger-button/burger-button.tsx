@@ -1,7 +1,7 @@
 import { HTMLMotionProps, motion, MotionConfig  } from "framer-motion";
 import { FC } from "react";
 
-import { twClassNames } from "../../lib";
+import { twClassNames } from "@shared/";
 
 
 interface IBurgerButtonProps extends  HTMLMotionProps<"button"> {

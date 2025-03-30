@@ -3,4 +3,5 @@ export interface IPrice {
     title: string;
     cost: number;
     description: string;
+    subDescription?: string;
 }
