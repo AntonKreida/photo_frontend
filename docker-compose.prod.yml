@@ -16,6 +16,11 @@ services:
         - /var/run/docker.sock:/var/run/docker.sock:ro
         - ./traefik.yml:/etc/traefik/traefik.yml
         - ./traefik/letsencrypt:/letsencrypt
+    command:
+      - "--certificatesresolvers.myresolver.acme.email=${TRAEFIK_CERTIFICATE_EMAIL}"
+      - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
+      - "--certificatesresolvers.myresolver.acme.httpChallenge.entryPoint=web"
+      - "--certificatesresolvers.myresolver.acme.tlsChallenge=true"
     networks:
       - traefik-net
 
@@ -54,7 +59,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=photo_frontend_traefik-net"
-      - "traefik.http.routers.admin.rule=Host(`admin.melnikova-foto72.ru`)"
+      - "traefik.http.routers.admin.rule=Host(`melnikova-foto72.ru`) && PathPrefix(`/api`, `/roles`, `/users-permissions`, `/admin`, `/uploads`, `/i18n`, `/content-type-builder`, `/upload`, `/content-manager`)"
       - "traefik.http.routers.admin.tls=true"
       - "traefik.http.services.admin.loadbalancer.server.port=1337"
       - "traefik.http.services.admin.loadbalancer.server.scheme=http"

@@ -32,6 +32,11 @@ export const listNav: INavItem[] = [
         id: 6,
         title: "Бренды",
         path: ROUTES_PAGES.BRAND,
+      },
+      {
+        id: 7,
+        title: "Репортаж",
+        path: ROUTES_PAGES.REPORT,
       }
     ],
   },

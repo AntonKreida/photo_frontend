@@ -1,7 +1,13 @@
 "use client";
 
 import Link from "next/link";
-import { useCallback, useMemo, useState } from "react";
+import { usePathname } from "next/navigation";
+import {
+  useCallback,
+  useEffect,
+  useMemo,
+  useState
+} from "react";
 
 import {
   ROUTES_PAGES,
@@ -21,8 +27,8 @@ import { useEducationForSidebar } from "../model";
 
 export const Sidebar = () => {
   const { educations } = useEducationForSidebar();
-
   const [isOpenNav, setIsOpenNav] = useState<boolean>(false);
+  const pathname = usePathname();
 
   const navItems = useMemo(() => listNav.map((navItem) => {
     if(navItem.title === "Обучение") {
@@ -41,6 +47,10 @@ export const Sidebar = () => {
   const handlerOnClick = useCallback(() => {
     setIsOpenNav((prev) => !prev);
   }, []);
+
+  useEffect(() => {
+    setIsOpenNav(false);
+  }, [pathname]);
 
   return (
     <aside className="lg:min-w-[360px] lg:max-w-[370px]

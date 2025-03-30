@@ -8,4 +8,5 @@ export const ROUTES_PAGES = {
   WEDDING: "/wedding",
   BRAND: "/brand",
   EDUCATION: "/education",
+  REPORT: "/report",
 } as const;
