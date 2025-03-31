@@ -13,7 +13,7 @@ interface IGalleryProps {
 
 export const Gallery: FC<IGalleryProps> = ({ card, pathname }) => (
   <Link
-    className="flex flex-col gap-4 items-center sm:max-w-[300px]
+    className="flex flex-col gap-4 items-center aspect-square lg:aspect-auto sm:max-w-[300px]
     h-fit col-span-3 w-full lg:col-span-4 group rounded-sm overflow-hidden"
     href={ `${pathname}/${card.documentId}` }
   >
