@@ -12,12 +12,12 @@ export const AboutPage = () => {
   return (
     <div className="w-full">
       <HeaderPage title={ aboutPage?.title ?? "Обо мне" } />
-      <LayoutContent className="flex gap-[60px] flex-wrap xl:flex-nowrap">
+      <LayoutContent className="flex gap-[60px] flex-wrap justify-center xl:justify-normal xl:flex-nowrap">
         { !!aboutPage?.aboutImage.url && (
           <AdapterImage
             alt={ aboutPage?.aboutImage.name ?? "about" }
             className="w-full h-full object-cover shadow-sm"
-            classNameWrapper="w-full xl:w-[471px] h-[614px]"
+            classNameWrapper="w-full aspect-square max-w-[472px] max-h-[472px] rounded-full overflow-hidden"
             height={ aboutPage?.aboutImage?.height ?? 471 }
             priority
             quality={ 100 }
@@ -26,7 +26,7 @@ export const AboutPage = () => {
           />
         ) }
         <div
-          className="xl:max-w-[400px] flex-grow
+          className="xl:max-w-[400px] xl:flex-grow
                 [&_h1]:text-xl [&_h1]:text-carbon [&_h1]:font-normal [&_h1]:font-gabriela [&_h1]:mb-4
                 [&_p]:text-xl [&_p]:text-carbon [&_p]:font-light [&_p]:font-futura-pt [&_p]:mb-4
                 [&_ul]:list-none [&_ul]:mb-4
