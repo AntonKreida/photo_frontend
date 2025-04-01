@@ -8,6 +8,7 @@ import { twClassNames } from "@shared/lib";
 const variants: Variants = {
   visible: { x: 0 },
   hidden: { x: 500 },
+  exit: { x: 500 },
 };
 
 
@@ -20,8 +21,10 @@ interface ISidebarRightProps {
 export const SidebarRight: FC<ISidebarRightProps> = ( { children, onClickClose, className }) => (
   <motion.div
     animate="visible"
-    className="md:w-[359px] w-full h-full bg-white relative right-0 top-0"
+    className="md:w-[400px] w-full h-full bg-white relative right-0 top-0"
+    exit="exit"
     initial="hidden"
+    key={ 2 }
     transition={{ duration: 0.5 }}
     variants={ variants }
   >

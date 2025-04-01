@@ -20,7 +20,7 @@ const variantsBackdrop: Variants = {
 
 export const Backdrop = ({
   children,
-  zIndexString = "z-[9999999]",
+  zIndexString = "z-[99999]",
   onClick,
   className = "items-center",
 }: IBackdropProps) => {

@@ -30,7 +30,7 @@ export const ReviewCreate = () => {
       <AnimatePresence mode="wait">
         { !!isOpen && (
           <Portal selector="#modal">
-            <Backdrop className="justify-end">
+            <Backdrop className="justify-end" key={ 1 }>
               <WithLazyLoadingFormReviewCreate handleOnClose={ handleOnIsCloseForm } />
             </Backdrop>
           </Portal>

@@ -19,8 +19,8 @@ const mutationCreateReview =`
 `;
 
 const mutationUploadFileImg =`
-    mutation SingleImageUpload($file: Upload!) {
-        singleUploadImg(file: $file) {
+    mutation SingleImageUpload($file: Upload!, $options: OptionUploadImg) {
+        singleUploadImg(file: $file, options: $options) {
             id
             name
         }
@@ -53,6 +53,10 @@ export const postUploadFile = async (data: File) => {
         file: {
           ...fileResponse
         },
+        options: {
+          width: 540,
+          height: 340
+        }
       },
     });
 

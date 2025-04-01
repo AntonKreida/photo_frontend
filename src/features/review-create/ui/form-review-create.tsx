@@ -54,7 +54,7 @@ export const FormReviewCreate: FC<IFormCreateReviewCreateProps> = ({ handleOnClo
         isLoading: true,
         hideProgressBar: false,
         className: "font-futura-pt",
-        autoClose: false,
+        autoClose: 5000,
       });
       toastIdForError = toastId;
 
@@ -81,6 +81,7 @@ export const FormReviewCreate: FC<IFormCreateReviewCreateProps> = ({ handleOnClo
         className: "font-futura-pt",
         icon: () => <CheckCircleIcon />,
         hideProgressBar: false,
+        autoClose: 5000,
       });
 
       handleOnClose();
@@ -89,7 +90,7 @@ export const FormReviewCreate: FC<IFormCreateReviewCreateProps> = ({ handleOnClo
         position: "bottom-left",
         closeButton: true,
         isLoading: false,
-        autoClose: false,
+        autoClose: 5000,
         className: "font-futura-pt",
         render: () => <span className="font-futura-pt">Произошла ошибка при отправке отзыва! Попробуйте позже...</span>,
         type: "error",

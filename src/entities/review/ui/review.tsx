@@ -12,9 +12,9 @@ interface IReviewProps {
 
 export const Review: FC<IReviewProps> = ({ review }) => (
   <div className="h-full flex flex-col gap-8 justify-center
-  md:gap-5 md:grid md:grid-cols-[1fr,_1fr] md:max-h-[350px] grid-rows-1 lg:gap-x-[115px] overflow-hidden break-all"
+  md:gap-5 md:grid md:grid-cols-[1fr,_1fr] md:max-h-[350px] grid-rows-1 lg:justify-between overflow-hidden break-all"
   >
-    <div className="col-span-1 col-start-1 row-start-1 w-full h-[350px] md:max-w-[431px] md:h-[295px]">
+    <div className="col-span-1 col-start-1 row-start-1 w-full h-[350px] sm:aspect-square md:w-[431px] md:h-[295px]">
       <AdapterImage
         alt={ review.image?.name || "" }
         className="object-cover object-center"
