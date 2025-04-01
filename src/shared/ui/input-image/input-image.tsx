@@ -1,11 +1,13 @@
 "use client";
 
 /* eslint-disable @next/next/no-img-element */
-import { ExclamationCircleIcon, PhotoIcon } from "@heroicons/react/24/solid";
-import { FC, useState } from "react";
+import { ExclamationCircleIcon, PhotoIcon, XMarkIcon } from "@heroicons/react/24/solid";
+import { FC, MouseEvent, useState } from "react";
 import { DropzoneInputProps, DropzoneRootProps } from "react-dropzone";
 
 import { twClassNames, FileWithPreview  } from "@shared/lib";
+
+import { Button } from "../button";
 
 
 interface IInputImageProps {
@@ -31,6 +33,11 @@ export const InputImage: FC<IInputImageProps> = ({
 }) =>  {
   const [isError, setIsError] = useState(false);
 
+  const handleOnClickRemoveImg = (event: MouseEvent<HTMLButtonElement>) => {
+    event.stopPropagation();
+    onChange(null);
+  };
+
   return (
     <label className="w-full h-fit flex flex-col gap-1 cursor-pointer" htmlFor={ name }>
       <span className={ twClassNames("text-carbon text-base font-futura-pt font-normal", {
@@ -44,7 +51,7 @@ export const InputImage: FC<IInputImageProps> = ({
       </span>
 
       <div
-        className={ twClassNames(`w-full h-[150px] p-2 bg-white-smoke flex items-center justify-center
+        className={ twClassNames(`w-full h-[150px] p-2 bg-white-smoke flex items-center relative justify-center
                               cursor-pointer outline-none outline-1 text-carbon focus:outline-carbon`, {
           "text-red-400  outline-red-400": !!errorMessage,
           "bg-gray-200 cursor-not-allowed outline-0": disabled,
@@ -95,6 +102,9 @@ export const InputImage: FC<IInputImageProps> = ({
                 onLoad={ () => setIsError(false) }
                 src={ (value as FileWithPreview ).preview }
               />
+              <Button className="absolute top-2 right-2 w-5 h-5 border-none p-0" onClick={ handleOnClickRemoveImg }>
+                <XMarkIcon className="w-5 h-5 fill-slate-400" />
+              </Button>
               { !!isError && (
                 <div className="flex flex-col justify-center items-center gap-2">
                   <ExclamationCircleIcon className="w-8 h-8 fill-slate-400" />
