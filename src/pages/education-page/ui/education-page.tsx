@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowRightIcon, ArrowUpCircleIcon } from "@heroicons/react/24/solid";
+import { useTransitionState } from "next-transition-router";
 import { FC } from "react";
 
 import {
@@ -10,7 +11,8 @@ import {
   HeaderPage,
   LayoutContent,
   LinkButton,
-  ScrollLink
+  ScrollLink,
+  twClassNames
 } from "@shared/";
 import { StudentWorkFeed } from "@widgets/";
 
@@ -30,6 +32,7 @@ interface IEducationPageProps {
 
 export const EducationPage: FC<IEducationPageProps> = ({ documentId }) => {
   const { education } = useEducation(documentId);
+  const { stage } = useTransitionState();
 
   return  (
     <div className="w-full">
@@ -53,7 +56,7 @@ export const EducationPage: FC<IEducationPageProps> = ({ documentId }) => {
       />
 
       <LayoutContent>
-        <div className="w-full h-[350px]">
+        <div className="w-full h-[350px] aspect-square sm:aspect-auto">
           <AdapterImage
             alt={ education?.titleImage.name ?? "education" }
             className="object-cover object-center"
@@ -81,7 +84,10 @@ export const EducationPage: FC<IEducationPageProps> = ({ documentId }) => {
               { `Стоимость обучения:  ${ intlNumberFormat.format(education?.price) }` }
             </span>
 
-            <div className="hidden md:block md:w-full lg:w-fit">
+            <div className={ twClassNames("hidden md:block md:w-full lg:w-fit", {
+              "hidden": stage !== "none"
+            }) }
+            >
               <LinkButton
                 className=""
                 href="https://t.me/Melnikova_foto72"

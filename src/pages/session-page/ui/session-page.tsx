@@ -4,6 +4,7 @@ import {
   ArrowUpCircleIcon,
   ArrowUturnLeftIcon
 } from "@heroicons/react/24/solid";
+import { useTransitionState } from "next-transition-router";
 import { FC } from "react";
 
 import {
@@ -11,7 +12,8 @@ import {
   HeaderPage,
   LayoutContent,
   LinkButton,
-  ScrollLink
+  ScrollLink,
+  twClassNames
 } from "@shared/";
 
 import { useSessionPage } from "../model";
@@ -27,6 +29,7 @@ interface ISessionPage {
 
 export const SessionPage: FC<ISessionPage> = ({ pathname, individualId }) => {
   const { sessionPage } = useSessionPage(pathname, individualId);
+  const { stage } = useTransitionState();
 
   return (
     <div className="w-full">
@@ -54,7 +57,10 @@ export const SessionPage: FC<ISessionPage> = ({ pathname, individualId }) => {
       </ScrollLink>
 
 
-      <div className="block sm:hidden w-full p-5 fixed left-0 bottom-0 shadow border-t-2 z-[1000] bg-white">
+      <div className={ twClassNames("block sm:hidden w-full p-5 fixed left-0 bottom-0 shadow border-t-2 z-[1000] bg-white", {
+        "hidden": stage !== "none"
+      }) }
+      >
         <LinkButton
           className="w-full lg:w-fit text-base"
           href="https://t.me/Melnikova_foto72"

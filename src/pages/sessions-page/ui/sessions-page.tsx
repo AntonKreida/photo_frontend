@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowUpCircleIcon } from "@heroicons/react/24/solid";
+import { useTransitionState } from "next-transition-router";
 import { FC, ReactNode } from "react";
 
 import {
@@ -9,6 +10,7 @@ import {
   LayoutContent,
   LinkButton,
   ScrollLink,
+  twClassNames,
 } from "@shared/";
 
 import { useSessionsPage } from "../hook";
@@ -22,6 +24,7 @@ interface ISessionsPageProps {
 
 export const SessionsPage: FC<ISessionsPageProps> = ({ pathname, children }) => {
   const { data } = useSessionsPage({ pathname });
+  const { stage } = useTransitionState();
 
   return (
     <div className="h-full overflow-hidden">
@@ -55,7 +58,10 @@ export const SessionsPage: FC<ISessionsPageProps> = ({ pathname, children }) => 
       </ScrollLink>
 
 
-      <div className="block sm:hidden w-full p-5 fixed left-0 bottom-0 shadow border-t-2 z-[1000] bg-white">
+      <div className={ twClassNames("block sm:hidden w-full p-5 fixed left-0 bottom-0 shadow border-t-2 z-[1000] bg-white", {
+        "hidden": stage !== "none",
+      }) }
+      >
         <LinkButton
           className="w-full lg:w-fit text-base"
           href="https://t.me/Melnikova_foto72"
