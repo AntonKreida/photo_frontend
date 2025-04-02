@@ -53,15 +53,17 @@ export const EducationPage: FC<IEducationPageProps> = ({ documentId }) => {
       />
 
       <LayoutContent>
-        <div className="w-full h-[564px]">
+        <div className="w-full h-[350px]">
           <AdapterImage
             alt={ education?.titleImage.name ?? "education" }
             className="object-cover object-center"
             classNameWrapper="w-full h-full"
-            height={ education?.titleImage.height ?? 564 }
+            height={ education?.titleImage.height ?? 350 }
             priority
             quality={ 100 }
-            src={ `${ process.env.NEXT_PUBLIC_API_URL }${ education?.titleImage?.url }` }
+            src={ education?.titleImage.url
+              ? `${ process.env.NEXT_PUBLIC_API_URL }${ education?.titleImage?.url }`
+              : "" }
             width={ education?.titleImage.width ?? 1024 }
           />
         </div>
