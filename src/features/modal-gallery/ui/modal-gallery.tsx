@@ -38,7 +38,7 @@ export const ModalGallery: FC<IModalShowGalleryProps> = ({ children, sessionCard
     sessionCards.map((card) => ({
       original: `${ process.env.NEXT_PUBLIC_API_URL }${ card.url }`,
       renderItem: ({ original }) => (
-        <div className={ twClassNames("relative h-full p-2") }>
+        <div className={ twClassNames("relative h-full aspect-[3/4] sm:aspect-auto p-2 w-full ") }>
           <Image
             alt="image"
             className="w-full h-full pointer-events-none object-contain max-h-[calc(100vh-20px)]"
@@ -63,10 +63,11 @@ export const ModalGallery: FC<IModalShowGalleryProps> = ({ children, sessionCard
         isOpen={ modalActive }
       >
         <ImageGallery
+          disableSwipe={ false }
           items={ images }
           renderLeftNav={ (onClick) => (
             <button
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 image-gallery-left-nav group"
+              className="absolute !left-[-20px] hidden sm:block h-fit top-1/2 !p-0 w-fit -translate-y-1/2 z-10 border-none image-gallery-left-nav group"
               onClick={ onClick  }
             >
               <ChevronLeftIcon
@@ -77,7 +78,8 @@ export const ModalGallery: FC<IModalShowGalleryProps> = ({ children, sessionCard
           ) }
           renderRightNav={ (onClick) => (
             <button
-              className="absolute  right-0 top-1/2 -translate-y-1/2 z-10 image-gallery-right-nav group"
+              className="absolute !right-[-20px] hidden sm:block sm:right-0 top-1/2 h-fit
+              !p-0 w-fit border-none -translate-y-1/2 z-10 image-gallery-right-nav group"
               onClick={ onClick }
             >
               <ChevronRightIcon
@@ -92,7 +94,6 @@ export const ModalGallery: FC<IModalShowGalleryProps> = ({ children, sessionCard
           showPlayButton={ false }
           showThumbnails={ false }
           startIndex={ startIndex }
-
         />
       </ModalWrapper>
       { children({ onShowModal, onHideModal, modalActive }) }
