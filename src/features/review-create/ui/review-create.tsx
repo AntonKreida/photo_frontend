@@ -2,7 +2,7 @@
 
 import { AnimatePresence } from "framer-motion";
 import dynamic from "next/dynamic";
-import { useState } from "react";
+import { MouseEvent, useState } from "react";
 
 import { Backdrop, Button, Portal } from "@shared/";
 
@@ -18,7 +18,8 @@ export const ReviewCreate = () => {
     setIsOpen(true);
   };
 
-  const handleOnIsCloseForm = () => {
+  const handleOnIsCloseForm = (event?: MouseEvent<HTMLDivElement | SVGSVGElement>) => {
+    event?.stopPropagation();
     setIsOpen(false);
   };
 
@@ -30,7 +31,7 @@ export const ReviewCreate = () => {
       <AnimatePresence mode="wait">
         { !!isOpen && (
           <Portal selector="#modal">
-            <Backdrop className="justify-end" key={ 1 }>
+            <Backdrop className="justify-end" onClick={ handleOnIsCloseForm }>
               <WithLazyLoadingFormReviewCreate handleOnClose={ handleOnIsCloseForm } />
             </Backdrop>
           </Portal>

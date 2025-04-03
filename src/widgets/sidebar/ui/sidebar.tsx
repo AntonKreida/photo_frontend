@@ -128,6 +128,7 @@ export const Sidebar = () => {
               </div>
               <div className="lg:pt-4 hidden lg:block">
                 <LinkButton
+                  className="!w-full"
                   href="https://t.me/Melnikova_foto72"
                   isNextJsLink={ false }
                   rel="noreferrer"

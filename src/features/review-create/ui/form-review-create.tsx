@@ -1,6 +1,8 @@
 import { CheckCircleIcon, ExclamationCircleIcon } from "@heroicons/react/24/solid";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { FC, useState } from "react";
+import {
+  FC, MouseEvent, useState
+} from "react";
 import { useDropzone } from "react-dropzone";
 import { SubmitHandler, useForm, Controller } from "react-hook-form";
 import { Id } from "react-toastify";
@@ -18,7 +20,7 @@ import { ReviewSchema, TReviewSchemaDto } from "../model";
 
 
 interface IFormCreateReviewCreateProps {
-    handleOnClose: () => void
+    handleOnClose: (event?: MouseEvent<HTMLDivElement | SVGSVGElement>) => void
 }
 
 export const FormReviewCreate: FC<IFormCreateReviewCreateProps> = ({ handleOnClose }) => {
@@ -165,7 +167,7 @@ export const FormReviewCreate: FC<IFormCreateReviewCreateProps> = ({ handleOnClo
 
         <div className="flex flex-col gap-3 mt-5">
           <Button
-            className="w-full"
+            className="!w-full"
             disabled={ isLoading }
             type="submit"
           >

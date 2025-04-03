@@ -1,6 +1,8 @@
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import { motion, Variants } from "framer-motion";
-import { FC, ReactNode } from "react";
+import {
+  FC, MouseEvent, ReactNode
+} from "react";
 
 import { twClassNames } from "@shared/lib";
 
@@ -13,7 +15,7 @@ const variants: Variants = {
 
 
 interface ISidebarRightProps {
-    onClickClose?: () => void
+    onClickClose?: (event: MouseEvent<HTMLDivElement | SVGSVGElement>) => void;
     children?: ReactNode;
     className?: string;
 }
@@ -25,6 +27,7 @@ export const SidebarRight: FC<ISidebarRightProps> = ( { children, onClickClose, 
     exit="exit"
     initial="hidden"
     key={ 2 }
+    onClick={ (event) => event.stopPropagation() }
     transition={{ duration: 0.5 }}
     variants={ variants }
   >

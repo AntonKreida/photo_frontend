@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, Variants } from "framer-motion";
-import { ReactNode, useEffect } from "react";
+import { MouseEvent, ReactNode, useEffect } from "react";
 
 import { twClassNames } from "../../lib";
 
@@ -9,7 +9,7 @@ import { twClassNames } from "../../lib";
 interface IBackdropProps {
   children?: ReactNode;
   zIndexString?: string
-  onClick?: () => void;
+  onClick?: (event: MouseEvent<HTMLDivElement>) => void;
   className?: string;
 }
 
