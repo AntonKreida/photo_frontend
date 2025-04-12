@@ -20,13 +20,8 @@ export const Galleries: FC<IGalleriesProps> = ({ pathname }) => {
   return (
     <>
       <div className={ twClassNames(`
-        grid lg:grid-cols-12 grid-rows-auto gap-[35px]
-        lg:[&>*:nth-child(5n-1)]:col-span-6 lg:[&>*:nth-child(5n)]:col-span-6
-        lg:[&>*:nth-child(5n-1)]:row-span-2 lg:[&>*:nth-child(5n)]:row-span-2
-        lg:[&>*:nth-child(5n-1)]:max-w-[485px] lg:[&>*:nth-child(5n)]:max-w-[485px]
-        lg:[&>*:nth-child(5n-1)>div]:max-w-[485px] lg:[&>*:nth-child(5n-1)>div]:h-[485px]
-        lg:[&>*:nth-child(5n)>div]:max-w-[485px] lg:[&>*:nth-child(5n)>div]:h-[485px]
-        sm:grid-cols-6 grid-cols-3`, {
+        grid grid-rows-auto gap-[35px] sm:grid-cols-8
+        lg:[&>*:nth-child(5n-1)]:col-start-3 lg:grid-cols-12 grid-cols-3`, {
         "flex flex-col justify-center items-center h-full": galleries.length === 0
       }) }
       >
