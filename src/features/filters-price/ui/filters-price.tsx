@@ -59,7 +59,7 @@ export const FiltersPrice = () => {
 
   return (
     <motion.div className="w-full lg:w-fit" ref={ refCarousel }>
-      <motion.div className="flex items-center w-full lg:w-fit basis-1/2"
+      <motion.div className="flex items-center w-full lg:w-fit lg:justify-end basis-1/2"
         drag={ width > 0
           ? "x"
           : false }

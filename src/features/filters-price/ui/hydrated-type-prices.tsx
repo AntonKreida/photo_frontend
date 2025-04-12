@@ -12,7 +12,7 @@ const DynamicFiltersPrice = dynamic(() => import("./filters-price").then((module
   {
     ssr: false,
     loading: () => (
-      <div className="flex items-center w-full lg:w-fit basis-1/2">
+      <div className="flex items-center w-full lg:w-fit basis-1/2 lg:justify-end">
         { Array.from({ length: 3 }).map((_, index) => <SkeletonFilterItem key={ index } />) }
       </div>
     ),
