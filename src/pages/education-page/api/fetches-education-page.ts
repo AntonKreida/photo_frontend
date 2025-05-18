@@ -20,7 +20,6 @@ const withEducationQueryDocument = `
             }
             student_works {
                 documentId
-                title
                 workImage {
                     name
                     url

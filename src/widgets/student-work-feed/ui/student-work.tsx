@@ -21,9 +21,5 @@ export const StudentWork: FC<IStudentWorkProps> = ({ studentCard }) => (
       src={ `${ process.env.NEXT_PUBLIC_API_URL }${ studentCard.workImage.url }` }
       width={ studentCard.workImage.width }
     />
-
-    <span className="text-carbon text-2xl font-normal font-gabriela text-center">
-      { studentCard.title }
-    </span>
   </div>
 );

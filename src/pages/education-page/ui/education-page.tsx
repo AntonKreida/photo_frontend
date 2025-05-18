@@ -7,7 +7,6 @@ import { FC } from "react";
 import {
   AdapterImage,
   Button,
-  FooterPage,
   HeaderPage,
   LayoutContent,
   LinkButton,
@@ -78,6 +77,16 @@ export const EducationPage: FC<IEducationPageProps> = ({ documentId }) => {
           dangerouslySetInnerHTML={{ __html: education?.description ?? "" }}
         />
 
+        <ScrollLink heightVisible={ 100 } href="#root">
+          <Button className="rounded-full p-0 bg-white hover:bg-white">
+            <ArrowUpCircleIcon className="w-10 h-10" />
+          </Button>
+        </ScrollLink>
+
+        { !!education?.student_works && education.student_works.length > 0 && (
+          <StudentWorkFeed studentWorks={ education.student_works } />
+        ) }
+
         { !!education?.price && (
           <div className="flex items-center justify-center mt-10 flex-col gap-4 bg-orochimaru/15 py-5 px-3 rounded-sm shadow">
             <span className="text-carbon font-gabriela text-xl text-center font-normal uppercase">
@@ -99,29 +108,6 @@ export const EducationPage: FC<IEducationPageProps> = ({ documentId }) => {
               </LinkButton>
             </div>
           </div>
-        ) }
-
-        <ScrollLink heightVisible={ 100 } href="#root">
-          <Button className="rounded-full p-0 bg-white hover:bg-white">
-            <ArrowUpCircleIcon className="w-10 h-10" />
-          </Button>
-        </ScrollLink>
-
-        { !!education?.student_works && education.student_works.length > 0 && (
-          <>
-            <StudentWorkFeed studentWorks={ education.student_works } />
-
-            <FooterPage classNameInner="hidden sm:flex justify-center items-center" classNameWrapper="justify-center hidden sm:block">
-              <LinkButton
-                href="https://t.me/Melnikova_foto72"
-                rel="noreferrer"
-                target="_blank"
-                type="submit"
-              >
-                <span>Записаться на обучение</span>
-              </LinkButton>
-            </FooterPage>
-          </>
         ) }
       </LayoutContent>
 
