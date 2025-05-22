@@ -59,7 +59,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=photo_frontend_traefik-net"
-      - "traefik.http.routers.admin.rule=Host(`melnikova-foto72.ru`) && PathPrefix(`/api`, `/roles`, `/users-permissions`, `/admin`, `/uploads`, `/i18n`, `/content-type-builder`, `/upload`, `/content-manager`)"
+      - "traefik.http.routers.admin.rule=Host(`melnikova-foto72.ru`,`www.melnikova-foto72.ru`) && PathPrefix(`/api`, `/roles`, `/users-permissions`, `/admin`, `/uploads`, `/i18n`, `/content-type-builder`, `/upload`, `/content-manager`)"
       - "traefik.http.routers.admin.tls=true"
       - "traefik.http.services.admin.loadbalancer.server.port=1337"
       - "traefik.http.services.admin.loadbalancer.server.scheme=http"
@@ -103,7 +103,7 @@ services:
     labels:
         - "traefik.enable=true"
         - "traefik.docker.network=photo_frontend_traefik-net"
-        - "traefik.http.routers.public.rule=Host(`melnikova-foto72.ru`)"
+        - "traefik.http.routers.public.rule=Host(`melnikova-foto72.ru`,`www.melnikova-foto72.ru`)"
         - "traefik.http.routers.public.tls=true"
         - "traefik.http.services.public.loadbalancer.server.port=3000"
         - "traefik.http.services.public.loadbalancer.server.scheme=http"
