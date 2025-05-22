@@ -1,0 +1,20 @@
+User-agent: Googlebot
+Allow: /$
+Allow: /about
+Allow: /price
+Allow: /reviews
+Disallow: /*?
+Disallow: /*&
+
+User-agent: Yandex
+Allow: /$
+Allow: /about
+Allow: /price
+Allow: /reviews
+Disallow: /*?
+Disallow: /*&
+
+User-agent: *
+Disallow: /
+
+Sitemap: https://melnikova-foto72.ru/sitemap.xml
