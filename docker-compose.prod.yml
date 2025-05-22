@@ -110,5 +110,11 @@ services:
         - "traefik.http.routers.public.entrypoints=websecure"
         - "traefik.http.routers.public.tls.certresolver=myresolver"
         - "traefik.http.routers.public.service=public"
+        - "traefik.http.routers.www-redirect.rule=Host(`www.melnikova-foto72.ru`)"
+        - "traefik.http.routers.www-redirect.entrypoints=websecure"
+        - "traefik.http.routers.www-redirect.middlewares=www-to-non-www"
+        - "traefik.http.middlewares.www-to-non-www.redirectregex.permanent=true"
+        - "traefik.http.middlewares.www-to-non-www.redirectregex.regex=^https://www.melnikova-foto72.ru/(.*)"
+        - "traefik.http.middlewares.www-to-non-www.redirectregex.replacement=https://melnikova-foto72.ru/$${1}"
 volumes:
   strapi-data:
