@@ -9,4 +9,4 @@
 * Линтер: eslint.
 * proxy: traefik
 
-Рабочая ссылка на работу: https://melnikova-foto72.ru/
+Рабочая ссылка на проект: https://melnikova-foto72.ru/
