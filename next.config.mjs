@@ -19,7 +19,7 @@ const nextConfig = {
     const fileLoaderRule = config.module.rules.find((rule) =>
       rule.test?.test?.(".svg"));
 
-    // настройка loader-a для svg
+    // настройка loader-ов
     config.module.rules.push(
       {
         ...fileLoaderRule,
@@ -39,7 +39,7 @@ const nextConfig = {
       }
     );
 
-    // настройка путей кастомных
+    // настройка путей
     if (aliases) {
       aliases.forEach((alias) => {
         config.resolve.alias[`@${alias}`] = `${pathSrc}/${alias}`;

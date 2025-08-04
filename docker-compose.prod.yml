@@ -42,13 +42,6 @@ services:
       ADMIN_JWT_SECRET: ${ADMIN_JWT_SECRET}
       APP_KEYS: ${APP_KEYS}
       NODE_ENV: ${NODE_ENV}
-    volumes:
-      - ../photo_backend/config:/opt/app/config
-      - ../photo_backend/src:/opt/app/src
-      - ../photo_backend/package.json:/opt/package.json
-      - ../photo_backend/yarn.lock:/opt/yarn.lock
-      - .env:/opt/app/.env
-      - ../photo_backend/public/uploads:/opt/app/public/uploads
     ports:
       - "1337"
     networks:
